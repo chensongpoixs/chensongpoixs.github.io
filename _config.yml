@@ -104,5 +104,8 @@ friends: [
     },{
         title: "简书·BY",
         href: "http://www.jianshu.com/u/c5bcb0434259"
-    }
+    },{
+		title: "GitHub",
+        href: "https://github.com/chensongpoixs"
+	}
 ]

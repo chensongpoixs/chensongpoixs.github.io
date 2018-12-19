@@ -57,7 +57,7 @@ kramdown:
 
 # 评论系统
 # Disqus（https://disqus.com/）
-# disqus_username: qiubaiying
+# disqus_username: chensong
 
 # Gitalk
 #gitalk:
@@ -104,7 +104,7 @@ friends: [
     },{
         title: "简书·BY",
         href: "http://www.jianshu.com/u/c5bcb0434259"
-    },{
+    },{ 
 		title: "GitHub",
         href: "https://github.com/chensongpoixs"
 	}

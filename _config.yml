@@ -58,13 +58,13 @@ kramdown:
 
 # 评论系统
 # Disqus（https://disqus.com/）
-disqus_username: chensong
+disqus_username: CS Blog 
 
 # Gitalk
 #gitalk:
  enable: true    #是否开启Gitalk评论
-  clientID: 3d22addd8d5a56408b7b                            #生成的clientID
-  clientSecret: 3bb81144dc58fa2be0bce9a0ac98570f966507c5    #生成的clientSecret
+  clientID: 23bd87ee00cbf1971988                            #生成的clientID
+  clientSecret: 14b07976566b1776db80db0fe67c72f198c5ae18    #生成的clientSecret
   repo: chensongpoixs.github.io    #仓库名称
   owner: chensongpoixs    #github用户名
   admin: chensongpoixs

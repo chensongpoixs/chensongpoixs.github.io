@@ -1,5 +1,5 @@
 # Site settings
-title: chensong
+title: ChenSong Blog
 SEOTitle: 陈松的博客 | CS Blog
 header-img: img/post-bg-desk.jpg
 email: 15850774503@163.com
@@ -62,7 +62,7 @@ disqus_username: CS Blog
 
 # Gitalk
 #gitalk:
-enable: true    #是否开启Gitalk评论
+ enable: true    #是否开启Gitalk评论
   clientID: 23bd87ee00cbf1971988                            #生成的clientID
   clientSecret: 14b07976566b1776db80db0fe67c72f198c5ae18    #生成的clientSecret
   repo: chensongpoixs.github.io    #仓库名称

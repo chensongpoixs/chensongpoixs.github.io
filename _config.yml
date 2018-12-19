@@ -1,10 +1,10 @@
 # Site settings
-title: BY Blog
+title: CS Blog
 SEOTitle: 陈松的博客 | BY Blog
 header-img: img/post-bg-desk.jpg
 email: 15850774503@163.com
 description: "Every failure is leading towards success."
-keyword: "BY, BY Blog, 陈松的博客, 陈松, C/C++,  服务器"
+keyword: "CS, CS Blog, 陈松的博客, 陈松, C/C++, 服务器"
 url: "http://chensongpoixs.github.io"          # your host, for absolute URL
 baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
 github_repo: "https://github.com/chensongpoixs/chensongpoixs.github.io.git" # you code repository
@@ -20,6 +20,7 @@ sidebar-avatar: /img/about-BY-gentle.jpg      # use absolute URL, seeing it's us
 RSS: false
 # weibo_username:     qiubaiying
 #zhihu_username:     chensongpoixs
+csdn_username:		Poisx
 github_username:    chensongpoixs
 #facebook_username:  chensongpoixs
 jianshu_username:   c5bcb0434259
@@ -86,7 +87,7 @@ ga_domain: auto               # 默认的是 auto, 这里我是自定义了的�
 
 # Featured Tags
 featured-tags: true                     # 是否使用首页标签
-featured-condition-size: 1              # 相同标签数量大于这个数，才会出现在首页
+featured-condition-size: 0              # 相同标签数量大于这个数，才会出现在首页
 
 
 

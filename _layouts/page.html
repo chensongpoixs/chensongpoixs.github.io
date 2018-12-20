@@ -194,11 +194,20 @@ layout: default
                                 </a>
                             </li>
                             {% endif %}
-                            
+                            {% if site.email_account %}
+                            <li>
+                                <a target="_blank" href="mailto:{{ site.email_account }}">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                           </span>
+                                </a>
+                            </li>
+                            {% endif %}
                         </ul>
-                        {% if site.email %}
+                       <!-- {% if site.email %}
                             <p>✉️ {{site.email}}</p>
-                        {% endif %}
+                        {% endif %}-->
                     </div>
                 </section>
                 <!-- Friends Blog -->

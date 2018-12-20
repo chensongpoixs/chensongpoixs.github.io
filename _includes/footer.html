@@ -154,16 +154,16 @@
 </footer>
 
 <!-- jQuery -->
-<script src="{{ "/js/jquery.min.js " | prepend: site.baseurl }}"></script>
+<!-- <script src="{{ "/js/jquery.min.js " | prepend: site.baseurl }}"></script>-->
 
 <!-- Bootstrap Core JavaScript -->
-<script src="{{ "/js/bootstrap.min.js " | prepend: site.baseurl }}"></script>
+<!-- <script src="{{ "/js/bootstrap.min.js " | prepend: site.baseurl }}"></script>-->
 
 <!-- Custom Theme JavaScript -->
 <script src="{{ "/js/hux-blog.min.js " | prepend: site.baseurl }}"></script>
 
 <!-- Service Worker -->
-{% if site.service-worker %}
+<!-- {% if site.service-worker %}
 <script type="text/javascript">
     if(navigator.serviceWorker){
         // For security reasons, a service worker can only control the pages that are in the same directory level or below it. That's why we put sw.js at ROOT level.
@@ -173,7 +173,7 @@
             .catch((error) => {console.log('ServiceWorker registration failed: ', error)})
     }
 </script>
-{% endif %}
+{% endif %}-->
 
 
 <!-- async load function -->
@@ -224,7 +224,7 @@
 
 <!--fastClick.js -->
 <script>
-    async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    async("http://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
         var $nav = document.querySelector("nav");
         if($nav) FastClick.attach($nav);
     })

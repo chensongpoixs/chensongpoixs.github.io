@@ -1,10 +1,10 @@
 # Site settings
-title: ChenSong Blog
-SEOTitle: 陈松的博客 | CS Blog
+title: 陈松的的技术博客
+SEOTitle: 陈松的的技术博客 | CS Blog
 header-img: img/post-bg-desk.jpg
 email: 15850774503@163.com
 description: "Every failure is leading towards success."
-keyword: "ChenSong, CS Blog, 陈松的博客, 陈松, C/C++, 服务器"
+keyword: "ChenSong, CS Blog, 陈松的的技术博客, 陈松, C/C++, 服务器"
 url: "http://chensongpoixs.github.io"          # your host, for absolute URL
 baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
 github_repo: "https://github.com/chensongpoixs/chensongpoixs.github.io.git" # you code repository

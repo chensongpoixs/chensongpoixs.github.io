@@ -1,7 +1,7 @@
 ﻿---
 layout:     post
 title:      Linux网络编程(epoll的边缘触发和水平触发)多路IO高并发服务器
-subtitle:   epoll的两种模式
+subtitle:   epoll的两种模式-LT模式和高速度ET模式
 date:       2017-11-01
 author:     chensong
 header-img: img/2017-11-01/bg-epoll.jpg
@@ -14,7 +14,9 @@ tags:
 
 ## 前言
 
-epoll是linux服务器中使用
+1. epoll是linux服务器中使用
+2. 在android系统中使用进程保护机制
+3. 任务队列的使用
 
 ## 正文
 
@@ -226,7 +228,7 @@ int main(int argc, char *argv[])
 
 ```
 
-![这里写图片描述](http://img.blog.csdn.net/20171101232516708?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvUG9pc3g=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+![](http://img.blog.csdn.net/20171101232516708?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvUG9pc3g=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
 
 
 ###	三，epoll的边缘触发
@@ -395,6 +397,6 @@ int main(int argc, char *argv[])
 ```
 
 
-![这里写图片描述](http://img.blog.csdn.net/20171101234339474?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvUG9pc3g=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+![](http://img.blog.csdn.net/20171101234339474?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvUG9pc3g=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
 
 ## 结语

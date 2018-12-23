@@ -1,7 +1,7 @@
 {
-  "name": "CS Blog",
-  "short_name": "CS Blog",
-  "description": "A personal blog CS engineer",
+  "name": "陈松的技术博客",
+  "short_name": "陈松的技术博客",
+  "description": "陈松的技术博客, 陈松C/C++ blog, 高可用的服务器",
   "icons": [{
     "src": "icons/pwa_icon_128.png",
     "sizes": "128x128",

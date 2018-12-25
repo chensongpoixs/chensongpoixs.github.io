@@ -61,7 +61,7 @@ kramdown:
 
 # 评论系统
 # Disqus（https://disqus.com/）
-#disqus_username: chensongpoixs
+disqus_username: chensongpoixs
 
 # Gitalk
 #gitalk:

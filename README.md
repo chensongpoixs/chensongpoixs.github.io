@@ -1,6 +1,6 @@
 ## Welcome to GitHub Pages
 
-博客的搭建教程修改自 Hux， By blog, 贾鹏辉
+博客的搭建修改自 Hux， By blog, 贾鹏辉
 
 更为详细的教程戳这 《利用 GitHub Pages 快速搭建个人博客》 或 wiki 
 

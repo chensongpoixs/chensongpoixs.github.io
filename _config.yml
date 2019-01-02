@@ -2,7 +2,7 @@
 title: 陈松的技术博客
 SEOTitle: 陈松的技术博客 | CS Blog
 header-img: img/post-bg-desk.jpg
-email: 15850774503@163.com
+email: chensongbj25@gmail.com
 description: "Every failure is leading towards success."
 keyword: "陈松的技术博客, 陈松C/C++ blog, 高可用的服务器"
 url: "https://chensongpoixs.github.io"          # your host, for absolute URL
@@ -21,14 +21,14 @@ sidebar-avatar: /img/about-BY-gentle.jpg      # use absolute URL, seeing it's us
 
 # SNS settings
 RSS: false
-# weibo_username:     qiubaiying
+# weibo_username:     chensongpoixs
 #zhihu_username:     chensongpoixs
 csdn_username:		Poisx
 github_username:    chensongpoixs
 #facebook_username:  chensongpoixs
 jianshu_username:   c5bcb0434259
 #twitter_username:   chensongpoixs
-email_account:      15850774503@163.com
+email_account:      chensongbj25@gmail.com
 
 
 

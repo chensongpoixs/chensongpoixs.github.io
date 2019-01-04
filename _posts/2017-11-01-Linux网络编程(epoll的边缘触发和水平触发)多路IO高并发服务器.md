@@ -1,4 +1,4 @@
-﻿---
+---
 layout:     post
 title:      Linux网络编程(epoll的边缘触发和水平触发)多路IO高并发服务器
 subtitle:   epoll的两种模式-LT模式和高速度ET模式

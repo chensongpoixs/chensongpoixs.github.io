@@ -62,13 +62,14 @@ int select(int nfds, fd_set *readfds, fd_set *writefds,
 
 ### 一，TCP的三次回首
 
-![](http://img.blog.csdn.net/20171031231311197?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvUG9pc3g=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+![](https://github.com/chensongpoixs/chensongpoixs.github.io/blob/master/img/2017-10-31/Three_Lookbacks_of_TCP.png?raw=true)
 
 **关闭状态 FIN_WAIT_1**
 
 ### 二，端口复用技术
 
-![](http://img.blog.csdn.net/20171031231953231?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvUG9pc3g=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+![](https://github.com/chensongpoixs/chensongpoixs.github.io/blob/master/img/2017-10-31/tcp.png?raw=true)
+
 ```
 int getsockopt(int sockfd, int level, int optname,
                       void *optval, socklen_t *optlen);
@@ -79,7 +80,7 @@ int getsockopt(int sockfd, int level, int optname,
 
 ### 三，IO复用的高并发服务器
 
-![](http://img.blog.csdn.net/20171031232211635?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvUG9pc3g=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+![](https://github.com/chensongpoixs/chensongpoixs.github.io/blob/master/img/2017-10-31/High_concurrency_server_for_IO_reuse.png?raw=true)
 
 ```
 /*************************************************************************

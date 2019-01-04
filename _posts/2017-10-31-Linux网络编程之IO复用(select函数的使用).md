@@ -62,7 +62,7 @@ int select(int nfds, fd_set *readfds, fd_set *writefds,
 
 ### 一，TCP的三次回首
 
-![](https://github.com/chensongpoixs/chensongpoixs.github.io/blob/master/img/2017-10-31/Three_Lookbacks_of_TCP.png?raw=true)
+![](https://github.com/chensongpoixs/chensongpoixs.github.io/blob/master/img/2017-10-31/Three_Lookbacks_of_TCP.jpg?raw=true)
 
 **关闭状态 FIN_WAIT_1**
 

@@ -1,4 +1,4 @@
-﻿---
+---
 layout:     post
 title:      Linux网络编程之IO复用(select函数的使用)
 subtitle:   select函数的使用-文件描述符集合的位图

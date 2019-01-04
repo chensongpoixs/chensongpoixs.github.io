@@ -216,7 +216,7 @@ int main(int argc, char *argv[])
 
 ```
 
-![](http://img.blog.csdn.net/20171031231639905?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvUG9pc3g=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+![](https://github.com/chensongpoixs/chensongpoixs.github.io/blob/master/img/2017-10-31/High_concurrency_server_for_IO_reuse.gif?raw=true)
 
 
 ## 结语

@@ -229,7 +229,7 @@ int main(int argc, char *argv[])
 
 ```
 
-![](http://img.blog.csdn.net/20171101232516708?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvUG9pc3g=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+![](https://github.com/chensongpoixs/blog_img/blob/master/blog/img/2017-11-01/server.gif?raw=true)
 
 
 ###	三，epoll的边缘触发
@@ -397,7 +397,6 @@ int main(int argc, char *argv[])
 
 ```
 
-
-![](http://img.blog.csdn.net/20171101234339474?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvUG9pc3g=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+![](https://github.com/chensongpoixs/blog_img/blob/master/blog/img/2017-11-01/epoll_ET.gif?raw=true)
 
 ## 结语

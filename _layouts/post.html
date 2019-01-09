@@ -182,7 +182,11 @@ layout: default
         			</div>
                 </section>
                 {% endif %}
-
+                {% if site.post.size %}
+				<section>
+					文章有: {{site.post.size}} 
+				</section>
+                {% endif %}
                 <!-- Friends Blog -->
                 {% if site.friends %}
                 <hr>

@@ -23,6 +23,36 @@ tags:
 
 ### 一，epoll函数
 
+
+#### 1, fcntl的介绍
+
+fcntl函数可以改变已经打开的文件的性质
+
+```
+#include <unistd.h>
+#include <fcntl.h>
+
+int fcntl(int fd, int cmd, ... /* arg */ );  // return -1 error
+```
+fcntl函数有5种功能
+
+1. 复制一个现有的文件描述符 (cmd = F_DUPFD)
+2. 获得/设置文件描述符标记 (cmd = F_GETFD 或 F_SETFD)
+3. 获得/设置文件状态标志 (cmd = F_GETFL 或 F_SETFL)
+4. 获取/设置异步I/O所有权 (cmd = F_GETOWN 或 F_SETOWN)
+5. 获取/设置记录锁 (cmd = F_GETLK, F_SETLK 或 F_SETLKW)
+
+十种文件描
+
+|cmd|descriptor|
+|:---:|---:|
+|F_DUPFD|复制文件描述符filedes。 新文件描述符作为函数值返回。它是尚未打开的各描述符中大于或等于第三个参数值(取为整型值)中各值的最小值。 新描述符与filedes共享同一文件表项 但是，新描述符有它自己的一套文件描述符标志， 其FD_CLOEXEC文件描述符标志被清除(这表示描述符在通过一个exec时还是保持有效)|
+|F_GETFD|对应于filedes的文件描述符标志作为函数值返回。 当前只定义了一个文件描述符标志FD_CLOEXEC|
+|F_SETFD|对于filedes设置文件描述符标志。新标志值按第三个参数(取为整型值)设置|
+
+
+
+
 ```
 不管是select还是poll，都是需要遍历数组，轮询。
 select支持1024个客户端以下的并发服务器足够，select 在大量并发，少量活跃的情况下效率比较低。
@@ -109,6 +139,10 @@ int epoll_wait(int epfd, struct epoll_event *events,
 				□ 客户端写数据
 读数据，发回去
 ```
+
+
+
+
 
 
 ###	二，服务器编码

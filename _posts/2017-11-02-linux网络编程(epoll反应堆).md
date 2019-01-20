@@ -23,7 +23,7 @@ tags:
 
 调用过程
 
-![](https://github.com/chensongpoixs/chensongpoixs.github.io/blob/master/blog/img/2017-11-02/epoll_heap.png?raw=true)
+![](https://github.com/chensongpoixs/chensongpoixs.github.io/blob/master/img/2017-11-02/epoll_heap.png?raw=true)
 
 
 ### 二，epoll编程
@@ -234,7 +234,7 @@ int main(int argc, char *argv[]){
 
 ```
 
-![](https://github.com/chensongpoixs/chensongpoixs.github.io/blob/master/blog/img/2017-11-02/server_epoll_event.gif?raw=true)
+![](https://github.com/chensongpoixs/chensongpoixs.github.io/blob/master/img/2017-11-02/server_epoll_event.gif?raw=true)
 
 ## 结语
 

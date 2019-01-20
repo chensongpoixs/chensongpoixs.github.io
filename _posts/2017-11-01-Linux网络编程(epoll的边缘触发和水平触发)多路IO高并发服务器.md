@@ -440,7 +440,7 @@ int main(int argc, char *argv[])
 
 ```
 
-![](https://github.com/chensongpoixs/blog_img/blob/master/blog/2017-11-01/img/server.gif?raw=true)
+![](https://github.com/chensongpoixs/chensongpoixs.github.io/blob/master/blog/img/2017-11-01/server.gif?raw=true)
 
 
 ###	三，epoll的边缘触发
@@ -608,6 +608,6 @@ int main(int argc, char *argv[])
 
 ```
 
-![](https://github.com/chensongpoixs/blog_img/blob/master/blog/2017-11-01/img/epoll_ET.gif?raw=true)
+![](https://github.com/chensongpoixs/chensongpoixs.github.io/blob/master/blog/img/2017-11-01/epoll_ET.gif?raw=true)
 
 ## 结语

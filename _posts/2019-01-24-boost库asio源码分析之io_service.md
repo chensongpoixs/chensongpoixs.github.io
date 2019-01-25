@@ -40,9 +40,6 @@ detail/impl/task_io_service.ipp 具体实现文件
 
 队列中的任务类型为opertioan，原型其实是typedef task_io_service_operation operation，其实现文件在detail/task_io_service_operation.hpp中，当队列中的任务被执行时，就是task_io_service_operation:complete被调用的时候。
 
-任务队列在上面一篇文章已经介绍过来 是 使用设计模式中 模板方法模式
-
-
 下面是task_io_service类的图
 
 ![](https://github.com/chensongpoixs/chensongpoixs.github.io/blob/master/img/2019-01-24/task_io_service_operaction.png?raw=true)
@@ -58,6 +55,8 @@ detail/impl/task_io_service.ipp 具体实现文件
 #### 1， 优先处理队列中的任务 
 
 回调task_io_service_operation::complete函数处理 队列任务
+
+任务队列在上面一篇文章已经介绍过来 是 使用设计模式中 模板方法模式
 
 类的关系图
 

@@ -112,7 +112,7 @@ layout: default
 				
 				
                 <!--test Gitalk评论start  -->
-               
+               {% if site.gitalk.enable %}
                 <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
                 <script src="https://unpkg.com/gitalk@latest/dist/gitalk.min.js"></script>
                 <div id="gitalk-container"></div>
@@ -130,7 +130,7 @@ layout: default
                     });
                     gitalk.render('gitalk-container');
                 </script>
-              
+              {% endif %}
                 <!--test Gitalk end -->
 
                 {% if site.disqus_username %}
@@ -197,6 +197,9 @@ layout: default
         </div>
     </div>
 </article>
+
+
+
 
 
 {% if site.disqus_username %}

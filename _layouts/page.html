@@ -40,10 +40,12 @@ layout: default
                     <div class="tags">
         				{% for tag in site.tags %}
                             {% if tag[1].size > {{site.featured-condition-size}} %}
-                				<a href="{{ site.baseurl }}/tags/#{{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}">
-                                <span style="float:inherit">{{ tag[0] }}</span>
-                                <span style="float:right;">-{{tag[1].size}}篇</span>
+                				<a href="{{ site.baseurl }}/tags/#{{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}" width="100">
+                                <font color="#0000FF">
+								<span style="float:left">{{ tag[0] }}</span>
                                 <!--tag 文章篇数-->	
+								<span style="float:right">{{tag[1].size}}篇</span>
+								</font>
 								</a>
 								<br>
                             {% endif %}
@@ -92,10 +94,12 @@ layout: default
                     <div class="tags">
                         {% for tag in site.tags %}
                             {% if tag[1].size > {{site.featured-condition-size}} %}
-                                <a href="{{ site.baseurl }}/tags/#{{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}">
-                                <span style="float:inherit">{{ tag[0] }}</span>
-                                <span style="float:right;">-{{tag[1].size}}篇</span>
-                                <!--tag 文章篇数-->			
+                                <a href="{{ site.baseurl }}/tags/#{{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}" width="100">
+                                <font color="#0000FF"> 
+								<span style="float:left">{{ tag[0] }}</span>
+                                <!--tag 文章篇数-->	
+								<span style="float:right">{{tag[1].size}}篇</span>	
+								</font>
 								</a>
 								<br>
                             {% endif %}

@@ -79,8 +79,10 @@ enable: true    #是否开启Gitalk评论
 
 # Analytics settings
 #Baidu Analytics
-ba_track_id: 11ea1e5954a4193d6dc9aa404767aa89
+#ba_track_id: 11ea1e5954a4193d6dc9aa404767aa89
 
+#用户名 -- 15850774503-> two
+ba_track_id: e4d3c801e2dcc7346b7cc4e86ad11344
 
 
 # Google Analytics

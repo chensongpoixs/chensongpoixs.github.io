@@ -42,7 +42,7 @@ layout: default
                             {% if tag[1].size > {{site.featured-condition-size}} %}
                 				<a href="{{ site.baseurl }}/tags/#{{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}">
                                 <span style="float:inherit">{{ tag[0] }}</span>
-                                <span style="float:right;">{{tag[1].size}}篇</span>
+                                <span style="float:right;">-{{tag[1].size}}篇</span>
                                 <!--tag 文章篇数-->	
 								</a>
 								<br>
@@ -94,9 +94,10 @@ layout: default
                             {% if tag[1].size > {{site.featured-condition-size}} %}
                                 <a href="{{ site.baseurl }}/tags/#{{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}">
                                 <span style="float:inherit">{{ tag[0] }}</span>
-                                <span style="float:right;">{{tag[1].size}}篇</span>
+                                <span style="float:right;">-{{tag[1].size}}篇</span>
                                 <!--tag 文章篇数-->			
 								</a>
+								<br>
                             {% endif %}
                         {% endfor %}
                     </div>

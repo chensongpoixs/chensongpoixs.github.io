@@ -175,6 +175,8 @@ layout: default
                             {% if tag[1].size > {{site.featured-condition-size}} %}
                 				<a href="/tags/#{{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}">
                                     {{ tag[0] }}
+								<!--tag 文章篇数-->
+				                <sup>{{tag[1].size}}</sup>
                                 </a>
                             {% endif %}
         				{% endfor %}

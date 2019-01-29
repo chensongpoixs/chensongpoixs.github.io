@@ -8,3 +8,4 @@
 |2019-01-29|/_layout/post.html |添加disqus评论功能|
 |2019-01-29|/about.html|[统计文章篇数](https://github.com/chensongpoixs/chensongpoixs.github.io/commit/90560f5f4f51aef119b83878645c48bc28bd16d2 "90560f5f")|
 |2019-01-30|/_includes, /_layout, /js, /css|文章分类搜索功能|
+|2019-01-30|/css/hux-blog.min.css|[字体的颜色和背景颜色](59d55b0f84cb2939fbe6ee24c98a7d2ac31b907e) |

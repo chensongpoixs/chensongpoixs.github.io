@@ -66,7 +66,7 @@ disqus_username: chensongpoixs
 
 # Gitalk
 gitalk:
-enable: false    #是否开启Gitalk评论
+enable: true    #是否开启Gitalk评论
 #   clientID: 883248f658d64794a727                            #生成的clientID
 #   clientSecret: f8650932d07592041d75454ed1011f018971123b    #生成的clientSecret
 #   repo: chensongpoixs.github.io    #仓库名称

@@ -33,25 +33,8 @@ layout: default
                 sidebar-container">
 
                 <!-- Featured Tags -->
-                {% if site.featured-tags %}
-                <section>
-                    <!-- no hr -->
-                    <h5><a href="{{'/tags/' | prepend: site.baseurl }}">FEATURED TAGS</a></h5>
-                    <div class="tags">
-        				{% for tag in site.tags %}
-                            {% if tag[1].size > {{site.featured-condition-size}} %}
-                				<a href="{{ site.baseurl }}/tags/?tag={{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}" width="100">
-                                <font color="#0000FF">
-								<span style="float:left">{{ tag[0] }} -</span>
-                                <!--tag 文章篇数-->	
-								<span style="float:right">- {{tag[1].size}}篇</span>
-								</font>
-								</a>
-                            {% endif %}
-        				{% endfor %}
-        			</div>
-                </section>
-                {% endif %}
+                <!-- Featured Tags -->
+                {% include featured-tags.html %}
 
                 <!-- Friends Blog -->
                 {% if site.friends %}
@@ -86,25 +69,8 @@ layout: default
                 sidebar-container
             ">
                 <!-- Featured Tags -->
-                {% if site.featured-tags %}
-                <section>
-                    <hr class="hidden-sm hidden-xs">
-                    <h5><a href="{{'/tags/' | prepend: site.baseurl }}">FEATURED TAGS</a></h5>
-                    <div class="tags">
-                        {% for tag in site.tags %}
-                            {% if tag[1].size > {{site.featured-condition-size}} %}
-                                <a href="{{ site.baseurl }}/tags/?tag={{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}" width="100">
-                                <font color="#0000FF"> 
-								<span style="float:left">{{ tag[0] }}   -</span>
-                                <!--tag 文章篇数-->	
-								<span style="float:right">-   {{tag[1].size}}篇</span>	
-								</font>
-								</a>
-                            {% endif %}
-                        {% endfor %}
-                    </div>
-                </section>
-                {% endif %}
+                 <!-- Featured Tags -->
+                {% include featured-tags.html %}
 
                 <!-- Short About -->
                 <section class="visible-md visible-lg">

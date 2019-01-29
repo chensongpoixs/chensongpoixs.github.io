@@ -5,3 +5,4 @@
 |2019-01-26|/_includes/head.html|添加对数学表达式的支持|
 |2019-01-26|/sitemap.xml|添加boost源码分析的文章Site map|
 |2019-01-29|/_post/2017-07-03-C_C++类型转换和异常处理.md|C++异常处理|
+|2019-01-29|/_layout/post.html |添加disqus评论功能|

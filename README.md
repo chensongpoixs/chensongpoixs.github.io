@@ -1,6 +1,6 @@
 ## Welcome to GitHub Pages
 
-博客的搭建修改自 Hux， By blog, 贾鹏辉
+博客的搭建修改自 Hux， [By blog](http://qiubaiying.top "BY blog"), 贾鹏辉
 
 更为详细的教程戳这 《利用 GitHub Pages 快速搭建个人博客》 或 wiki 
 
@@ -10,7 +10,7 @@
 2. 感谢 Jekyll、Github Pages 和 Bootstrap!
 
 
-### 遇到一些抗
+### 一, 遇到一些抗
 
 #### 1,  博客中格式 
 
@@ -54,3 +54,50 @@ tags:
 |:---:|:---:|
 |错误提交是|[df120f0](https://github.com/chensongpoixs/chensongpoixs.github.io/commit/df120f078c9c0dc1c22db130f3df6e992a7fc445 "df120f0")|
 |正确提交是|[7f6e773](https://github.com/chensongpoixs/chensongpoixs.github.io/commit/7f6e7736f680234f538463614adc3f0ce2d5b3d4 "7f6e773")|
+
+
+
+### 二， 添加 disqus评论功能
+
+问题是加载不了 ---> 要翻墙
+
+>We were unable to load Disqus. If you are a moderator please see our troubleshooting guide.
+
+
+是配置没有配置对
+
+_config.yal文件中
+
+
+```
+# 评论系统
+# Disqus（https://disqus.com/）
+disqus_username: chensongpoixs
+```
+
+配置不对
+
+[https://disqus.com/admin/create/ ](https://disqus.com/admin/create/  "到官网")
+
+
+![](https://github.com/chensongpoixs/chensongpoixs.github.io/blob/master/img/2019-01-29/disqus_username.png?raw=true)
+
+
+应该配置： chensongpoixs-github-io-1
+
+正确的配置
+
+```
+# 评论系统
+# Disqus（https://disqus.com/）
+disqus_username: chensongpoixs
+```
+
+效果图：
+
+![](https://github.com/chensongpoixs/chensongpoixs.github.io/blob/master/img/2019-01-29/disqus_username_url.png?raw=true)
+
+
+
+
+

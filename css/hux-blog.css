@@ -306,11 +306,11 @@ button.paper-button {
 }
 .highlight,
 pre.highlight {
-  background: #282c34;
-  color: #abb2bf;
+  background: #ABB2BF;
+  color: #5c6370;
 }
 .highlight pre {
-  background: #282c34;
+  background: #ABB2BF;
 }
 .highlight .hll {
   background: #282c34;

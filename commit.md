@@ -7,3 +7,4 @@
 |2019-01-29|/_post/2017-07-03-C_C++类型转换和异常处理.md|C++异常处理|
 |2019-01-29|/_layout/post.html |添加disqus评论功能|
 |2019-01-29|/about.html|[统计文章篇数](https://github.com/chensongpoixs/chensongpoixs.github.io/commit/90560f5f4f51aef119b83878645c48bc28bd16d2 "90560f5f")|
+|2019-01-30|/_includes, /_layout, /js, /css|文章分类搜索功能|

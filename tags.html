@@ -86,15 +86,15 @@ https://github.com/kitian616/jekyll-TeXt-theme
 				            {{ _article.subtitle }}
 				        </h3>
 				        {% endif %}
-						{% if _article.date %}
-						<p class="post-meta">
-						 Posted by {% if _article.author %}{{ _article.author }}{% else %}{{ site.title }}{% endif %} on {{ _article.date | date: "%B %-d, %Y" }}  
-						 {% if _article.times %}
-						  {{ _article.times }}
-						  {% endif %}
-						</p>
-						{% endif %}
 				    </a>
+					{% if _article.date %}
+					<p class="post-meta">
+					 Posted by {% if _article.author %}{{ _article.author }}{% else %}{{ site.title }}{% endif %} on {{ _article.date | date: "%B %-d, %Y" }}  
+					 {% if _article.times %}
+					  {{ _article.times }}
+					  {% endif %}
+					</p>
+					{% endif %}
 					<hr>
 				</div>
 			{% endfor %}

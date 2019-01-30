@@ -1,6 +1,6 @@
 ## Welcome to GitHub Pages
 
-博客的搭建修改自 Hux， [By blog](http://qiubaiying.top "BY blog"), 贾鹏辉
+博客的搭建修改自 [Hux](https://github.com/Huxpro/huxpro.github.io), [BY blog](http://qiubaiying.top "BY blog"),    [贾鹏辉](https://github.com/crazycodeboy/crazycodeboy.github.io "贾鹏辉")
 
 更为详细的教程戳这 《利用 GitHub Pages 快速搭建个人博客》 或 wiki 
 

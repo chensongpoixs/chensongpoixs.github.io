@@ -75,6 +75,14 @@ https://github.com/kitian616/jekyll-TeXt-theme
 				        </h3>
 				        {% endif %}
 				    </a>
+					{% if _article.date %}
+					<p class="post-meta">
+                     on {{ _article.date | date: "%B %-d, %Y" }}  
+		            {% if _article.times %}
+                      {{ _article.times }}
+                      {% endif %}
+                    </p>
+					{% endif %}
 					<hr>
 				</div>
 			{% endfor %}

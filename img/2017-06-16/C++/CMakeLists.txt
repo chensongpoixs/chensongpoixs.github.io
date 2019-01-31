@@ -4,7 +4,7 @@ MESSAGE(STATUS "#########################")
 
 SET(CMAKE_BUILD_TYPE Release)
 ADD_DEFINITIONS(-std=c++11 -g -Wall )
-#SET(CMAKE_VERBOSE_MAKEFILE ON)   # ÏÔÊ¾±àÒëÖ¸Áî
+#SET(CMAKE_VERBOSE_MAKEFILE ON)   # æ˜¾ç¤ºç¼–è¯‘æŒ‡ä»¤
 FILE(GLOB ALL_CXX_SRCS
 ./main.cpp
 )

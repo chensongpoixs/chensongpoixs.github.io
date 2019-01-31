@@ -19,7 +19,7 @@ description: "阅读使人充实，会谈使人敏捷，写作使人精确"
         </div>
     </a>
     <p class="post-meta">
-        Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}  
+        Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%Y-%m-%-d" }}  
 		{% if post.times %}
             {{ post.times }}
         {% endif %}

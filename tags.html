@@ -89,7 +89,7 @@ https://github.com/kitian616/jekyll-TeXt-theme
 				    </a>
 					{% if _article.date %}
 					<p class="post-meta">
-					 Posted by {% if _article.author %}{{ _article.author }}{% else %}{{ site.title }}{% endif %} on {{ _article.date | date: "%B %-d, %Y" }}  
+					 Posted by {% if _article.author %}{{ _article.author }}{% else %}{{ site.title }}{% endif %} on {{ _article.date | date: "%Y-%m-%-d" }}  
 					 {% if _article.times %}
 					  {{ _article.times }}
 					  {% endif %}

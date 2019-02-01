@@ -10,3 +10,4 @@
 |2019-01-30|/_includes, /_layout, /js, /css|文章分类搜索功能|
 |2019-01-30|/css/hux-blog.min.css|[字体的颜色和背景颜色](59d55b0f84cb2939fbe6ee24c98a7d2ac31b907e) |
 |2019-01-21|/_post/2017-06-16-vim的设置和gdb调试使用.md|gdb调试|
+|2019-02-02|/_post/2019-02-02-socket选项.md|socket选项|

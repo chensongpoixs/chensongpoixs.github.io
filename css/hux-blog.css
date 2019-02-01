@@ -207,9 +207,11 @@ select.sel-lang {
   min-height: 28px;
   font-size: 14px;
 }
-.table th,
-.table td {
-  border: 1px solid #eee !important;
+table.table > tbody th,
+table.table > thead th,
+table.table > tbody td,
+table.table > thead td {
+  border: 1px solid #eee;
 }
 hr.small {
   max-width: 100px;
@@ -226,6 +228,12 @@ pre code {
   width: auto;
   white-space: pre;
   word-wrap: normal;
+}
+code,
+kbd,
+pre,
+samp {
+  font-family: "Fira Code", Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 .postlist-container {
   margin-bottom: 15px;
@@ -244,6 +252,7 @@ pre code {
 .post-container h5,
 .post-container h6 {
   margin: 30px 0 10px;
+  line-height: 1.4;
 }
 .post-container h5 {
   font-size: 19px;
@@ -260,6 +269,20 @@ pre code {
 }
 .post-container h6 + p {
   margin-top: 5px;
+}
+@media screen and (max-width: 768px) {
+  .post-container h1 {
+    font-size: 30px;
+  }
+  .post-container h2 {
+    font-size: 24px;
+  }
+  .post-container h3 {
+    font-size: 21px;
+  }
+  .post-container h4 {
+    font-size: 19px;
+  }
 }
 .post-container ul,
 .post-container ol {

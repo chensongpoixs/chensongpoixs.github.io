@@ -55,7 +55,7 @@ tags:
 
 
 
-### 三， 添加 disqus评论功能
+#### 2， 添加 disqus评论功能
 
 问题是加载不了 ---> 要翻墙
 
@@ -88,7 +88,7 @@ disqus_username: chensongpoixs
 ```
 # 评论系统
 # Disqus（https://disqus.com/）
-disqus_username: chensongpoixs
+disqus_username: chensongpoixs-github-io-1
 ```
 
 效果图：

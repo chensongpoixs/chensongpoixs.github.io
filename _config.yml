@@ -14,7 +14,7 @@ plugins:
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "每天进步一点点 对技术有追求的小白."
+sidebar-about-description: "每天进步一点点"
 sidebar-avatar: /img/about-BY-gentle.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
@@ -133,5 +133,5 @@ friends: [
     },{ 
         title: "GitHub",
         href: "https://github.com/chensongpoixs"
-	}
+    }
 ]

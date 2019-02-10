@@ -2,15 +2,13 @@
 
 博客的搭建修改自 [Hux](https://github.com/Huxpro/huxpro.github.io), [BY blog](http://qiubaiying.top "BY blog"),    [贾鹏辉](https://github.com/crazycodeboy/crazycodeboy.github.io "贾鹏辉")
 
-更为详细的教程戳这 《利用 GitHub Pages 快速搭建个人博客》 或 wiki 
-
-### 致谢
+### 一, 致谢
 
 1. 这个模板是从这里 Hux fork 的,   感谢 Hux, By blog, 贾鹏辉 这三位作者。
 2. 感谢 Jekyll、Github Pages 和 Bootstrap!
 
 
-### 一, 遇到一些抗
+### 二, 遇到一些抗
 
 #### 1,  博客中格式 
 
@@ -57,7 +55,7 @@ tags:
 
 
 
-### 二， 添加 disqus评论功能
+### 三， 添加 disqus评论功能
 
 问题是加载不了 ---> 要翻墙
 
@@ -96,6 +94,22 @@ disqus_username: chensongpoixs
 效果图：
 
 ![](https://github.com/chensongpoixs/chensongpoixs.github.io/blob/master/img/2019-01-29/disqus_username_url.png?raw=true)
+
+
+### 四, 提交记录
+
+|时间|文件|备注|
+|:---|:---|:---|
+|2019-01-26|/_includes/head.html|添加对数学表达式的支持|
+|2019-01-26|/sitemap.xml|添加boost源码分析的文章Site map|
+|2019-01-29|/_post/2017-07-03-C_C++类型转换和异常处理.md|C++异常处理|
+|2019-01-29|/_layout/post.html |添加disqus评论功能|
+|2019-01-29|/about.html|[统计文章篇数](https://github.com/chensongpoixs/chensongpoixs.github.io/commit/90560f5f4f51aef119b83878645c48bc28bd16d2 "90560f5f")|
+|2019-01-30|/_includes, /_layout, /js, /css|文章分类搜索功能|
+|2019-01-30|/css/hux-blog.min.css|[字体的颜色和背景颜色](59d55b0f84cb2939fbe6ee24c98a7d2ac31b907e) |
+|2019-01-21|/_post/2017-06-16-vim的设置和gdb调试使用.md|gdb调试|
+|2019-02-02|/_post/2019-02-02-socket选项.md|socket选项|
+|2019-02-10|/_post/2018-02-12-TCP状态转换图.md|IP协议详解|
 
 
 

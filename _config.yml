@@ -14,7 +14,8 @@ plugins:
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "人的潜能是可以挖掘的  当你说太晚了的时候 你一定要谨慎 它可能是你退却的借口  没有谁可以阻止你成功  除了你自己"    # 是我上学时候鼓励自己遇到问题时 经常在内心对自己说的一句话     
+# 是我上学时候鼓励自己, 在遇到问题时经常在内心对自己说的一句话  
+sidebar-about-description: "人的潜能是可以挖掘的  当你说太晚了的时候 你一定要谨慎 它可能是你退却的借口  没有谁可以阻止你成功  除了你自己"     
 sidebar-avatar: /img/about-BY-gentle.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 

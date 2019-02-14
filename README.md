@@ -109,9 +109,9 @@ disqus_username: chensongpoixs-github-io-1
 |2019-01-30|/css/hux-blog.min.css|[字体的颜色和背景颜色](59d55b0f84cb2939fbe6ee24c98a7d2ac31b907e) |
 |2019-01-21|/_post/2017-06-16-vim的设置和gdb调试使用.md|gdb调试|
 |2019-02-02|/_post/2019-02-02-socket选项.md|socket选项|
-|2019-02-10|/_post/2018-02-12-TCP状态转换图.md|IP协议详解部分|
-|2019-02-13|/_post/2018-02-12-TCP状态转换图.md|ARP协议原理和DNS协议原理|
-
+|2019-02-10|/_post/2018-02-12-网络协议详解.md|IP协议详解部分|
+|2019-02-13|/_post/2018-02-12-网络协议详解.md|ARP协议原理和DNS协议原理|
+|2019-02-14|/_post/2018-02-12-网络协议详解.md|ICMP协议，路由route和 IP转发|
 
 
 

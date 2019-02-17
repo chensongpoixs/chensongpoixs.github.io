@@ -10,6 +10,12 @@ header-img: "img/post-bg-rwd.jpg"
     <option value="0" selected> 中文 Chinese </option>
     <option value="1"> 英文 English </option>
 </select> -->
+<!-- background muisc  -->
+{% if site.about.enable %}
+<audio autoplay="autoplay">
+	<source = src="{{site.about.music_url}}" type="audio/mp3"> 
+</audio>
+{% endif %}
 
 <!-- Chinese Version -->
 <div class="zh post-container">

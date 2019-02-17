@@ -83,6 +83,11 @@ duoshuo_share: true
 disqus_username: chensongpoixs-github-io-1
 
 
+# about background music
+about:
+  enable: true    #是否开启muisc
+  music_url: https://github.com/chensongpoixs/chensongpoixs.github.io/music/about.mp3
+
 # Gitalk
 gitalk:
   enable: true    #是否开启Gitalk评论

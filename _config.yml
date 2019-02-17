@@ -86,7 +86,7 @@ disqus_username: chensongpoixs-github-io-1
 # about background music
 about:
   enable: true    #是否开启muisc
-  music_url: https://github.com/chensongpoixs/chensongpoixs.github.io/music/about.mp3
+  music_url: https://github.com/chensongpoixs/chensongpoixs.github.io/blob/master/music/about.mp3
 
 # Gitalk
 gitalk:

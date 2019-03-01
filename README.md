@@ -1,11 +1,25 @@
 ## Welcome to GitHub Pages
 
-博客的搭建修改自 [Hux](https://github.com/Huxpro/huxpro.github.io), [BY blog](http://qiubaiying.top "BY blog"),    [贾鹏辉](https://github.com/crazycodeboy/crazycodeboy.github.io "贾鹏辉")
+### 一, 博客使用
 
-### 一, 致谢
+/_post/
 
-1. 这个模板是从这里 Hux fork 的,   感谢 Hux, By blog, 贾鹏辉 这三位作者。
-2. 感谢 Jekyll、Github Pages 和 Bootstrap!
+
+```
+---
+layout:     post
+title:      网络协议详解
+subtitle:   ARP协议，DNS协议，IP协议，TCP协议，IP路由和TCP状态转换图
+date:       2018-02-12
+times:      23::09::56
+author:     chensong
+header-img: img/2018-02-12/bg_tcp.jpg
+catalog: 	 true
+tags:
+    - TCP/IP协议详解
+---
+
+```
 
 
 ### 二, 遇到一些抗
@@ -112,7 +126,8 @@ disqus_username: chensongpoixs-github-io-1
 |2019-02-10|/_post/2018-02-12-网络协议详解.md|IP协议详解部分|
 |2019-02-13|/_post/2018-02-12-网络协议详解.md|ARP协议原理和DNS协议原理|
 |2019-02-14|/_post/2018-02-12-网络协议详解.md|ICMP协议，路由route和 IP转发|
-|2019-02-28|/plan.html|未来的五年计划|
+|2019-02-28|/plan.html|2019计划|
+|2019-03-01|/_post/2019-01-02-游戏任务成就体系.md|成就模块的设计|
 
 
 

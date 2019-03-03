@@ -1,4 +1,4 @@
-### Ò»£¬Plans for 2019
+### ä¸€ï¼Œ Plans for 2019
 
 1. Write Linux platform in April based on epoll Proactor mode encapsulated on reactor
 2. May Win Platform's Select-based Proactor Model for Reactor Packaging

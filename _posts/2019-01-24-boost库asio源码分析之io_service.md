@@ -132,7 +132,15 @@ int main(int argc, char *argv[])
 ```
 
 
+basic_deadline_timer 模板继承于 deadline_timer_service模板
 
+```
+template <typename Time,
+    typename TimeTraits = boost::asio::time_traits<Time>,
+    typename TimerService = deadline_timer_service<Time, TimeTraits> >
+class basic_deadline_timer
+  : public basic_io_object<TimerService>
+```
 
 deadline_timer_service.hpp  服务管理io_service 服务
  

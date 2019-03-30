@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      boost库asio源码分析之io_service
-subtitle:   任务队列的的调度
+subtitle:   任务队列的的调度  计时器epoll 
 date:       2019-01-24
 times:      21::07::01
 author:     chensong
@@ -84,6 +84,99 @@ detail/impl/task_io_service.ipp 具体实现文件
 Linux下查看某个进程的线程数量
 
 >top -Hp 进程号
+
+
+
+
+### 三, boost中计时器 
+
+简单使用案例:
+
+```
+#include <iostream>    
+#include <boost/asio.hpp>  
+#include <boost/thread.hpp>  
+#include <boost/date_time/posix_time/posix_time.hpp>  
+
+
+
+void time_callback(const boost::system::error_code &ec,
+	boost::asio::deadline_timer* pt,
+	int * pcount)
+{
+	//if (*pcount < 3)
+	{
+		std::cout << "count = " << *pcount << std::endl;
+		std::cout << boost::this_thread::get_id() << std::endl;
+		(*pcount)++;
+
+		pt->expires_at(pt->expires_at() + boost::posix_time::seconds(5));
+
+		pt->async_wait(boost::bind(time_callback, boost::asio::placeholders::error, pt, pcount));
+
+	}
+}
+int main(int argc, char *argv[])
+{
+	std::cout << boost::this_thread::get_id() << std::endl;
+	boost::asio::io_service io;
+	boost::asio::deadline_timer t(io, boost::posix_time::seconds(5));
+	int count = 0;
+	t.async_wait(boost::bind(time_callback, boost::asio::placeholders::error, &t, &count));
+	std::cout << "to run" << std::endl;
+	io.run();
+	std::cout << "Final count is " << count << "\n";
+	std::cout << "exit" << std::endl;
+	return 0;
+}
+```
+
+
+
+
+deadline_timer_service.hpp  服务管理io_service 服务
+ 
+ 
+在构造函数中 添加epoll监听
+
+```
+ // Constructor.
+  deadline_timer_service(boost::asio::io_service& io_service)
+    : scheduler_(boost::asio::use_service<timer_scheduler>(io_service))
+  {
+    scheduler_.init_task();
+    scheduler_.add_timer_queue(timer_queue_); // add timer queue
+  }
+``` 
+
+
+在async_wait中添加回调函数
+
+
+```
+// Start an asynchronous wait on the timer.
+  template <typename Handler>
+  void async_wait(implementation_type& impl, Handler& handler)
+  {
+    // Allocate and construct an operation to wrap the handler.
+    typedef wait_handler<Handler> op;
+    typename op::ptr p = { boost::asio::detail::addressof(handler),
+      boost_asio_handler_alloc_helpers::allocate(
+        sizeof(op), handler), 0 };
+    p.p = new (p.v) op(handler);
+
+    impl.might_have_pending_waits = true;
+
+    BOOST_ASIO_HANDLER_CREATION((p.p, "deadline_timer", &impl, "async_wait"));
+
+    scheduler_.schedule_timer(timer_queue_, impl.expiry, impl.timer_data, p.p);// add epoll
+    p.v = p.p = 0;
+  }
+```
+
+
+使用boost库中计时器需要注意的要使用新的io_service服务 和io的分开
+
 
 ## 结语
 

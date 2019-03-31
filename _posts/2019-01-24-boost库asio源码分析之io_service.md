@@ -142,8 +142,35 @@ class basic_deadline_timer
   : public basic_io_object<TimerService>
 ```
 
-deadline_timer_service.hpp  服务管理io_service 服务
- 
+basic_deadline_timer 模板继承于 deadline_timer_service模板
+
+```
+template <typename Time,
+    typename TimeTraits = boost::asio::time_traits<Time>,
+    typename TimerService = deadline_timer_service<Time, TimeTraits> >
+class basic_deadline_timer
+  : public basic_io_object<TimerService>
+```
+
+deadline_timer_service.hpp  服务管理scheduler_就是epoll_reactor
+
+在timer_scheduler_fwd.hpp区别平台
+
+```
+#if defined(BOOST_ASIO_WINDOWS_RUNTIME)
+typedef class winrt_timer_scheduler timer_scheduler;
+#elif defined(BOOST_ASIO_HAS_IOCP)
+typedef class win_iocp_io_service timer_scheduler;
+#elif defined(BOOST_ASIO_HAS_EPOLL)
+typedef class epoll_reactor timer_scheduler;
+#elif defined(BOOST_ASIO_HAS_KQUEUE)
+typedef class kqueue_reactor timer_scheduler;
+#elif defined(BOOST_ASIO_HAS_DEV_POLL)
+typedef class dev_poll_reactor timer_scheduler;
+#else
+typedef class select_reactor timer_scheduler;
+#endif
+```
  
 在构造函数中 添加epoll监听
 

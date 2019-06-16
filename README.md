@@ -110,24 +110,6 @@ disqus_username: chensongpoixs-github-io-1
 ![](https://github.com/chensongpoixs/chensongpoixs.github.io/blob/master/img/2019-01-29/disqus_username_url.png?raw=true)
 
 
-### 四, 提交记录
-
-|时间|文件|备注|
-|:---|:---|:---|
-|2019-01-26|/_includes/head.html|添加对数学表达式的支持|
-|2019-01-26|/sitemap.xml|添加boost源码分析的文章Site map|
-|2019-01-29|/_post/2017-07-03-C_C++类型转换和异常处理.md|C++异常处理|
-|2019-01-29|/_layout/post.html |添加disqus评论功能|
-|2019-01-29|/about.html|[统计文章篇数](https://github.com/chensongpoixs/chensongpoixs.github.io/commit/90560f5f4f51aef119b83878645c48bc28bd16d2 "90560f5f")|
-|2019-01-30|/_includes, /_layout, /js, /css|文章分类搜索功能|
-|2019-01-30|/css/hux-blog.min.css|[字体的颜色和背景颜色](59d55b0f84cb2939fbe6ee24c98a7d2ac31b907e) |
-|2019-01-21|/_post/2017-06-16-vim的设置和gdb调试使用.md|gdb调试|
-|2019-02-02|/_post/2019-02-02-socket选项.md|socket选项|
-|2019-02-10|/_post/2018-02-12-网络协议详解.md|IP协议详解部分|
-|2019-02-13|/_post/2018-02-12-网络协议详解.md|ARP协议原理和DNS协议原理|
-|2019-02-14|/_post/2018-02-12-网络协议详解.md|ICMP协议，路由route和 IP转发|
-|2019-02-28|/plan.html|2019计划|
-|2019-03-01|/_post/2019-01-02-游戏任务成就体系.md|成就模块的设计|
 
 
 

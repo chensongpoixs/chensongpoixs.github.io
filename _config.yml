@@ -14,7 +14,7 @@ plugins:
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-#  
+#  北京的程序员是一群优秀、刻苦、多金、秃顶、穿格子衫的男人
 sidebar-about-description: "比我差的人还没放弃, 比我好的人仍在努力, 我没资格说我无能为力 "     
 sidebar-avatar: /img/about-BY-gentle.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 

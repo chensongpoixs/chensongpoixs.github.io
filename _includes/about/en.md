@@ -6,7 +6,7 @@ A man still on the road, yearning for freedom and dreams!
 
 This is my notes on my regular study and work.
 
-If you have any questions, you are welcome to discuss them.~
+If you have any questions, you are welcome to discuss them.~ ^_^
 
 ##### Talks
 

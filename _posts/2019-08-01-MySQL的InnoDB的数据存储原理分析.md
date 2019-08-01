@@ -66,7 +66,7 @@ Compact页格式
 
 分析图
 
-[外链图片转存失败(img-67dNU6CB-1564661544915)(https://github.com/chensongpoixs/chensongpoixs.github.io/blob/master/img/2019-07-30/mysq_innodb_compcat_hex.png?raw=true)]
+![](https://github.com/chensongpoixs/chensongpoixs.github.io/blob/master/img/2019-07-30/mysq_innodb_compcat_hex.png?raw=true)
 
 
 
@@ -74,7 +74,7 @@ Compact页格式
 
 Redundant是MySQL 5.0版本之前InnoDB的行记录存储方式，MySQL5.0支持Redundant是为了向前兼容性。Redundant行记录以如下发送存储：
 
-[外链图片转存失败(img-sYkOoC0j-1564661544918)(https://github.com/chensongpoixs/chensongpoixs.github.io/blob/master/img/2019-07-30/mysql_innodb_redundant_hex.png?raw=true)]
+![](https://github.com/chensongpoixs/chensongpoixs.github.io/blob/master/img/2019-07-30/mysql_innodb_redundant_hex.png?raw=true)
 
 
 |字段长度偏移列表|记录头信息|列1数据|列2数据|...|
@@ -104,7 +104,7 @@ Redundant页格式
 ### 2, InnoDB数据页结构
 
 
-[外链图片转存失败(img-sqCdNpAs-1564661544919)(https://github.com/chensongpoixs/chensongpoixs.github.io/blob/master/img/2019-07-30/mysql_innodb_page_data_size_head_struct.png?raw=true)]
+![](https://github.com/chensongpoixs/chensongpoixs.github.io/blob/master/img/2019-07-30/mysql_innodb_page_data_size_head_struct.png?raw=true)
 
 
 InnoDB数据页由以下7个部分组成，
@@ -180,7 +180,7 @@ Page Header 组成部分
 
 #### ③ Infimum和Supremum记录
 
-[外链图片转存失败(img-SvhLXdGh-1564661544922)(https://github.com/chensongpoixs/chensongpoixs.github.io/blob/master/img/2019-07-30/infinum_supremum.png?raw=true)]
+![](https://github.com/chensongpoixs/chensongpoixs.github.io/blob/master/img/2019-07-30/infinum_supremum.png?raw=true)
 
 
 在InnoDB存储引擎中，每个数据页中有两个虚拟的行记录，用来限定记录的边界。Infimum记录是比该页中任何主键值都要小的值，Supremum指比任何困难大的值还要大的值。这两个值在页创建时被建立，并且在任何情况下班后被删除。在Compact行格式和Redundant行格式下，两者占用的字节数各不相同。
@@ -259,7 +259,7 @@ File Segment inode: 1
 看到第四个页（page offset 3）是数据页，然后通过hex来分析.ibd文件，打开整理得到的十六进制文件，数据页在0x0000c000h(16K*3=0xc000)处开始，得到以下内容：
 
 
-[外链图片转存失败(img-5Ngn0NPZ-1564661544924)(https://github.com/chensongpoixs/chensongpoixs.github.io/blob/master/img/2019-07-30/mysql_innodb_table_page_data_head_hex.png?raw=true)]
+![](https://github.com/chensongpoixs/chensongpoixs.github.io/blob/master/img/2019-07-30/mysql_innodb_table_page_data_head_hex.png?raw=true)
 
 先来分析前面File Header的38个字节：
 
@@ -274,7 +274,7 @@ File Segment inode: 1
 
 来看一下File Trailer部分。因为FIle Trailer 通过比较File Header部分来保证页写入的完整性。
 
-[外链图片转存失败(img-PdxZWmBL-1564661544926)(https://github.com/chensongpoixs/chensongpoixs.github.io/blob/master/img/2019-07-30/mysq_innodb_table_page_data_tail_hex.png?raw=true)]
+![](https://github.com/chensongpoixs/chensongpoixs.github.io/blob/master/img/2019-07-30/mysq_innodb_table_page_data_tail_hex.png?raw=true)
 
 CC AD 6E 4F Checknum值，该值通过checksum函数和File Header部分的checksum值较小比较。
 00 27 FA AC 注意到该值和File Header部分也的LSN后4个值相等。
@@ -302,7 +302,7 @@ PAGE_BTR_SEG_TOP = 0x0000001F000000020032
 
 PAGE_N_DIR_SLOTS = 0x001A ,代表Page Directory有26个槽，每个槽占用2字节，我们可以从0x0000FFC4到0x0000FFF7中找到如下内容:
 
-[外链图片转存失败(img-QWepeq8L-1564661544929)(https://github.com/chensongpoixs/chensongpoixs.github.io/blob/master/img/2019-07-30/mysq_innodb_table_page_data_tail_hex.png?raw=true)]
+![](https://github.com/chensongpoixs/chensongpoixs.github.io/blob/master/img/2019-07-30/mysq_innodb_table_page_data_tail_hex.png?raw=true)
 
 PAGE_HEAP_TOP = 0x0DC0，代表空闲开始位置开始位置的偏移量，即0xC000 + 0x0DC0 = 0xCDC0处开始，观察这个位置的情况，可以发展这的确是最后一行的结束，接下去的部分都是空闲空间了
 
@@ -328,7 +328,7 @@ PAGE_MAX_TRX_ID = 0x0000000000000000, 索引ID
 
 上面就是数据页的Page Header部分了，接下去就是存放的行记录了，前面提到过InnoDB存储引擎有两个伪记录，用来限定行记录的边界，接着往下看：
 
-[外链图片转存失败(img-OQEfdivk-1564661544931)(https://github.com/chensongpoixs/chensongpoixs.github.io/blob/master/img/2019-07-30/mysql_innodb_page_recoreder_header_page_infimum_supremum.png?raw=true)]
+![](https://github.com/chensongpoixs/chensongpoixs.github.io/blob/master/img/2019-07-30/mysql_innodb_page_recoreder_header_page_infimum_supremum.png?raw=true)
 
 观察0XC05E到0XC077，这里存放的技术这两个伪行记录，在InnoDB存储引擎中设置伪行只有一个列，且类型是Char（8），伪行记录的读取发送和一般的行记录并无不同，我们整理后可以得到如下结果:
 
@@ -343,7 +343,7 @@ PAGE_MAX_TRX_ID = 0x0000000000000000, 索引ID
 ```
 然后来分析infimum行记录的recorder header部分，最后两个字节位00 1C 表示下一个记录的位置的偏移量，即当前行记录内容的位置0XC063 + 0X001C,即0XC07F，0XC07F应该很熟悉了，之前分析的行记录结构都是从中国位置开始，如:
 
-[外链图片转存失败(img-xmPCTG7N-1564661544932)(https://github.com/chensongpoixs/chensongpoixs.github.io/blob/master/img/2019-07-30/mysql_innodb_page_data_select_data_limit.png?raw=true)]
+![](https://github.com/chensongpoixs/chensongpoixs.github.io/blob/master/img/2019-07-30/mysql_innodb_page_data_select_data_limit.png?raw=true)
 
 可以看到这就是第一条实际行记录内容的位置了，整理后我们可以得到：
 
@@ -365,11 +365,11 @@ select a, b, hex(b) from 	`t_test_innodb_data` ORDER BY `a` limit 1;
 
 最后分析Page Directory。前面已经提到了从0X0000FFC4到0X0000FFF7是当前页的Page Directory，如下:
 
-[外链图片转存失败(img-nW5SRw0N-1564661544934)(https://github.com/chensongpoixs/chensongpoixs.github.io/blob/master/img/2019-07-30/mysq_innodb_table_page_data_tail_hex.png?raw=true)]
+![](https://github.com/chensongpoixs/chensongpoixs.github.io/blob/master/img/2019-07-30/mysq_innodb_table_page_data_tail_hex.png?raw=true)
 
 需要注意的是， Page Directory是逆序存放的，每个槽占2个字节，因此可以看到00 63 是最初行的相对位置，即0XC063, 0X0070就是最后一行记录的相对位置，即0XC070.我们发现这就是前面分析的Infimun和Supremum的伪行记录。Page Directory槽中的数据都是按照主键的顺序存放的，因此查询具体记录就需要通过部分进行。前面已经提到InnoDB存储引擎的槽是稀疏的，故还需通过Recorder Header 的n_owned进行进一步的判断，如InnoDB存储引擎需要找到主键a为5的记录，通过二叉查找Page Directory的槽，可以定位记录的相对的位置在0X00E5处，找到行记录的实际位置0XC0E5。
 
-[外链图片转存失败(img-oIh1whXf-1564661544936)(https://github.com/chensongpoixs/chensongpoixs.github.io/blob/master/img/2019-07-30/mysql_innodb_table_page_data_head_hex_page_header?raw=true)]
+![](https://github.com/chensongpoixs/chensongpoixs.github.io/blob/master/img/2019-07-30/mysql_innodb_table_page_data_head_hex_page_header?raw=true)
 
 可以看到第一行的记录是4，不是我们要找的6，但是可以发现前面的5字节的Record Header为 04 00 28 00 22 。找到4 ~8位表示n_owned值得部分，该值为4，表示该记录有4个记录，因此还需要进一步查找，通过Recorder header 最后两个字节的偏移量0X0022找到下一条记录的位置 0XC107，这才是最终要找的主键为5的记录。
 

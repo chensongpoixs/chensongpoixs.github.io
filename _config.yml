@@ -130,14 +130,14 @@ service-worker: true
 
 # Friends
 friends: [
-    {
-        title: "CSDN",
-        href: "https://blog.csdn.net/Poisx"
-    },{
-        title: "简·书",
-        href: "http://www.jianshu.com/u/c5bcb0434259"
-    },{ 
-        title: "GitHub",
-        href: "https://github.com/chensongpoixs"
-    }
+  #  {
+  #      title: "CSDN",
+  #      href: "https://blog.csdn.net/Poisx"
+  #  },{
+  #      title: "简·书",
+  #      href: "http://www.jianshu.com/u/c5bcb0434259"
+  #  },{ 
+  #      title: "GitHub",
+  #      href: "https://github.com/chensongpoixs"
+  #  }
 ]

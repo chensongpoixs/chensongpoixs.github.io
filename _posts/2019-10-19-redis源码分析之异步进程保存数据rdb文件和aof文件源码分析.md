@@ -3,7 +3,7 @@ layout:     post
 title:      redis源码分析之异步进程保存数据rdb文件和aof文件源码分析
 subtitle:   进程之间的通信管道
 date:       2019-10-19
-times:      20::19::27
+times:      23::25::40
 author:     chensong
 header-img: img/2017-07-03/bg_throw.jpg
 catalog: 	 true
@@ -26,6 +26,8 @@ redis源码学习系列文章：
 [redis源码分析之内存淘汰策略的原理分析](https://chensongpoixs.github.io/2019/10/08/redis%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E4%B9%8B%E5%86%85%E5%AD%98%E6%B7%98%E6%B1%B0%E7%AD%96%E7%95%A5%E7%9A%84%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90/)
 
 [redis源码分析之对象系统源码分析string, list链表,hash哈希,set集合,zset有序集合](https://chensongpoixs.github.io/2019/10/14/redis%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E4%B9%8B%E5%AF%B9%E8%B1%A1%E7%B3%BB%E7%BB%9F%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/)
+
+[redis源码分析之异步进程保存数据rdb文件和aof文件源码分析](https://chensongpoixs.github.io/2019/10/19/redis%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E4%B9%8B%E5%BC%82%E6%AD%A5%E8%BF%9B%E7%A8%8B%E4%BF%9D%E5%AD%98%E6%95%B0%E6%8D%AErdb%E6%96%87%E4%BB%B6%E5%92%8Caof%E6%96%87%E4%BB%B6%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/)
 
 =====================================================
 

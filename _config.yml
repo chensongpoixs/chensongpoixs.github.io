@@ -16,7 +16,7 @@ plugins:
 sidebar: true                           # whether or not using Sidebar.
 #  北京的程序员是一群优秀、刻苦、多金、秃顶、穿格子衫的男人
 # 一个对代码追求极致的人, 可是我不知道什么时候即忘记我的初心。我有一点后悔可是我没有办法我选择不了,我只能不停努力追求初心的我
-sidebar-about-description: "一个对代码追求极致的人, 可是我不知道什么时候即忘记我的初心。我有一点后悔可是我没有办法我选择不了,我只能不停努力追求初心的我 "     
+sidebar-about-description: "我的才华还撑不起自己的野心,我就应该静下心来学习。 我的能力实现不了自己梦想,我就应该沉下心练习。"     
 sidebar-avatar: /img/about-BY-gentle.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 

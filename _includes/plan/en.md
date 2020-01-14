@@ -7,5 +7,6 @@
 
 ### 二, Plans for 2020
 
-1. Finish the algorithm in the book of《artificial intelligence》
-2. Source code learning of InnoDB engine of MySQL database
+1. Finish the algorithm in the book of《Deep learning》
+2. Source code learning of InnoDB engine in MySQL database
+

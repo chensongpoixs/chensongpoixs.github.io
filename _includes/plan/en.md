@@ -7,6 +7,6 @@
 
 ### 二, Plans for 2020
 
-1. Finish the algorithm in the book of《Deep learning》
-2. Source code learning of InnoDB engine in MySQL database
-3. Find my partner
+1. Find my partner
+2. Finish the algorithm in the book of《Deep learning》
+3. Source code learning of InnoDB engine in MySQL database

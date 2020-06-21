@@ -20,7 +20,9 @@ sidebar: true                           # whether or not using Sidebar.
 # [2020-03-29] 生活只会越来越难, 而你将越来越优秀  ^_^   ^_^  
 # [2020-03-29] 不是生活所迫, 谁也不想十八般武艺样样精通  _^_^_ 
 # [2020-03-29] 我们在黑暗中坚守光明，时间会告诉你一切答案，而生活的经历让你领悟，只有历经坎坷才知道一切都是最好的安排。我们会胡思乱想会埋怨生活的不公，会遇到挑战会受挫，但我们要咬牙坚持，我们需要时间的积淀才能让自己成长。努力，是我们的资本，不畏惧是前进的力量。我所有的疯狂都是为了明天的太阳，你一直苦苦寻找的答案也许就藏在心底。希望释然后的你，不再犹豫，不再畏惧，不再抱怨，不再放弃。希望在下一个黑夜来临时我们可以心里有光，永远明亮。
-sidebar-about-description: "我的才华还撑不起自己的野心时,我就应该静下心来学习。 我的能力实现不了自己梦想时,我就应该沉下心练习。"     
+# [2020-06-07] 我的才华还撑不起自己的野心时,我就应该静下心来学习。 我的能力实现不了自己梦想时,我就应该沉下心练习。
+# [2020-06-07] 谦虚、谨慎、不骄、不躁
+sidebar-about-description: "谦虚、谨慎、不骄、不躁"     
 sidebar-avatar: /img/about-BY-gentle.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
@@ -111,7 +113,7 @@ gitalk:
 
 #用户名 -- 15850774503-> two  -> 17319217372
 ba_track_id: e4d3c801e2dcc7346b7cc4e86ad11344
-
+# <script type="text/javascript" id="clstr_globe" src="//cdn.clustrmaps.com/globe.js?d=EdHnn2fbyH87WRK-nkhOVwaOBQnf9jOHmZEMZhsIq08"></script>
 
 # Google Analytics
 ga_track_id: 'UA-131362317-1'            # Format: UA-xxxxxx-xx

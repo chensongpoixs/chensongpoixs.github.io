@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      源码分析之bitops数据使用场景
+title:      redis源码分析之bitops数据使用场景
 subtitle:   缓存穿透,缓存击穿,缓存雪崩,统计数量汉明宽度
 date:       2020-09-29
 times:       22::22::24

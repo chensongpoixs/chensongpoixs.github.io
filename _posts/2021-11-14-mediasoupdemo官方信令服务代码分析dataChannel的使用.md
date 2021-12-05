@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      mediasoupdemo官方信令服务代码分析dataChannel的使用
-subtitle:   mdiasoup、webrtc、DataChannel
+subtitle:   mediasoup、WebRTC、DataChannel
 date:       2021-11-14
 times:       16::44::28
 author:     chensong
@@ -9,7 +9,7 @@ header-img: img/2019-02-02/bg_socketopt.jpg
 catalog: 	 true
 tags:
     - mediasoup
-    - webrtc
+    - WebRTC
     - 音视频
 ---
 

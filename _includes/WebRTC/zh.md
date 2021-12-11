@@ -1,4 +1,4 @@
-# WebRTC开荒鸭 ！！！
+# WebRTC开嗨鸭 ！！！
 
 ## 一、 WebRTC 线程模型
 

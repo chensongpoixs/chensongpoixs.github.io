@@ -1,6 +1,5 @@
 # WebRTC开嗨鸭 ！！！
 
-![](https://github.com/chensongpoixs/chensongpoixs/blob/master/img/1.pic.JPG?raw=true)
 
 ## 一、 WebRTC 线程模型
 
@@ -8,7 +7,7 @@
 
 ### [2、WebRTC网络PhysicalSocketServer之WSAEventselect模型使用](https://chensongpoixs.github.io/2022/01/02/WebRTC%E7%BD%91%E7%BB%9CPhysicalSocketServer%E4%B9%8BWSAEventselect%E6%A8%A1%E5%9E%8B%E4%BD%BF%E7%94%A8/)
 
-##二、 WebRTC媒体协商
+## 二、 WebRTC媒体协商
 
 
 
@@ -40,3 +39,5 @@
 ## 九、 NetEQ
 
 ## 十、 Simulcast与SVC
+
+![](https://github.com/chensongpoixs/chensongpoixs/blob/master/img/1.pic.JPG?raw=true)

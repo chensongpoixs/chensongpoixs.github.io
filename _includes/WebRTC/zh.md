@@ -47,4 +47,3 @@
 
 十、 Simulcast与SVC
 
-![](https://github.com/chensongpoixs/chensongpoixs/blob/master/img/1.pic.JPG?raw=true)

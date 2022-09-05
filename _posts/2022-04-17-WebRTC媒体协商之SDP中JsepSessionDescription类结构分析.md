@@ -1,5 +1,4 @@
-﻿
----
+﻿---
 layout:     post
 title:      WebRTC媒体协商之SDP中JsepSessionDescription类结构分析
 subtitle:   SDP、媒体协商
@@ -28,7 +27,6 @@ tags:
 
 <font color='red'>WebRTC专题开嗨鸭 ！！！  </font>
  
- 
 一、 WebRTC 线程模型
 
 [1、WebRTC中线程模型和常见线程模型介绍](https://chensongpoixs.github.io/2021/12/11/WebRTC%E4%B8%AD%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B%E5%92%8C%E5%B8%B8%E8%A7%81%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B%E4%BB%8B%E7%BB%8D/#/)
@@ -37,7 +35,7 @@ tags:
 
 二、 WebRTC媒体协商
 
-[1、WebRTC媒体协商之SDP中JsepSessionDescription类结构分析]()
+[1、WebRTC媒体协商之SDP中JsepSessionDescription类结构分析](https://chensongpoixs.github.io/2022/04/17/WebRTC%E5%AA%92%E4%BD%93%E5%8D%8F%E5%95%86%E4%B9%8BSDP%E4%B8%ADJsepSessionDescription%E7%B1%BB%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/)
 
 三、 WebRTC 音频数据采集
 
@@ -59,7 +57,7 @@ tags:
 
 八、 WebRTC服务质量(Qos)
 
-[1、WebRTC中RTCP协议详解](https://blog.csdn.net/Poisx/article/details/121364934)
+[1、WebRTC中RTCP协议详解](https://chensongpoixs.github.io/2021/11/16/WebRTC%E4%B8%ADRTCP%E5%8D%8F%E8%AE%AE%E8%AF%A6%E8%A7%A3/)
 
 [2、WebRTC中RTP协议详解](https://chensongpoixs.github.io/2022/05/29/WebRTC%E4%B8%ADRTP%E5%8D%8F%E8%AE%AE%E8%AF%A6%E8%A7%A3/#/)
 
@@ -70,6 +68,7 @@ tags:
 九、 NetEQ
 
 十、 Simulcast与SVC
+ 
  
  
 

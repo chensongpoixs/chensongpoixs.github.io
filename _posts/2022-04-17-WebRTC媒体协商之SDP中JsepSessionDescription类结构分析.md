@@ -318,9 +318,13 @@ Received candidate :{
 
 # 一、 JsepSessionDescription类 的SDP总信息结构
 
+![WebRTC中SDP的结构图](https://github.com/chensongpoixs/chensongpoixs.github.io/blob/master/img/2022-04-17/JsepSessionDescription.jpg?raw=true)
+
 
 # 二、SessionDescription
+
 ## 2.1、 ContentGroup
+
 content_name:  bundle 
 
 ContentNames: 0 代表音频 1代表视频
@@ -328,6 +332,7 @@ ContentNames: 0 代表音频 1代表视频
 ```cpp
 a=group:BUNDLE 0 1
 ```
+
 # 三、ContentInfo 
 
 
@@ -346,7 +351,9 @@ MediaContentDescription:  音视频的的信息
 
 
 # 三、TransportInfos
+
 ## 3.1  TransportDescription
+
 ```
 enum ConnectionRole {
   CONNECTIONROLE_NONE = 0,

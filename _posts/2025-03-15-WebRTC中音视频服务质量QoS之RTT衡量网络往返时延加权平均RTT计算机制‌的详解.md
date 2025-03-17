@@ -1,9 +1,9 @@
 ﻿---
 layout:     post
 title:      WebRTC中音视频服务质量QoS之RTT衡量网络往返时延加权平均RTT计算机制‌的详解
-subtitle:   WebRTC、音视频服务质量QoS、RTT
-date:       2025-03-18
-times:      1::54::35
+subtitle:   WebRTC、音视频服务质量QoS、JitterBuffer、RTT
+date:       2025-03-15
+times:      23::54::35
 author:     chensong
 header-img: img/2019-02-02/bg_socketopt.jpg
 catalog:    true
@@ -11,7 +11,6 @@ tags:
     - WebRTC
     - JitterBuffer
     - RTT
-  
 ---
 
 

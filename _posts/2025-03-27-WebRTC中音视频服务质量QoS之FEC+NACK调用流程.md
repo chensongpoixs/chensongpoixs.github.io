@@ -97,6 +97,14 @@ WebRTC中FEC分为两个模块
      1. FlexfecSender类负责对发送包前向纠错发送 
      2. FecControllerDefault类评估出现FEC的保护比率
      
+FEC 算法使用核心思想	 
+	 
+  // 示例：4 原始块 + 2 冗余块（可容忍 2 个丢包）
+	int k = 4, m = 2; 
+
+  // 冗余比例 = m/(k+m) = 33%，需权衡带宽与抗丢包能力
+	 
+	 
 调用流程图
 
 ![在这里插入图片描述](https://i-blog.csdnimg.cn/direct/9d25e91a91d34cb4917de537964b6b94.png)

@@ -18,6 +18,8 @@ tags:
 
 
 
+
+
 # WebRTC中音视频服务质量QoS之FEC+NACK调用流程
 
 
@@ -94,17 +96,12 @@ tags:
 
 WebRTC中FEC分为两个模块 
 
-     1. FlexfecSender类负责对发送包前向纠错发送 
-     2. FecControllerDefault类评估出现FEC的保护比率
-     
-FEC 算法使用核心思想	 
-	 
-  // 示例：4 原始块 + 2 冗余块（可容忍 2 个丢包）
-	int k = 4, m = 2; 
+     1. FlexfecSender类负责对媒体包生成FEC冗余，它使用FEC控制器
+     2. FecControllerDefault类用于计算FEC保护因子和各种参数 
 
-  // 冗余比例 = m/(k+m) = 33%，需权衡带宽与抗丢包能力
-	 
-	 
+ 
+ 
+     
 调用流程图
 
 ![在这里插入图片描述](https://i-blog.csdnimg.cn/direct/9d25e91a91d34cb4917de537964b6b94.png)
@@ -117,8 +114,66 @@ FEC 算法使用核心思想
 
 
 
+# 一、WebRTC中FEC基础原理
 
-# 一、   FlexfecSender类负责对发送包前向纠错发送 
+
+## 1.  FEC基础操作 异或操作XOR
+
+
+举例：   Data1包和Data2包 进行XOR操作 得到Q包即是 FEC包
+
+```javascript
+//                           异或操作XOR
+//                   Data1  [1 0 1 0 0 1]
+//
+//                   Data2  [1 0 0 0 0 1]
+//                             
+//                     Q    [0 0 1 0 0 0]
+```
+
+丢包举例说明
+                     
+1. 2包丢了 可以通过 1包、3包 和Q1 恢复 2包
+2. 4包丢了 可以通过 5包、6包 和Q2 恢复 4包
+
+## 2、 FEC中 行向和纵向 计算
+
+```javascript
+
+//                         [1   2   3] XOR=>  Q1
+//                         [4   5   6] XOR=>  Q2
+//                         [7   8   9] XOR=>  Q3
+//                    
+//                   XOR   [D1 D2  D3] 
+```
+ 
+ 丢包举例说明: 2、3、5、8 包丢了
+ 
+ 1. [6，9, D3]  => 找到丢掉的3包
+ 2. [1，3, Q1]  => 找到丢掉的2包
+ 3. [4，6, Q2]  => 找到丢掉的5包
+ 4. [2，8, D2]  => 找到丢掉的5包
+ 
+ 行向和纵向 实现复杂度挺高
+
+
+## <font color='red'>3、 WebRTC中 媒体包分组和生成FEC的包数</font>
+
+<font color='red'>WebRTC中 媒体包分组和生成FEC的包数由于kFecRateTable表和kPacketMaskRandomTbl表决定的</font>
+
+### <font color='red'>① kFecRateTable表: 使用于确定媒体包的个数</font>
+<font color='red'>
+1. kFecRateTable是一维表， 共有6450项
+2. 也可以是二维方式访问， 每行129项
+3. 其中行是帧的有效码率， 以5K为单位
+4. 列由丢包率指定
+5. 所以在程序中可以认为是一个具有50行， 129列的二维表
+
+</font>
+
+### <font color='red'>② kPacketMaskRandomTbl表: 使用于确定FEC包的个数和保护策略 产生冗余数据 </font>
+
+# 二、   FlexfecSender类负责对发送包前向纠错发送 
 
 
 modules\rtp_rtcp\source/flexfec_sender.h
@@ -841,7 +896,7 @@ FlexfecSender::FlexfecSender(
 
 ```
 
-# 二、 FecControllerDefault类评估出现FEC的保护比率
+# 三、 FecControllerDefault类评估出现FEC的保护比率
 
 
 
@@ -1522,7 +1577,7 @@ void RTPSenderVideo::SetFecParameters(const FecProtectionParams& delta_params,
 ```
 
 
-# 三、 视频编码后的数据调用RTPSenderVideo类方法SendVideo发送
+# 四、 视频编码后的数据调用RTPSenderVideo类方法SendVideo发送
 
 
 
@@ -2060,6 +2115,226 @@ std::vector<std::unique_ptr<RtpPacketToSend>> FlexfecSender::GetFecPackets() {
 }
 
 ```
+
+
+# <font color='red'> 五、 FEC计算保护因子 </font>
+
+
+## <font color='red'> 1. 计算生成fec包的个数公式 </font>
+
+输入参数‌：
+	
+- NumMediaPackets：原始媒体包数量（整数）	
+- ProtectionFactor ：保护因子（ 范围 0~255，对应 0%~100% 冗余比例）
+	
+运算过程‌：
+
+- NumMediaPackets * ProtectionFactor ：计算未舍入的冗余包数量
+
+<font color='red'>FEC生成包数量公式：${NumfecPacket}  = {\frac{({NumMediaPackets }* {ProtectionFactor }+ 128)}{256}}$ </font>
+
+
+
+ modules\rtp_rtcp\source/forward_error_correction.h类中方法NumFecPackets
+ 
+```javascript
+// 得到FEC生成包数量
+int ForwardErrorCorrection::NumFecPackets(int num_media_packets, int protection_factor)
+{
+	//  128 = 1 << 7
+	//   1 >> 8 == /256
+  //num_media_packets: 媒体包数量
+  //protection_factor: FEC保护因子
+  //1 << 7 = > 128   :  取整数
+  int num_fec_packets = (num_media_packets * protection_factor + (1 << 7)) >> 8;
+  // Generate at least one FEC packet if we need protection.
+  if (protection_factor > 0 && num_fec_packets == 0) {
+    num_fec_packets = 1;
+  }
+  RTC_DCHECK_LE(num_fec_packets, num_media_packets);
+  return num_fec_packets;
+}
+```
+
+## 2. 计算出FEC保护因子
+
+
+
+
+
+modules\video_coding/media_opt_util.h 文件中 VCMFecMethod::ProtectionFactor方法计算FEC保护因子
+
+<font color='red'>
+在WebRTC中丢包率 大于 50%时会 设置最大丢包率 是50%</font>
+
+方法中核心有六步骤
+
+1. 得到当前每一帧分辨率因子
+2. 根据目标码率和帧率  计算出每一帧的码率
+3. 计算每帧数据 在1秒 内发送rtp的包数量
+4. 每一帧有效码率 = 分辨率因子 * 每一帧码率
+5. 计算二维表kFecRateTable 中行下标公式 =   有效码率 / 每行码率
+6. 计算出kFecRateTable一维表下标公式  =  (行下标 * 一列数据) + 列偏移量
+ 
+</font>
+
+```javascript
+
+bool VCMFecMethod::ProtectionFactor(const VCMProtectionParameters* parameters) {
+  // FEC PROTECTION SETTINGS: varies with packet loss and bitrate
+
+  // 如果丢包率为0， 则不进行FEC保护
+  uint8_t packetLoss = rtc::saturated_cast<uint8_t>(255 * parameters->lossPr);
+  if (packetLoss == 0) {
+    _protectionFactorK = 0;
+    _protectionFactorD = 0;
+    return true;
+  }
+/////////////////////////////////////////////////////////////////////////////////////////////// 
+  // firstPartitionProt => 51
+  uint8_t firstPartitionProt = rtc::saturated_cast<uint8_t>(255 * 0.20);
+
+  uint8_t minProtLevelFec = 85;
+
+  uint8_t lossThr = 0;
+  uint8_t packetNumThr = 1; 
+  //  对应kFecRateTable 这张二维表 行数范围
+  const uint8_t ratePar1 = 5;   //   5 => 二维表  5代表 5K
+  const uint8_t ratePar2 = 49; 
+  // 1. Google 统计出来一个计算视频比例 通过[704 * 576]计算出当前 resolnFac: 分辨率因子
+  float spatialSizeToRef = rtc::saturated_cast<float>(parameters->codecWidth *
+                                                      parameters->codecHeight) /
+                           (rtc::saturated_cast<float>(704 * 576)); 
+  const float resolnFac = 1.0 / powf(spatialSizeToRef, 0.3f);
+  // 2. 根据目标码率和帧率  计算出每一帧的码率
+  const int bitRatePerFrame = BitsPerFrame(parameters); 
+  // 3. 计算每帧数据 在1秒 内发送rtp的包数量 [1.5f：1.5包冗余度 ， _maxPayloadSize: rtp 包的大小， 8.0： 字节， 1000.0f: 秒]
+  const uint8_t avgTotPackets = rtc::saturated_cast<uint8_t>(
+      1.5f + rtc::saturated_cast<float>(bitRatePerFrame) * 1000.0f /rtc::saturated_cast<float>(8.0 * _maxPayloadSize));
+  uint8_t codeRateDelta = 0;
+  uint8_t codeRateKey = 0; 
+  // 4. 每一帧有效码率 = 分辨率因子 * 每一帧码率
+  const uint16_t effRateFecTable = rtc::saturated_cast<uint16_t>(resolnFac * bitRatePerFrame);
+  // 5. kFecRateTable 计算二维表中行下标公式 =   有效码率 / 每行码率
+  uint8_t rateIndexTable = rtc::saturated_cast<uint8_t>(VCM_MAX(VCM_MIN((effRateFecTable - ratePar1/*5K*/) / ratePar1, ratePar2), 0));
+  // 丢包率最多在50% 
+  if (packetLoss >= kPacketLossMax) 
+  {
+    packetLoss = kPacketLossMax - 1;
+  }
+  // 6. 计算出kFecRateTable一维表下标公式  =  (行下标 * 一列数据) + 列偏移量
+  uint16_t indexTable = rateIndexTable * kPacketLossMax + packetLoss;
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  // Check on table index
+  RTC_DCHECK_LT(indexTable, kFecRateTableSize);
+
+  // Protection factor for P frame
+  // P帧保护系数
+  codeRateDelta = kFecRateTable[indexTable];
+
+  if (packetLoss > lossThr && avgTotPackets > packetNumThr) 
+  {
+    // Set a minimum based on first partition size.
+    //根据第一个分区大小设置最小值。
+    if (codeRateDelta < firstPartitionProt) 
+	{
+      codeRateDelta = firstPartitionProt;
+    }
+  }
+
+  // Check limit on amount of protection for P frame; 50% is max.
+  // 检查P帧的保护量限制；50%为最大值
+  if (codeRateDelta >= kPacketLossMax) 
+  {
+    codeRateDelta = kPacketLossMax - 1;
+  }
+
+  // For Key frame:
+  // Effectively at a higher rate, so we scale/boost the rate
+  // The boost factor may depend on several factors: ratio of packet
+  // number of I to P frames, how much protection placed on P frames, etc.
+  /// 对于关键帧：
+    //有效地以更高的速度进行，因此我们扩大/提高了速度
+    //增强因子可能取决于几个因素：数据包的比率I帧到P帧的数量、对P帧的保护程度等。
+  const uint8_t packetFrameDelta = rtc::saturated_cast<uint8_t>(0.5 + parameters->packetsPerFrame);
+  const uint8_t packetFrameKey = rtc::saturated_cast<uint8_t>(0.5 + parameters->packetsPerFrameKey);
+  const uint8_t boostKey = BoostCodeRateKey(packetFrameDelta, packetFrameKey);
+
+  rateIndexTable = rtc::saturated_cast<uint8_t>(VCM_MAX(
+      VCM_MIN(1 + (boostKey * effRateFecTable - ratePar1) / ratePar1, ratePar2), 
+	  0));
+  uint16_t indexTableKey = rateIndexTable * kPacketLossMax + packetLoss;
+
+  indexTableKey = VCM_MIN(indexTableKey, kFecRateTableSize);
+
+  // Check on table index
+  assert(indexTableKey < kFecRateTableSize);
+
+  // Protection factor for I frame
+  codeRateKey = kFecRateTable[indexTableKey];
+
+  // Boosting for Key frame.
+  // 关键帧增强
+  int boostKeyProt = _scaleProtKey * codeRateDelta;
+  if (boostKeyProt >= kPacketLossMax) {
+    boostKeyProt = kPacketLossMax - 1;
+  }
+
+  // Make sure I frame protection is at least larger than P frame protection,
+  // and at least as high as filtered packet loss.
+  codeRateKey = rtc::saturated_cast<uint8_t>(VCM_MAX(packetLoss, VCM_MAX(boostKeyProt, codeRateKey)));
+
+  // Check limit on amount of protection for I frame: 50% is max.
+  if (codeRateKey >= kPacketLossMax) {
+    codeRateKey = kPacketLossMax - 1;
+  }
+
+  _protectionFactorK = codeRateKey;
+  _protectionFactorD = codeRateDelta;
+
+  // Generally there is a rate mis-match between the FEC cost estimated
+  // in mediaOpt and the actual FEC cost sent out in RTP module.
+  // This is more significant at low rates (small # of source packets), where
+  // the granularity of the FEC decreases. In this case, non-zero protection
+  // in mediaOpt may generate 0 FEC packets in RTP sender (since actual #FEC
+  // is based on rounding off protectionFactor on actual source packet number).
+  // The correction factor (_corrFecCost) attempts to corrects this, at least
+  // for cases of low rates (small #packets) and low protection levels.
+  //通常，估计的FEC成本之间存在费率不匹配
+  //在mediaOpt中输入FEC成本，在RTP模块中发送实际FEC成本。
+  //这在低速率（源数据包数量少）下更为重要，其中
+  // FEC的粒度减小。在这种情况下，非零保护
+  // in-mediaOpt可能会在RTP发送器中生成0个FEC数据包（因为实际#FEC
+  //基于实际源数据包编号的四舍五入protectionFactor）。
+  //修正系数（_corrFecCost）试图修正这一点，至少
+  //适用于低速率（小数据包）和低保护级别的情况。
+  float numPacketsFl =
+      1.0f + (rtc::saturated_cast<float>(bitRatePerFrame) * 1000.0 /
+                  rtc::saturated_cast<float>(8.0 * _maxPayloadSize) +
+              0.5);
+
+  const float estNumFecGen =
+      0.5f +
+      rtc::saturated_cast<float>(_protectionFactorD * numPacketsFl / 255.0f);
+
+  // We reduce cost factor (which will reduce overhead for FEC and
+  // hybrid method) and not the protectionFactor.
+  _corrFecCost = 1.0f;
+  if (estNumFecGen < 1.1f && _protectionFactorD < minProtLevelFec) {
+    _corrFecCost = 0.5f;
+  }
+  if (estNumFecGen < 0.9f && _protectionFactorD < minProtLevelFec) {
+    _corrFecCost = 0.0f;
+  }
+
+  // DONE WITH FEC PROTECTION SETTINGS
+  return true;
+}
+
+```
+
 
 
 # 总结

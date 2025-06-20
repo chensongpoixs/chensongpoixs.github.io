@@ -21,19 +21,19 @@
 
 ### 4、熵编码
 
-[①、视频编码中熵编码之熵及熵编码基本原理](entropy_codec/entropy_base.md)
+[①、视频编码中熵编码之熵及熵编码基本原理](https://chensongpoixs.github.io/cvideo_codec/entropy_codec/entropy_base.html)
 
-[②、视频编码中熵编码之"Z"字扫描原理(变换DCT系数和小波变换系统分布特性和统计特性)]()
+[②、视频编码中熵编码之"Z"字扫描原理(变换DCT系数和小波变换系统分布特性和统计特性)](https://chensongpoixs.github.io/cvideo_codec/#/)
 
-[③、视频编码中熵编码之基于上下文的变长编码（Buffman霍夫曼编码和指数哥伦布）]()
+[③、视频编码中熵编码之基于上下文的变长编码（Buffman霍夫曼编码和指数哥伦布）](https://chensongpoixs.github.io/cvideo_codec/#/)
 
-[④、视频编码中熵编码之基于上下文的算术编码]()
+[④、视频编码中熵编码之基于上下文的算术编码](https://chensongpoixs.github.io/cvideo_codec/#/)
 
-[⑤、视频编码中熵编码之位平面编码]()
+[⑤、视频编码中熵编码之位平面编码](https://chensongpoixs.github.io/cvideo_codec/#/)
 
-[⑥、视频编码中熵编码之零数编码]()
+[⑥、视频编码中熵编码之零数编码](https://chensongpoixs.github.io/cvideo_codec/#/)
 
-[⑦、视频编码中熵编码之游程编码]()
+[⑦、视频编码中熵编码之游程编码](https://chensongpoixs.github.io/cvideo_codec/#/)
 
 ### 5、 环路滤波
 

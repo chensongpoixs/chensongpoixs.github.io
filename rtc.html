@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+
+<html> 
+<head>
+    <meta charset="utf-8">
+    <title>Rtc推拉流系统</title>
+    <style type="text/css">
+        body {
+            font-size: 15px;
+        }
+        .highlight {
+            background-color: #eeeeee;
+            margin:0 0 5px 0;
+            padding: 0.5em 1.5em;
+        }
+
+        video {
+            width: 480px;
+            height: 360px;
+        }
+
+        button {
+            cursor: pointer;
+            background-color: #d84a38;
+            border: none;
+            border-radius: 2px;
+            color: white;
+            margin: 5px 0 0 0;
+            padding: 0.5em 0.7em 0.6em 0.7em; 
+            width: 80px;
+        }
+
+        button:hover {
+            background-color: #cf402f;
+        }
+    
+        button:disabled {
+	        opacity: 0.6;
+	        cursor: not-allowed;
+        }
+		
+
+    </style>
+
+</head>
+
+<body>
+    <h2>Rtc推拉流系统</h2>
+    <div>
+        <div class="push" style="float:left;">
+            <h3>推流http地址： <input id="PushhttpUrl" value="http://chensong.com"   style='width:300px'>
+			</h3>
+            <form>
+                推流选项：
+                <input type="radio" name="select" id="pushScreenRadio" checked="checked" /> 推流屏幕
+                <input type="radio" name="select" id="pushCameraRadio" /> 推流摄像头
+            </form>
+			
+			clientID:
+            <input id="clientId" value="chensong">
+			<input type="checkbox" id="audioCheckbox" checked="checked">音频</input>
+			</br>
+			webrtc:
+            <input id="PushStreamUrl" value="webrtc://192.168.1.2:8001/live/chensong"   style='width:300px'>
+           
+            
+			
+            <div style="margin-top:5px">
+                <video id="localVideo" autoplay controls></video>
+            </div>
+        
+            <button id="startPushBtn">开始推流</button>
+            <button id="stopPushBtn">停止推流</button>
+        
+            <div class="highlight">
+                <span id="pushTips1"></span> <br>
+                <span id="pushTips2"></span> <br>
+                <span id="pushTips3"></span>
+            </div>
+        </div>
+        
+        <div class="pull" style="float:left;margin-left:30px;">
+            <h3>拉流http地址：<input id="PullhttpUrl" value="http://192.168.1.2:8001"   style='width:300px'></h3>
+			<input type="checkbox" id="pullCaptureBtn" checked="checked">播放桌面</input>
+            <br/>
+			 clientID:
+            <input id="clientId" value="chensong">
+              </br>
+            webrtc:
+            <input id="PullStreamUrl" value="webrtc://chensong.com/live/41010500002000000003"  style='width:300px'>
+            
+           
+            <div style="margin-top:5px">
+                <video id="remoteVideo" autoplay controls></video>
+            </div>
+        
+            <button id="StartpullBtn">开始拉流</button>
+            <button id="stopPullBtn">停止拉流</button>
+        
+            <div class="highlight">
+                <span id="pullTips1"></span> <br>
+                <span id="pullTips2"></span> <br>
+                <span id="pullTips3"></span>
+            </div>
+        </div>
+    </div>
+    
+   <script src="js/adapter.js"></script>
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <script src="js/pull.js?version=15"></script>
+     
+</body>
+
+</html>

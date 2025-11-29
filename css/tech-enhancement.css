@@ -386,6 +386,14 @@ hr {
     padding-bottom: 10px;
 }
 
+.creation-timeline h5 .timeline-total-inline {
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.7);
+    margin-left: 10px;
+    text-shadow: none;
+}
+
 .creation-timeline h5 i {
     margin-right: 8px;
     animation: historyPulse 2s ease-in-out infinite;

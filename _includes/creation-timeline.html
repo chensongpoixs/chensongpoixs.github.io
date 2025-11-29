@@ -17,10 +17,14 @@
     
     {% comment %} 按年份统计并显示 - 自适应布局 {% endcomment %}
     <div class="timeline-list">
+        {% comment %} 确保文章按日期倒序排列（最新的在前） {% endcomment %}
+        {% assign sorted_posts = site.posts | sort: 'date' | reverse %}
+        
         {% assign prev_year = "" %}
         {% assign year_count = 0 %}
         
-        {% for post in site.posts %}
+        {% comment %} 遍历文章，按年份分组统计 {% endcomment %}
+        {% for post in sorted_posts %}
             {% assign post_year = post.date | date: "%Y" %}
             
             {% if prev_year == "" %}

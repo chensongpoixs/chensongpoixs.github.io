@@ -153,3 +153,49 @@ friends: [
         href: "https://github.com/chensongpoixs"
     }
 ]
+
+# Frontier Technologies - 博主前沿技术
+frontier_techs: [
+    {
+        name: "WebRTC",
+        description: "实时音视频通信技术，支持P2P连接和低延迟传输",
+        icon: "fa fa-video-camera",
+        level: 85,
+        link: "/WebRTC/"
+    },
+    {
+        name: "AI/ML",
+        description: "人工智能与机器学习，深度学习算法应用",
+        icon: "fa fa-brain",
+        level: 75,
+        link: "/artificial_intelligence/"
+    },
+    {
+        name: "视频编解码",
+        description: "H.264/H.265等视频编码标准，FFmpeg应用",
+        icon: "fa fa-film",
+        level: 80,
+        link: "/video_codec/"
+    },
+    {
+        name: "CUDA/GPU",
+        description: "NVIDIA GPU并行计算，高性能计算优化",
+        icon: "fa fa-microchip",
+        level: 70,
+        link: "/Cuda/"
+    },
+    {
+        name: "OpenGL",
+        description: "计算机图形学，3D渲染与可视化",
+        icon: "fa fa-cube",
+        level: 75,
+        link: "/OpenGL/"
+    },
+    {
+        name: "C/C++",
+        description: "高性能系统编程，底层优化技术",
+        icon: "fa fa-code",
+        level: 90,
+        link: "/tags/?tag=C++"
+    }
+]

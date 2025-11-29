@@ -3,6 +3,9 @@ layout: page
 description: "阅读使人充实，会谈使人敏捷，写作使人精确"
 ---
 
+<!-- 博主前沿技术展示区域 -->
+{% include frontier-tech.html %}
+
 {% for post in paginator.posts %}
 <div class="post-preview">
     <a href="{{ post.url | prepend: site.baseurl }}">

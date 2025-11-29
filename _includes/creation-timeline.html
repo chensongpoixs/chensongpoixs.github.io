@@ -1,0 +1,51 @@
+{% comment %}
+    创作历程 - 按年份统计文章数量
+{% endcomment %}
+
+<section class="creation-timeline">
+    <hr class="hidden-sm hidden-xs">
+    <h5>
+        <i class="fa fa-history"></i> 创作历程
+    </h5>
+    
+    {% comment %} 统计总文章数 {% endcomment %}
+    <div class="timeline-total">
+        <span class="total-number">{{ site.posts.size }}</span>
+        <span class="total-label">篇</span>
+    </div>
+    
+    {% comment %} 按年份统计并显示 - 自适应布局 {% endcomment %}
+    <div class="timeline-list">
+        {% assign prev_year = "" %}
+        {% assign year_count = 0 %}
+        
+        {% for post in site.posts %}
+            {% assign post_year = post.date | date: "%Y" %}
+            
+            {% if prev_year == "" %}
+                {% assign prev_year = post_year %}
+                {% assign year_count = 1 %}
+            {% elsif prev_year == post_year %}
+                {% assign year_count = year_count | plus: 1 %}
+            {% else %}
+                {% comment %} 输出上一年的统计 {% endcomment %}
+                <div class="timeline-item-inline">
+                    <div class="timeline-count-inline">{{ year_count }}</div>
+                    <div class="timeline-year-inline">{{ prev_year }}年</div>
+                </div>
+                
+                {% assign prev_year = post_year %}
+                {% assign year_count = 1 %}
+            {% endif %}
+        {% endfor %}
+        
+        {% comment %} 输出最后一年的统计 {% endcomment %}
+        {% if prev_year != "" %}
+            <div class="timeline-item-inline">
+                <div class="timeline-count-inline">{{ year_count }}</div>
+                <div class="timeline-year-inline">{{ prev_year }}年</div>
+            </div>
+        {% endif %}
+    </div>
+</section>
+

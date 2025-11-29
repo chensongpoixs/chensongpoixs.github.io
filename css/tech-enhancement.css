@@ -1,0 +1,846 @@
+/* ============================================
+   科技感增强样式 - Tech Enhancement Styles
+   ============================================ */
+
+/* 全局科技感背景动画 */
+body {
+    position: relative;
+    background: linear-gradient(135deg, #0a0e27 0%, #1a1a2e 50%, #16213e 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    color: #e0e0e0;
+}
+
+/* 科技感网格背景 */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(rgba(0, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* 动态粒子背景效果 */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(0, 255, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(138, 43, 226, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 20%, rgba(0, 191, 255, 0.1) 0%, transparent 50%);
+    animation: particleMove 20s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes particleMove {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.5;
+    }
+    50% {
+        transform: translate(20px, -20px) scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+/* 内容区域提升层级 */
+.container,
+.postlist-container {
+    position: relative;
+    z-index: 1;
+    background: transparent;
+}
+
+/* 主内容区域文字颜色 */
+.postlist-container,
+.postlist-container p,
+.postlist-container li {
+    color: #e0e0e0;
+}
+
+/* 确保文章内容可见 */
+.post-container {
+    color: #e0e0e0;
+}
+
+.post-container p,
+.post-container li,
+.post-container h1,
+.post-container h2,
+.post-container h3,
+.post-container h4,
+.post-container h5,
+.post-container h6 {
+    color: #e0e0e0;
+}
+
+/* ============================================
+   导航栏科技感增强
+   ============================================ */
+
+.navbar-custom {
+    background: rgba(10, 14, 39, 0.85) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.navbar-custom.is-fixed {
+    background: rgba(10, 14, 39, 0.95) !important;
+    border-bottom: 1px solid rgba(0, 255, 255, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 255, 255, 0.2);
+}
+
+.navbar-custom .navbar-brand {
+    color: #00ffff !important;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5),
+                 0 0 20px rgba(0, 255, 255, 0.3);
+    font-weight: 700;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.navbar-custom .navbar-brand::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #00ffff, #0080ff);
+    transition: width 0.3s ease;
+}
+
+.navbar-custom .navbar-brand:hover::after {
+    width: 100%;
+}
+
+.navbar-custom .navbar-brand:hover {
+    color: #00ffff !important;
+    text-shadow: 0 0 15px rgba(0, 255, 255, 0.8),
+                 0 0 30px rgba(0, 255, 255, 0.5);
+    transform: translateY(-2px);
+}
+
+.navbar-custom .nav li a {
+    color: rgba(255, 255, 255, 0.9) !important;
+    position: relative;
+    transition: all 0.3s ease;
+    padding: 20px 15px !important;
+}
+
+.navbar-custom .nav li a::before {
+    content: '';
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #00ffff, transparent);
+    transition: width 0.3s ease;
+}
+
+.navbar-custom .nav li a:hover::before,
+.navbar-custom .nav li a:focus::before {
+    width: 80%;
+}
+
+.navbar-custom .nav li a:hover,
+.navbar-custom .nav li a:focus {
+    color: #00ffff !important;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    transform: translateY(-2px);
+}
+
+.navbar-custom.is-fixed .nav li a {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.navbar-custom.is-fixed .nav li a:hover,
+.navbar-custom.is-fixed .nav li a:focus {
+    color: #00ffff !important;
+}
+
+/* 移动端导航栏 */
+@media only screen and (max-width: 767px) {
+    .navbar-default .navbar-collapse {
+        background: rgba(10, 14, 39, 0.95) !important;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(0, 255, 255, 0.2);
+        box-shadow: 0 8px 32px rgba(0, 255, 255, 0.2);
+    }
+}
+
+/* ============================================
+   文章预览卡片科技感增强
+   ============================================ */
+
+.post-preview {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: 30px;
+    margin-bottom: 30px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.post-preview::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(0, 255, 255, 0.1), 
+        transparent);
+    transition: left 0.5s ease;
+}
+
+.post-preview:hover::before {
+    left: 100%;
+}
+
+.post-preview:hover {
+    transform: translateY(-8px) scale(1.02);
+    border-color: rgba(0, 255, 255, 0.5);
+    box-shadow: 0 12px 40px rgba(0, 255, 255, 0.3),
+                0 0 30px rgba(0, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.post-preview > a {
+    color: #e0e0e0 !important;
+    text-decoration: none;
+}
+
+.post-preview > a:hover,
+.post-preview > a:focus {
+    color: #00ffff !important;
+    text-decoration: none;
+}
+
+.post-preview > a > .post-title {
+    color: #ffffff;
+    font-weight: 600;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+}
+
+.post-preview:hover > a > .post-title {
+    color: #00ffff;
+    text-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
+    transform: translateX(5px);
+}
+
+.post-preview > a > .post-subtitle {
+    color: rgba(255, 255, 255, 0.7);
+    transition: color 0.3s ease;
+}
+
+.post-preview:hover > a > .post-subtitle {
+    color: rgba(0, 255, 255, 0.8);
+}
+
+.post-preview > .post-meta {
+    color: rgba(255, 255, 255, 0.6) !important;
+    font-size: 14px;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(0, 255, 255, 0.2);
+}
+
+.post-preview > .post-meta > a {
+    color: rgba(0, 255, 255, 0.8) !important;
+    transition: all 0.3s ease;
+}
+
+.post-preview > .post-meta > a:hover,
+.post-preview > .post-meta > a:focus {
+    color: #00ffff !important;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.post-content-preview {
+    color: rgba(255, 255, 255, 0.6) !important;
+    line-height: 1.8;
+    transition: color 0.3s ease;
+}
+
+.post-preview:hover .post-content-preview {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* 分隔线美化 */
+hr {
+    border: none;
+    height: 1px;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(0, 255, 255, 0.3), 
+        transparent);
+    margin: 40px 0;
+}
+
+/* ============================================
+   页面头部科技感增强
+   ============================================ */
+
+.intro-header {
+    position: relative;
+    overflow: hidden;
+}
+
+.intro-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, 
+        rgba(0, 255, 255, 0.1) 0%, 
+        rgba(138, 43, 226, 0.1) 50%, 
+        rgba(0, 191, 255, 0.1) 100%);
+    animation: headerGradient 10s ease infinite;
+    z-index: 0;
+}
+
+@keyframes headerGradient {
+    0%, 100% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 0.8;
+    }
+}
+
+.intro-header .container {
+    position: relative;
+    z-index: 1;
+}
+
+.intro-header .site-heading h1,
+.intro-header .post-heading h1,
+.intro-header .page-heading h1 {
+    text-shadow: 0 0 20px rgba(0, 255, 255, 0.5),
+                 0 0 40px rgba(0, 255, 255, 0.3),
+                 0 0 60px rgba(0, 255, 255, 0.1);
+    color: #ffffff;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.intro-header .site-heading .subheading,
+.intro-header .post-heading .subheading,
+.intro-header .page-heading .subheading {
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* ============================================
+   侧边栏科技感增强
+   ============================================ */
+
+.sidebar-container {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: 25px;
+    margin-top: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.sidebar-container h5 {
+    color: #00ffff !important;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    font-weight: 600;
+    letter-spacing: 1px;
+    border-bottom: 2px solid rgba(0, 255, 255, 0.3);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.sidebar-container h5 a {
+    color: #00ffff !important;
+    transition: all 0.3s ease;
+}
+
+.sidebar-container h5 a:hover {
+    text-shadow: 0 0 15px rgba(0, 255, 255, 0.8);
+    transform: translateX(5px);
+}
+
+.sidebar-container a {
+    color: rgba(255, 255, 255, 0.7) !important;
+    transition: all 0.3s ease;
+}
+
+.sidebar-container a:hover,
+.sidebar-container a:active {
+    color: #00ffff !important;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.sidebar-container .tags a {
+    border-color: rgba(0, 255, 255, 0.3) !important;
+    background: rgba(0, 255, 255, 0.05);
+    transition: all 0.3s ease;
+}
+
+.sidebar-container .tags a:hover,
+.sidebar-container .tags a:active {
+    border-color: #00ffff !important;
+    background: rgba(0, 255, 255, 0.15);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+/* ============================================
+   分页器科技感增强
+   ============================================ */
+
+.pager li > a {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    border-radius: 8px;
+    color: #00ffff;
+    padding: 12px 24px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.pager li > a:hover,
+.pager li > a:focus {
+    background: rgba(0, 255, 255, 0.15);
+    border-color: #00ffff;
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+    box-shadow: 0 6px 20px rgba(0, 255, 255, 0.4);
+    transform: translateY(-3px);
+}
+
+/* ============================================
+   页脚科技感增强
+   ============================================ */
+
+footer {
+    background: rgba(10, 14, 39, 0.8);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(0, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.7);
+    position: relative;
+    z-index: 1;
+}
+
+footer .copyright a {
+    color: #00ffff;
+    transition: all 0.3s ease;
+}
+
+footer .copyright a:hover,
+footer .copyright a:focus {
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+}
+
+/* ============================================
+   标签科技感增强
+   ============================================ */
+
+.tag {
+    background: rgba(0, 255, 255, 0.1) !important;
+    border: 1px solid rgba(0, 255, 255, 0.3) !important;
+    color: #00ffff !important;
+    padding: 5px 12px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    display: inline-block;
+    margin: 5px 5px 5px 0;
+    font-size: 12px;
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+}
+
+.tag:hover {
+    background: rgba(0, 255, 255, 0.2) !important;
+    border-color: #00ffff !important;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+    transform: translateY(-2px) scale(1.05);
+}
+
+/* ============================================
+   代码块科技感增强
+   ============================================ */
+
+.highlight,
+pre {
+    background: rgba(0, 0, 0, 0.4) !important;
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3),
+                inset 0 0 20px rgba(0, 255, 255, 0.05);
+}
+
+/* ============================================
+   文章内容区域科技感增强
+   ============================================ */
+
+article {
+    position: relative;
+    z-index: 1;
+}
+
+article .post-container {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(5px);
+    border-radius: 12px;
+    padding: 40px;
+    margin-top: 30px;
+    border: 1px solid rgba(0, 255, 255, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+article .post-container h1,
+article .post-container h2,
+article .post-container h3,
+article .post-container h4,
+article .post-container h5,
+article .post-container h6 {
+    color: #00ffff;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    position: relative;
+    padding-left: 15px;
+}
+
+article .post-container h1::before,
+article .post-container h2::before,
+article .post-container h3::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 60%;
+    background: linear-gradient(180deg, #00ffff, #0080ff);
+    border-radius: 2px;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+article .post-container p {
+    line-height: 1.8;
+    margin-bottom: 20px;
+    color: #e0e0e0;
+}
+
+article .post-container a {
+    color: #00ffff;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(0, 255, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+article .post-container a:hover {
+    color: #ffffff;
+    border-bottom-color: #00ffff;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+article .post-container ul,
+article .post-container ol {
+    color: #e0e0e0;
+    margin-bottom: 20px;
+}
+
+article .post-container li {
+    margin-bottom: 10px;
+    line-height: 1.8;
+}
+
+article .post-container blockquote {
+    border-left: 4px solid #00ffff;
+    background: rgba(0, 255, 255, 0.05);
+    padding: 15px 20px;
+    margin: 20px 0;
+    border-radius: 4px;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.9);
+    font-style: italic;
+}
+
+article .post-container img {
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 255, 255, 0.2);
+    max-width: 100%;
+    height: auto;
+    margin: 20px 0;
+    border: 1px solid rgba(0, 255, 255, 0.2);
+}
+
+article .post-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(0, 255, 255, 0.2);
+}
+
+article .post-container table th,
+article .post-container table td {
+    padding: 12px;
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    color: #e0e0e0;
+}
+
+article .post-container table th {
+    background: rgba(0, 255, 255, 0.1);
+    color: #00ffff;
+    font-weight: 600;
+}
+
+/* ============================================
+   响应式优化
+   ============================================ */
+
+@media only screen and (max-width: 768px) {
+    .post-preview {
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+    
+    .post-preview:hover {
+        transform: translateY(-5px) scale(1.01);
+    }
+    
+    .sidebar-container {
+        padding: 20px;
+    }
+    
+    article .post-container {
+        padding: 20px;
+        margin-top: 20px;
+    }
+    
+    .intro-header .site-heading h1,
+    .intro-header .post-heading h1,
+    .intro-header .page-heading h1 {
+        font-size: 32px;
+        text-shadow: 0 0 15px rgba(0, 255, 255, 0.4),
+                     0 0 30px rgba(0, 255, 255, 0.2);
+    }
+    
+    .navbar-custom .navbar-brand {
+        font-size: 18px;
+    }
+    
+    /* 移动端减少动画效果以提升性能 */
+    body::after {
+        animation: none;
+    }
+    
+    .post-preview::before {
+        display: none;
+    }
+}
+
+/* ============================================
+   滚动条美化
+   ============================================ */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(10, 14, 39, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #00ffff, #0080ff);
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #00ffff, #00bfff);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.8);
+}
+
+/* ============================================
+   链接科技感增强
+   ============================================ */
+
+a {
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+/* 选中文本颜色 */
+::selection {
+    background: rgba(0, 255, 255, 0.3);
+    color: #ffffff;
+}
+
+::-moz-selection {
+    background: rgba(0, 255, 255, 0.3);
+    color: #ffffff;
+}
+
+/* ============================================
+   按钮和表单元素科技感增强
+   ============================================ */
+
+button,
+.btn,
+input[type="submit"],
+input[type="button"] {
+    background: rgba(0, 255, 255, 0.1);
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    color: #00ffff;
+    border-radius: 6px;
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+button:hover,
+.btn:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover {
+    background: rgba(0, 255, 255, 0.2);
+    border-color: #00ffff;
+    color: #ffffff;
+    text-shadow: 0 0 15px rgba(0, 255, 255, 0.8);
+    box-shadow: 0 6px 20px rgba(0, 255, 255, 0.4);
+    transform: translateY(-2px);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea,
+select {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    color: #e0e0e0;
+    border-radius: 6px;
+    padding: 10px 15px;
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+textarea:focus,
+select:focus {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: #00ffff;
+    outline: none;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+    color: #ffffff;
+}
+
+/* ============================================
+   评论区域科技感增强
+   ============================================ */
+
+#disqus_thread,
+#gitalk-container {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: 30px;
+    margin-top: 40px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* ============================================
+   加载动画
+   ============================================ */
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.loading {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* ============================================
+   特殊效果 - 科技感边框动画
+   ============================================ */
+
+.tech-border {
+    position: relative;
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.tech-border::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, 
+        #00ffff, #0080ff, #00ffff, #0080ff);
+    background-size: 400% 400%;
+    border-radius: 12px;
+    z-index: -1;
+    animation: borderGlow 3s ease infinite;
+    opacity: 0.5;
+}
+
+@keyframes borderGlow {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+

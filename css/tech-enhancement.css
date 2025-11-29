@@ -592,6 +592,23 @@ hr {
     .postlist-container {
         padding-left: 30px !important;
         padding-right: 30px !important;
+        /* 内容区域宽度设为66% */
+        width: 66% !important;
+        max-width: 66% !important;
+        flex: 0 0 66% !important;
+    }
+    
+    /* 调整侧边栏宽度以适应内容区域66% */
+    .sidebar-left {
+        width: 17% !important;
+        max-width: 17% !important;
+        flex: 0 0 17% !important;
+    }
+    
+    .sidebar-right {
+        width: 17% !important;
+        max-width: 17% !important;
+        flex: 0 0 17% !important;
     }
 }
 
@@ -605,6 +622,23 @@ hr {
     .postlist-container {
         padding-left: 40px !important;
         padding-right: 40px !important;
+        /* 内容区域宽度设为66% */
+        width: 66% !important;
+        max-width: 66% !important;
+        flex: 0 0 66% !important;
+    }
+    
+    /* 调整侧边栏宽度以适应内容区域66% */
+    .sidebar-left {
+        width: 17% !important;
+        max-width: 17% !important;
+        flex: 0 0 17% !important;
+    }
+    
+    .sidebar-right {
+        width: 17% !important;
+        max-width: 17% !important;
+        flex: 0 0 17% !important;
     }
 }
 
@@ -618,6 +652,23 @@ hr {
     .postlist-container {
         padding-left: 50px !important;
         padding-right: 50px !important;
+        /* 内容区域宽度设为66% */
+        width: 66% !important;
+        max-width: 66% !important;
+        flex: 0 0 66% !important;
+    }
+    
+    /* 调整侧边栏宽度以适应内容区域66% */
+    .sidebar-left {
+        width: 17% !important;
+        max-width: 17% !important;
+        flex: 0 0 17% !important;
+    }
+    
+    .sidebar-right {
+        width: 17% !important;
+        max-width: 17% !important;
+        flex: 0 0 17% !important;
     }
 }
 

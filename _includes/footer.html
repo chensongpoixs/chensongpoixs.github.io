@@ -283,59 +283,61 @@
 <!-- Side Catalog -->
 {% if page.catalog %}
 <script type="text/javascript">
-    // 自动为标题添加 ID（如果没有的话）
-    function autoGenerateIds() {
-        var P = $('div.post-container');
-        var headings = P.find('h1,h2,h3,h4,h5,h6');
-        var idCounter = {};
-        
-        headings.each(function() {
-            var $heading = $(this);
-            var id = $heading.attr('id');
+    // 确保 jQuery 已加载并等待 DOM 完全加载
+    jQuery(document).ready(function($) {
+        // 自动为标题添加 ID（如果没有的话）
+        function autoGenerateIds() {
+            var P = $('div.post-container');
+            var headings = P.find('h1,h2,h3,h4,h5,h6');
+            var idCounter = {};
             
-            // 如果标题没有 ID，自动生成一个
-            if (!id || id === '') {
-                var text = $heading.text().trim();
-                // 生成基于文本的 ID（类似 CSDN）
-                id = text.replace(/[^\w\u4e00-\u9fa5]/g, '-').toLowerCase();
-                // 确保 ID 唯一
-                if (idCounter[id]) {
-                    idCounter[id]++;
-                    id = id + '-' + idCounter[id];
-                } else {
-                    idCounter[id] = 1;
+            headings.each(function() {
+                var $heading = $(this);
+                var id = $heading.attr('id');
+                
+                // 如果标题没有 ID，自动生成一个
+                if (!id || id === '') {
+                    var text = $heading.text().trim();
+                    // 生成基于文本的 ID（类似 CSDN）
+                    id = text.replace(/[^\w\u4e00-\u9fa5]/g, '-').toLowerCase();
+                    // 确保 ID 唯一
+                    if (idCounter[id]) {
+                        idCounter[id]++;
+                        id = id + '-' + idCounter[id];
+                    } else {
+                        idCounter[id] = 1;
+                    }
+                    $heading.attr('id', id);
                 }
-                $heading.attr('id', id);
-            }
-        });
-    }
-    
-    // 生成目录
-    function generateCatalog (selector) {
-        var P = $('div.post-container');
-        var headings = P.find('h1,h2,h3,h4,h5,h6');
-        var catalogBody = $(selector);
-        catalogBody.empty(); // 清空现有内容
+            });
+        }
         
-        headings.each(function () {
-            var $heading = $(this);
-            var tagName = $heading.prop('tagName').toLowerCase();
-            var id = $heading.attr('id');
-            var text = $heading.text().trim();
+        // 生成目录
+        function generateCatalog (selector) {
+            var P = $('div.post-container');
+            var headings = P.find('h1,h2,h3,h4,h5,h6');
+            var catalogBody = $(selector);
+            catalogBody.empty(); // 清空现有内容
             
-            if (!id || !text) return; // 跳过没有 ID 或文本的标题
+            headings.each(function () {
+                var $heading = $(this);
+                var tagName = $heading.prop('tagName').toLowerCase();
+                var id = $heading.attr('id');
+                var text = $heading.text().trim();
+                
+                if (!id || !text) return; // 跳过没有 ID 或文本的标题
+                
+                var link = $('<a href="#' + id + '" rel="nofollow" data-target="' + id + '">' + text + '</a>');
+                var listItem = $('<li class="' + tagName + '_nav"></li>').append(link);
+                catalogBody.append(listItem);
+            });
             
-            var link = $('<a href="#' + id + '" rel="nofollow" data-target="' + id + '">' + text + '</a>');
-            var listItem = $('<li class="' + tagName + '_nav"></li>').append(link);
-            catalogBody.append(listItem);
-        });
+            return true;    
+        }
         
-        return true;    
-    }
-    
-    // 初始化：先添加 ID，再生成目录
-    autoGenerateIds();
-    generateCatalog(".catalog-body");
+        // 初始化：先添加 ID，再生成目录
+        autoGenerateIds();
+        generateCatalog(".catalog-body");
 
     // 目录折叠/展开功能（点击标题）- 类似 CSDN
     $(".catalog-title").click(function(e){
@@ -410,8 +412,7 @@
         });
     });
 
-    // 确保 CATALOG 始终显示 - 类似 CSDN
-    (function() {
+        // 确保 CATALOG 始终显示 - 类似 CSDN
         var $catalog = null;
         var $catalogContainer = null;
         
@@ -504,11 +505,6 @@
             }
         });
         
-        // DOM ready 时初始化
-        $(document).ready(function() {
-            tryInit();
-        });
-        
         // 页面加载完成后再次确保
         $(window).on('load', function() {
             setTimeout(tryInit, 100);
@@ -516,7 +512,7 @@
         
         // 立即尝试一次
         tryInit();
-    })();
+    });
 </script>
 {% endif %}
 

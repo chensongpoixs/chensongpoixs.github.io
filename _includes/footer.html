@@ -428,25 +428,30 @@
             }
         }
 
-        // 计算固定定位时的右侧位置
+        // 计算固定定位时的位置
         function updateFixedPosition() {
             if ($catalog.hasClass('fixed') && $catalogContainer.length) {
+                // 获取容器的原始位置
                 var containerOffset = $catalogContainer.offset();
                 var containerWidth = $catalogContainer.outerWidth();
-                var windowWidth = $(window).width();
+                var catalogWidth = $catalog.outerWidth();
                 
                 if (containerOffset) {
-                    // 计算右侧位置
-                    var rightPosition = windowWidth - containerOffset.left - containerWidth;
+                    // 使用 left 定位，保持与原始位置一致
                     $catalog.css({
-                        'right': rightPosition + 'px',
-                        'left': 'auto'
+                        'left': containerOffset.left + 'px',
+                        'right': 'auto',
+                        'top': '80px',
+                        'position': 'fixed'
                     });
                 }
             } else {
+                // 非固定定位时，恢复默认
                 $catalog.css({
+                    'left': 'auto',
                     'right': 'auto',
-                    'left': 'auto'
+                    'top': 'auto',
+                    'position': 'relative'
                 });
             }
         }
@@ -454,12 +459,23 @@
         // 监听滚动事件，更新固定定位
         $(window).on('scroll resize', function() {
             ensureCatalogVisible();
-            updateFixedPosition();
+            // 延迟更新位置，确保 DOM 已更新
+            setTimeout(updateFixedPosition, 10);
         });
 
-        // 初始设置
-        ensureCatalogVisible();
-        updateFixedPosition();
+        // 初始设置 - 延迟执行确保 DOM 完全加载
+        $(document).ready(function() {
+            setTimeout(function() {
+                ensureCatalogVisible();
+                updateFixedPosition();
+            }, 100);
+        });
+        
+        // 页面加载完成后再次确保位置正确
+        $(window).on('load', function() {
+            ensureCatalogVisible();
+            updateFixedPosition();
+        });
 
         // 阻止 CATALOG 区域的滚轮事件冒泡到页面
         $catalog.on('wheel', function(e) {

@@ -1785,6 +1785,9 @@ article .post-container table th {
     z-index: 100 !important;
     /* 保持原有宽度 */
     width: 280px !important;
+    /* 确保位置正确 - 使用 JavaScript 动态计算 */
+    margin-left: 0 !important;
+    margin-right: 0 !important;
 }
 
 /* CATALOG 自定义滚动条样式 */

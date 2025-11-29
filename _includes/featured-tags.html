@@ -7,7 +7,10 @@
     {% if include.bottom %}
         <hr class="hidden-sm hidden-xs">
     {% endif %}
-    <h5><a href="{{'/tags/' | prepend: site.baseurl }}">FEATURED TAGS</a></h5>
+    <h5 class="featured-tags-title">
+        <i class="fa fa-tags"></i> 所有标签
+        <span class="tags-subtitle">Featured Tags</span>
+    </h5>
     <div class="tags">
         {% capture tags %}
         {% comment %}

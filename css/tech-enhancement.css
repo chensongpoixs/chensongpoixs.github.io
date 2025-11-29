@@ -496,6 +496,81 @@ footer .copyright a:focus {
 }
 
 /* ============================================
+   FEATURED TAGS 字体颜色修复
+   ============================================ */
+
+/* 覆盖 featured-tags 中的内联蓝色字体 - 使用高优先级 */
+.sidebar-container .tags a,
+.tags a,
+.tags .tag {
+    color: #00ffff !important;
+    border-color: rgba(0, 255, 255, 0.3) !important;
+    background: rgba(0, 255, 255, 0.1) !important;
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+}
+
+/* 覆盖 font 标签内的颜色 */
+.sidebar-container .tags a font,
+.tags a font,
+.tags .tag font {
+    color: #00ffff !important;
+}
+
+/* 覆盖 span 标签内的颜色 */
+.sidebar-container .tags a span,
+.tags a span,
+.tags .tag span {
+    color: #00ffff !important;
+}
+
+/* 覆盖内联样式中的蓝色 - 使用属性选择器 */
+.tags a[style*="color"] {
+    color: #00ffff !important;
+}
+
+/* 覆盖 font 标签的 color 属性 */
+.tags a font[color="#0000FF"],
+.tags a font[color="#0000ff"],
+.tags a font[color] {
+    color: #00ffff !important;
+}
+
+/* 确保标签内的所有文字都是青色 - 使用通配符 */
+.sidebar-container .tags a *,
+.tags a *,
+.tags .tag * {
+    color: #00ffff !important;
+}
+
+/* 悬停效果 */
+.sidebar-container .tags a:hover,
+.tags a:hover,
+.tags .tag:hover {
+    color: #ffffff !important;
+    border-color: #00ffff !important;
+    background: rgba(0, 255, 255, 0.2) !important;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+    transform: translateY(-2px);
+}
+
+.sidebar-container .tags a:hover *,
+.tags a:hover *,
+.tags .tag:hover * {
+    color: #ffffff !important;
+}
+
+/* 特别处理 sup 标签（文章数量） */
+.tags a sup {
+    color: rgba(0, 255, 255, 0.8) !important;
+    font-size: 0.9em;
+    margin-left: 3px;
+}
+
+.tags a:hover sup {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* ============================================
    代码块科技感增强
    ============================================ */
 

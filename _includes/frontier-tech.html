@@ -5,47 +5,42 @@
 
 {% if site.frontier_techs %}
 <section class="frontier-tech-section">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="frontier-tech-container">
-                    <h2 class="frontier-tech-title">
-                        <i class="fa fa-rocket"></i> 博主前沿技术
-                        <span class="tech-subtitle">Frontier Technologies</span>
-                    </h2>
-                    <div class="tech-grid">
-                        {% for tech in site.frontier_techs %}
-                        <div class="tech-card">
-                            <div class="tech-icon">
-                                {% if tech.icon %}
-                                    <i class="{{ tech.icon }}"></i>
-                                {% else %}
-                                    <i class="fa fa-code"></i>
-                                {% endif %}
-                            </div>
-                            <h3 class="tech-name">{{ tech.name }}</h3>
-                            {% if tech.description %}
-                            <p class="tech-description">{{ tech.description }}</p>
-                            {% endif %}
-                            {% if tech.level %}
-                            <div class="tech-level">
-                                <span class="level-label">掌握程度:</span>
-                                <div class="level-bar">
-                                    <div class="level-fill" style="width: {{ tech.level }}%"></div>
-                                </div>
-                                <span class="level-percent">{{ tech.level }}%</span>
-                            </div>
-                            {% endif %}
-                            {% if tech.link %}
-                            <a href="{{ tech.link }}" class="tech-link" target="_blank">
-                                了解更多 <i class="fa fa-arrow-right"></i>
-                            </a>
-                            {% endif %}
-                        </div>
-                        {% endfor %}
-                    </div>
+    <hr class="hidden-sm hidden-xs">
+    <div class="frontier-tech-container">
+        <h5 class="frontier-tech-title">
+            <i class="fa fa-rocket"></i> 博主前沿技术
+            <span class="tech-subtitle">Frontier Technologies</span>
+        </h5>
+        <div class="tech-grid">
+            {% for tech in site.frontier_techs %}
+            <div class="tech-card">
+                <div class="tech-icon">
+                    {% if tech.icon %}
+                        <i class="{{ tech.icon }}"></i>
+                    {% else %}
+                        <i class="fa fa-code"></i>
+                    {% endif %}
                 </div>
+                <h3 class="tech-name">{{ tech.name }}</h3>
+                {% if tech.description %}
+                <p class="tech-description">{{ tech.description }}</p>
+                {% endif %}
+                {% if tech.level %}
+                <div class="tech-level">
+                    <span class="level-label">掌握程度:</span>
+                    <div class="level-bar">
+                        <div class="level-fill" style="width: {{ tech.level }}%"></div>
+                    </div>
+                    <span class="level-percent">{{ tech.level }}%</span>
+                </div>
+                {% endif %}
+                {% if tech.link %}
+                <a href="{{ tech.link }}" class="tech-link" target="_blank">
+                    了解更多 <i class="fa fa-arrow-right"></i>
+                </a>
+                {% endif %}
             </div>
+            {% endfor %}
         </div>
     </div>
 </section>

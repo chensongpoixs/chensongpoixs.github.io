@@ -1422,6 +1422,19 @@ article .post-container table th {
     scrollbar-color: rgba(0, 255, 255, 0.6) rgba(0, 0, 0, 0.2);
 }
 
+/* 当鼠标悬停在 CATALOG 上时，确保滚动优先级 */
+.side-catalog.catalog-hover {
+    /* 确保滚动区域可滚动 */
+    overflow-y: auto !important;
+}
+
+/* 防止 CATALOG 滚动影响页面主体 */
+.side-catalog {
+    /* 确保滚动容器独立 */
+    position: relative;
+    z-index: 10;
+}
+
 /* 调整布局列宽以适应更大的 CATALOG */
 @media (min-width: 1200px) {
     .catalog-container {

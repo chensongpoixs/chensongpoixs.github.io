@@ -25,15 +25,6 @@
                 {% if tech.description %}
                 <p class="tech-description">{{ tech.description }}</p>
                 {% endif %}
-                {% if tech.level %}
-                <div class="tech-level">
-                    <span class="level-label">掌握程度:</span>
-                    <div class="level-bar">
-                        <div class="level-fill" style="width: {{ tech.level }}%"></div>
-                    </div>
-                    <span class="level-percent">{{ tech.level }}%</span>
-                </div>
-                {% endif %}
                 {% if tech.link %}
                 <a href="{{ tech.link }}" class="tech-link" target="_blank">
                     了解更多 <i class="fa fa-arrow-right"></i>

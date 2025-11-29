@@ -411,9 +411,55 @@
     });
 
     // 优化 CATALOG 滚动：阻止滚动事件冒泡，防止影响页面主体滚动
+    // 并确保 CATALOG 始终显示
     (function() {
         var $catalog = $('.side-catalog');
+        var $catalogContainer = $('.catalog-container');
         if ($catalog.length === 0) return;
+
+        // 确保 CATALOG 始终显示
+        function ensureCatalogVisible() {
+            if ($catalog.length) {
+                $catalog.css({
+                    'display': 'block',
+                    'visibility': 'visible',
+                    'opacity': '1'
+                });
+            }
+        }
+
+        // 计算固定定位时的右侧位置
+        function updateFixedPosition() {
+            if ($catalog.hasClass('fixed') && $catalogContainer.length) {
+                var containerOffset = $catalogContainer.offset();
+                var containerWidth = $catalogContainer.outerWidth();
+                var windowWidth = $(window).width();
+                
+                if (containerOffset) {
+                    // 计算右侧位置
+                    var rightPosition = windowWidth - containerOffset.left - containerWidth;
+                    $catalog.css({
+                        'right': rightPosition + 'px',
+                        'left': 'auto'
+                    });
+                }
+            } else {
+                $catalog.css({
+                    'right': 'auto',
+                    'left': 'auto'
+                });
+            }
+        }
+
+        // 监听滚动事件，更新固定定位
+        $(window).on('scroll resize', function() {
+            ensureCatalogVisible();
+            updateFixedPosition();
+        });
+
+        // 初始设置
+        ensureCatalogVisible();
+        updateFixedPosition();
 
         // 阻止 CATALOG 区域的滚轮事件冒泡到页面
         $catalog.on('wheel', function(e) {

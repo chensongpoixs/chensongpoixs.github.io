@@ -72,12 +72,17 @@ jQuery(document).ready(function($) {
                 this.previousTop = currentTop;
 
 
-                //adjust the appearance of side-catalog
-                $catalog.show()
+                //adjust the appearance of side-catalog - 确保始终显示
+                $catalog.show(); // 确保始终显示
                 if (currentTop > (bannerHeight + 41)) {
-                    $catalog.addClass('fixed')
+                    $catalog.addClass('fixed');
                 } else {
-                    $catalog.removeClass('fixed')
+                    $catalog.removeClass('fixed');
+                }
+                
+                // 确保 CATALOG 始终可见，不会因为滚动而消失
+                if (!$catalog.is(':visible')) {
+                    $catalog.css('display', 'block');
                 }
             });
     }

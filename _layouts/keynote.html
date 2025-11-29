@@ -159,7 +159,10 @@ layout: default
                 <!-- Friends Blog -->
                 {% if site.friends %}
                 <hr>
-                <h5>FRIENDS</h5>
+                <h5 class="friends-title">
+                    <i class="fa fa-users"></i> 友情链接
+                    <span class="friends-subtitle">Friends</span>
+                </h5>
                 <ul class="list-inline">
                     {% for friend in site.friends %}
                         <li><a href="{{friend.href}}">{{friend.title}}</a></li>

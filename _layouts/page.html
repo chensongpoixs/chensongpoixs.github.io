@@ -39,7 +39,10 @@ layout: default
                 <!-- Friends Blog -->
                 {% if site.friends %}
                 <hr>
-                <h5>FRIENDS</h5>
+                <h5 class="friends-title">
+                    <i class="fa fa-users"></i> 友情链接
+                    <span class="friends-subtitle">Friends</span>
+                </h5>
                 <ul class="list-inline">
                     {% for friend in site.friends %}
                         <li><a href="{{friend.href}}">{{friend.title}}</a></li>
@@ -88,7 +91,11 @@ layout: default
 
                 <!-- Short About -->
                 <section class="visible-md visible-lg">
-                    <hr><h5><a href="{{'/about/' | prepend: site.baseurl }}">ABOUT ME</a></h5>
+                    <hr>
+                    <h5 class="about-me-title">
+                        <i class="fa fa-user"></i> 关于我
+                        <span class="about-subtitle">About Me</span>
+                    </h5>
                     <div class="short-about">
                         {% if site.sidebar-avatar %}
                             <a href="{{ site.baseurl }}/about">
@@ -201,7 +208,10 @@ layout: default
                 <!-- Friends Blog -->
                 {% if site.friends %}
                 <hr>
-                <h5>FRIENDS</h5>
+                <h5 class="friends-title">
+                    <i class="fa fa-users"></i> 友情链接
+                    <span class="friends-subtitle">Friends</span>
+                </h5>
                 <ul class="list-inline">
                     {% for friend in site.friends %}
                         <li><a href="{{friend.href}}">{{friend.title}}</a></li>

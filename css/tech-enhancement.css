@@ -581,11 +581,11 @@ hr {
     padding-right: 0 !important;
 }
 
-/* 容器调整 - 让内容占满80%宽度并居中 */
+/* 容器调整 - 让内容占满75%宽度并居中 */
 @media (min-width: 1200px) {
     .container {
-        max-width: 80% !important;
-        width: 80% !important;
+        max-width: 75% !important;
+        width: 75% !important;
         margin-left: auto !important;
         margin-right: auto !important;
         padding-left: 0 !important;
@@ -634,8 +634,8 @@ hr {
 
 @media (min-width: 1400px) {
     .container {
-        max-width: 80% !important;
-        width: 80% !important;
+        max-width: 75% !important;
+        width: 75% !important;
         margin-left: auto !important;
         margin-right: auto !important;
         padding-left: 0 !important;
@@ -684,8 +684,8 @@ hr {
 
 @media (min-width: 1600px) {
     .container {
-        max-width: 80% !important;
-        width: 80% !important;
+        max-width: 75% !important;
+        width: 75% !important;
         margin-left: auto !important;
         margin-right: auto !important;
         padding-left: 0 !important;

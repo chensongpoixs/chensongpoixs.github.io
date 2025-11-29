@@ -157,7 +157,7 @@ friends: [
 # Frontier Technologies - 博主前沿技术
 frontier_techs: [
     {
-        name: "AI/DeepLearning/LLM",
+        name: "AI/DL/AIGC/LLM",
         description: "人工智能，深度学习和大模型算法应用",
         icon: "fa fa-brain",
         level: 75,

@@ -72,20 +72,11 @@ jQuery(document).ready(function($) {
                 this.previousTop = currentTop;
 
 
-                // CATALOG 始终显示，类似 CSDN - 始终使用固定定位
-                $catalog.show(); // 确保始终显示
-                // 始终使用固定定位，不依赖于滚动位置
-                if (!$catalog.hasClass('fixed')) {
+                //adjust the appearance of side-catalog
+                if (currentTop > (bannerHeight + 41)) {
                     $catalog.addClass('fixed');
-                }
-                
-                // 确保 CATALOG 始终可见，不会因为滚动而消失
-                if (!$catalog.is(':visible')) {
-                    $catalog.css({
-                        'display': 'block',
-                        'visibility': 'visible',
-                        'opacity': '1'
-                    });
+                } else {
+                    $catalog.removeClass('fixed');
                 }
             });
     }

@@ -283,326 +283,58 @@
 <!-- Side Catalog -->
 {% if page.catalog %}
 <script type="text/javascript">
-    // 确保 jQuery 已加载并等待 DOM 完全加载
-    jQuery(document).ready(function($) {
-        // 自动为标题添加 ID（如果没有的话）
-        function autoGenerateIds() {
-            var P = $('div.post-container');
-            var headings = P.find('h1,h2,h3,h4,h5,h6');
-            var idCounter = {};
-            
-            headings.each(function() {
-                var $heading = $(this);
-                var id = $heading.attr('id');
-                
-                // 如果标题没有 ID，自动生成一个
-                if (!id || id === '') {
-                    var text = $heading.text().trim();
-                    // 生成基于文本的 ID（类似 CSDN）
-                    id = text.replace(/[^\w\u4e00-\u9fa5]/g, '-').toLowerCase();
-                    // 确保 ID 唯一
-                    if (idCounter[id]) {
-                        idCounter[id]++;
-                        id = id + '-' + idCounter[id];
-                    } else {
-                        idCounter[id] = 1;
-                    }
-                    $heading.attr('id', id);
-                }
-            });
-        }
+    function generateCatalog (selector) {
+        var P = $('div.post-container');
+        var headings = P.find('h1,h2,h3,h4,h5,h6');
+        var catalogBody = $(selector);
+        catalogBody.empty(); // 清空现有内容
         
-        // 生成目录
-        function generateCatalog (selector) {
-            var P = $('div.post-container');
-            if (P.length === 0) {
-                console.warn('post-container not found');
-                return false;
-            }
+        headings.each(function () {
+            var tagName = $(this).prop('tagName').toLowerCase();
+            var id = $(this).attr('id');
+            var text = $(this).text();
             
-            var headings = P.find('h1,h2,h3,h4,h5,h6');
-            var catalogBody = $(selector);
+            if (!id || !text) return; // 跳过没有 ID 或文本的标题
             
-            if (catalogBody.length === 0) {
-                console.warn('catalog-body not found');
-                return false;
-            }
-            
-            catalogBody.empty(); // 清空现有内容
-            
-            if (headings.length === 0) {
-                console.warn('No headings found in post-container');
-                return false;
-            }
-            
-            var itemCount = 0;
-            headings.each(function () {
-                var $heading = $(this);
-                var tagName = $heading.prop('tagName').toLowerCase();
-                var id = $heading.attr('id');
-                var text = $heading.text().trim();
-                
-                if (!id || !text) {
-                    // 如果没有 ID，尝试使用文本生成 ID
-                    if (text) {
-                        id = text.replace(/[^\w\u4e00-\u9fa5]/g, '-').toLowerCase();
-                        $heading.attr('id', id);
-                    } else {
-                        return; // 跳过没有文本的标题
-                    }
-                }
-                
-                var link = $('<a href="#' + id + '" rel="nofollow" data-target="' + id + '">' + text + '</a>');
-                var listItem = $('<li class="' + tagName + '_nav"></li>').append(link);
-                catalogBody.append(listItem);
-                itemCount++;
-            });
-            
-            // 确保 catalog-body 可见
-            catalogBody.css({
-                'display': 'block',
-                'visibility': 'visible',
-                'opacity': '1'
-            });
-            
-            console.log('Generated catalog with ' + itemCount + ' items');
-            return itemCount > 0;    
-        }
+            var link = $('<a href="#' + id + '" rel="nofollow" data-target="' + id + '">' + text + '</a>');
+            var listItem = $('<li class="' + tagName + '_nav"></li>').append(link);
+            catalogBody.append(listItem);
+        });
         
-        // 初始化：先添加 ID，再生成目录
-        // 延迟执行，确保 DOM 完全加载
-        setTimeout(function() {
-            autoGenerateIds();
-            var success = generateCatalog(".catalog-body");
-            
-            if (!success) {
-                // 如果第一次失败，再试一次
-                setTimeout(function() {
-                    autoGenerateIds();
-                    generateCatalog(".catalog-body");
-                }, 500);
-            }
-        }, 100);
+        return true;    
+    }
 
-    // 目录折叠/展开功能（点击标题）- 类似 CSDN
-    $(".catalog-title").click(function(e){
-        e.preventDefault();
-        var $catalogBody = $('.side-catalog .catalog-body');
-        var $title = $(this);
-        
-        if ($catalogBody.is(':visible')) {
-            $catalogBody.slideUp(300);
-            $title.addClass('folded');
-        } else {
-            $catalogBody.slideDown(300);
-            $title.removeClass('folded');
-        }
+    generateCatalog(".catalog-body");
+
+    // 目录折叠/展开功能
+    $('.catalog-toggle').click(function() {
+        $('.side-catalog').toggleClass('fold');
     });
-    
-    // 默认展开目录 - 确保始终显示
-    setTimeout(function() {
-        $('.side-catalog .catalog-body').css({
-            'display': 'block !important',
-            'visibility': 'visible !important',
-            'opacity': '1 !important',
-            'max-height': 'none !important'
-        }).show();
-        $('.catalog-title').removeClass('folded');
-    }, 200);
 
     /*
      * Doc: https://github.com/davist11/jQuery-One-Page-Nav
      * Fork by Hux to support padding
-     * 增强版：类似 CSDN 博客的目录功能
      */
     async("{{ '/js/jquery.nav.js' | prepend: site.baseurl }}", function () {
         $('.catalog-body').onePageNav({
             currentClass: "active",
-            changeHash: false,
+            changeHash: !0,
             easing: "swing",
             filter: "",
-            scrollSpeed: 500,
-            scrollOffset: 100, // 偏移量，确保标题不被导航栏遮挡
-            scrollThreshold: 0.3, // 滚动阈值，提高准确性
-            begin: null,
-            end: null,
-            scrollChange: function(currentListItem) {
-                // 滚动时自动滚动目录，确保当前项可见
-                if (currentListItem && currentListItem.length) {
-                    var catalogBody = $('.catalog-body');
-                    var itemTop = currentListItem.position().top;
-                    var catalogScrollTop = catalogBody.scrollTop();
-                    var catalogHeight = catalogBody.height();
-                    
-                    // 如果当前项不在可视区域，自动滚动
-                    if (itemTop < 0 || itemTop > catalogHeight - 50) {
-                        catalogBody.animate({
-                            scrollTop: catalogScrollTop + itemTop - catalogHeight / 2
-                        }, 300);
-                    }
-                }
+            scrollSpeed: 750,
+            scrollOffset: 0,
+            scrollThreshold: 0.5,
+            begin: function() {
+                //I do nothing, but you may want to do something
             },
-            padding: 100
+            end: function() {
+                //I do nothing, but you may want to do something
+            },
+            scrollChange: function($currentListItem) {
+                //I do nothing, but you may want to do something
+            },
+            padding: 0
         });
-        
-        // 增强：点击目录项时平滑滚动
-        $('.catalog-body a').on('click', function(e) {
-            e.preventDefault();
-            var targetId = $(this).attr('href');
-            var $target = $(targetId);
-            
-            if ($target.length) {
-                $('html, body').animate({
-                    scrollTop: $target.offset().top - 100
-                }, 500, 'swing');
-                
-                // 更新 URL hash（不触发跳转）
-                if (history.pushState) {
-                    history.pushState(null, null, targetId);
-                }
-            }
-        });
-    });
-
-        // 确保 CATALOG 始终显示 - 类似 CSDN
-        var $catalog = null;
-        var $catalogContainer = null;
-        
-        // 确保 CATALOG 始终显示
-        function ensureCatalogVisible() {
-            if ($catalog && $catalog.length) {
-                $catalog.css({
-                    'display': 'block !important',
-                    'visibility': 'visible !important',
-                    'opacity': '1 !important'
-                });
-                
-                // 确保容器也可见
-                if ($catalogContainer && $catalogContainer.length) {
-                    $catalogContainer.css({
-                        'display': 'block !important',
-                        'visibility': 'visible !important'
-                    });
-                }
-            }
-        }
-
-        // 计算固定定位时的位置 - 始终使用固定定位，类似 CSDN
-        function updateFixedPosition() {
-            if (!$catalog || $catalog.length === 0) return;
-            
-            // 确保 CATALOG 始终使用固定定位
-            if (!$catalog.hasClass('fixed')) {
-                $catalog.addClass('fixed');
-            }
-            
-            // 确保 CATALOG 可见 - 强制显示
-            ensureCatalogVisible();
-            
-            // 确保容器也可见
-            if ($catalogContainer && $catalogContainer.length) {
-                $catalogContainer.css({
-                    'display': 'block',
-                    'visibility': 'visible'
-                });
-            }
-            
-            var windowWidth = $(window).width();
-            var leftPosition = 0;
-            
-            if ($catalogContainer && $catalogContainer.length) {
-                // 获取容器的原始位置
-                var containerOffset = $catalogContainer.offset();
-                
-                if (containerOffset && containerOffset.left > 0) {
-                    // 使用 left 定位，保持与原始位置一致
-                    leftPosition = containerOffset.left;
-                } else {
-                    // 如果容器位置不可用，计算右侧位置
-                    leftPosition = windowWidth - 300;
-                }
-            } else {
-                // 如果没有容器，使用默认右侧定位
-                leftPosition = windowWidth - 300;
-            }
-            
-            // 确保位置在视口内
-            if (leftPosition < 0) {
-                leftPosition = 20; // 最小左边距
-            }
-            if (leftPosition + 280 > windowWidth) {
-                leftPosition = windowWidth - 300; // 确保不超出右边界
-            }
-            
-            $catalog.css({
-                'left': leftPosition + 'px',
-                'right': 'auto',
-                'top': '80px',
-                'position': 'fixed',
-                'display': 'block !important',
-                'visibility': 'visible !important',
-                'opacity': '1 !important',
-                'width': '280px',
-                'z-index': '1000'
-            });
-        }
-
-        // 初始化 CATALOG
-        function initCatalog() {
-            $catalog = $('.side-catalog');
-            $catalogContainer = $('.catalog-container');
-            
-            if ($catalog.length === 0) {
-                return false;
-            }
-            
-            ensureCatalogVisible();
-            updateFixedPosition();
-            return true;
-        }
-        
-        // 在多个时机尝试初始化
-        function tryInit() {
-            if (!initCatalog()) {
-                // 如果初始化失败，稍后重试（最多重试20次）
-                var attempts = arguments[0] || 0;
-                if (attempts < 20) {
-                    setTimeout(function() {
-                        tryInit(attempts + 1);
-                    }, 100);
-                }
-            }
-        }
-        
-        // 监听滚动事件，更新固定定位
-        $(window).on('scroll resize', function() {
-            if ($catalog && $catalog.length) {
-                ensureCatalogVisible();
-                updateFixedPosition();
-            }
-        });
-        
-        // 页面加载完成后再次确保
-        $(window).on('load', function() {
-            setTimeout(tryInit, 100);
-        });
-        
-        // 立即尝试一次
-        tryInit();
-        
-        // 定时检查，确保 CATALOG 始终显示（防止被其他代码隐藏）
-        setInterval(function() {
-            if ($catalog && $catalog.length) {
-                // 检查是否被隐藏
-                if (!$catalog.is(':visible') || $catalog.css('display') === 'none' || $catalog.css('visibility') === 'hidden') {
-                    ensureCatalogVisible();
-                    updateFixedPosition();
-                }
-            } else {
-                // 如果 CATALOG 不存在，尝试重新初始化
-                tryInit();
-            }
-        }, 500); // 每 500ms 检查一次
     });
 </script>
 {% endif %}

@@ -7,14 +7,7 @@
     <h5 class="creation-timeline-title">
         <i class="fa fa-history"></i> 创作历程
         <span class="timeline-subtitle">Creation Timeline</span>
-        <span class="timeline-total-inline">（共 {{ site.posts.size }} 篇）</span>
     </h5>
-    
-    {% comment %} 统计总文章数 {% endcomment %}
-    <div class="timeline-total">
-        <span class="total-number">{{ site.posts.size }}</span>
-        <span class="total-label">篇</span>
-    </div>
     
     {% comment %} 按年份统计并显示 - 自适应布局 {% endcomment %}
     <div class="timeline-list">
@@ -36,7 +29,7 @@
             {% else %}
                 {% comment %} 输出上一年的统计 {% endcomment %}
                 <div class="timeline-item-inline">
-                    <div class="timeline-count-inline">{{ year_count }}</div>
+                    <div class="timeline-count-inline">{{ year_count }}篇</div>
                     <div class="timeline-year-inline">{{ prev_year }}年</div>
                 </div>
                 
@@ -48,7 +41,7 @@
         {% comment %} 输出最后一年的统计 {% endcomment %}
         {% if prev_year != "" %}
             <div class="timeline-item-inline">
-                <div class="timeline-count-inline">{{ year_count }}</div>
+                <div class="timeline-count-inline">{{ year_count }}篇</div>
                 <div class="timeline-year-inline">{{ prev_year }}年</div>
             </div>
         {% endif %}

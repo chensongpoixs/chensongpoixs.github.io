@@ -563,24 +563,33 @@ hr {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
-/* 左侧边栏紧贴左边 */
+/* 左侧边栏紧贴左边 - 只调整列的外边距 */
 .sidebar-left {
     padding-left: 0 !important;
-    padding-right: 20px;
-    margin-left: 0;
 }
 
-/* 右侧边栏紧贴右边 */
+/* 右侧边栏紧贴右边 - 只调整列的外边距 */
 .sidebar-right {
     padding-right: 0 !important;
-    padding-left: 20px;
-    margin-right: 0;
 }
 
 /* 容器调整 - 让内容更宽更显眼 */
 @media (min-width: 1200px) {
     .container {
         max-width: 1600px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    
+    .postlist-container {
+        padding-left: 30px !important;
+        padding-right: 30px !important;
+    }
+}
+
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1800px;
         padding-left: 15px;
         padding-right: 15px;
     }
@@ -589,24 +598,11 @@ hr {
         padding-left: 40px !important;
         padding-right: 40px !important;
     }
-    
-    .sidebar-left {
-        padding-right: 25px;
-    }
-    
-    .sidebar-right {
-        padding-left: 25px;
-    }
-    
-    /* 让侧边栏更宽 */
-    .sidebar-container {
-        min-width: 280px;
-    }
 }
 
-@media (min-width: 1400px) {
+@media (min-width: 1600px) {
     .container {
-        max-width: 1800px;
+        max-width: 2000px;
         padding-left: 20px;
         padding-right: 20px;
     }
@@ -614,25 +610,6 @@ hr {
     .postlist-container {
         padding-left: 50px !important;
         padding-right: 50px !important;
-    }
-    
-    .sidebar-container {
-        min-width: 320px;
-    }
-}
-
-@media (min-width: 1600px) {
-    .container {
-        max-width: 2000px;
-    }
-    
-    .postlist-container {
-        padding-left: 60px !important;
-        padding-right: 60px !important;
-    }
-    
-    .sidebar-container {
-        min-width: 360px;
     }
 }
 

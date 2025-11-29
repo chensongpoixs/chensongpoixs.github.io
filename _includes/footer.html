@@ -435,68 +435,119 @@
                 $catalog.addClass('fixed');
             }
             
+            // 确保 CATALOG 可见
+            ensureCatalogVisible();
+            
             if ($catalogContainer.length) {
-                // 获取容器的原始位置
+                // 获取容器的原始位置（包括滚动位置）
                 var containerOffset = $catalogContainer.offset();
+                var containerWidth = $catalogContainer.outerWidth();
+                var windowWidth = $(window).width();
+                var scrollLeft = $(window).scrollLeft();
                 
-                if (containerOffset) {
+                if (containerOffset && containerOffset.left > 0) {
                     // 使用 left 定位，保持与原始位置一致
+                    // 考虑滚动位置，确保固定定位时位置正确
+                    var leftPosition = containerOffset.left + scrollLeft;
+                    
                     $catalog.css({
-                        'left': containerOffset.left + 'px',
+                        'left': leftPosition + 'px',
                         'right': 'auto',
                         'top': '80px',
                         'position': 'fixed',
                         'display': 'block',
                         'visibility': 'visible',
-                        'opacity': '1'
+                        'opacity': '1',
+                        'width': '280px'
                     });
                 } else {
-                    // 如果容器位置不可用，使用默认右侧定位
-                    var windowWidth = $(window).width();
-                    var catalogWidth = $catalog.outerWidth() || 280;
+                    // 如果容器位置不可用，计算右侧位置
+                    // 假设 CATALOG 在右侧，距离右边缘一定距离
+                    var catalogWidth = 280;
+                    var rightMargin = 20;
+                    var leftPosition = windowWidth - catalogWidth - rightMargin;
+                    
                     $catalog.css({
-                        'right': '20px',
-                        'left': 'auto',
+                        'left': leftPosition + 'px',
+                        'right': 'auto',
                         'top': '80px',
                         'position': 'fixed',
                         'display': 'block',
                         'visibility': 'visible',
-                        'opacity': '1'
+                        'opacity': '1',
+                        'width': '280px'
                     });
                 }
+            } else {
+                // 如果没有容器，使用默认右侧定位
+                var windowWidth = $(window).width();
+                var catalogWidth = 280;
+                var rightMargin = 20;
+                var leftPosition = windowWidth - catalogWidth - rightMargin;
+                
+                $catalog.css({
+                    'left': leftPosition + 'px',
+                    'right': 'auto',
+                    'top': '80px',
+                    'position': 'fixed',
+                    'display': 'block',
+                    'visibility': 'visible',
+                    'opacity': '1',
+                    'width': '280px'
+                });
             }
         }
 
         // 监听滚动事件，更新固定定位
         $(window).on('scroll resize', function() {
             ensureCatalogVisible();
-            // 延迟更新位置，确保 DOM 已更新
-            setTimeout(updateFixedPosition, 10);
+            // 立即更新位置
+            updateFixedPosition();
         });
-
-        // 初始设置 - 立即应用固定定位，类似 CSDN
-        // 确保 CATALOG 在页面加载时就显示
-        ensureCatalogVisible();
-        $catalog.addClass('fixed');
         
-        // 延迟执行确保 DOM 完全加载后再计算位置
-        $(document).ready(function() {
+        // 监听窗口大小改变，重新计算位置
+        $(window).on('orientationchange', function() {
             setTimeout(function() {
                 ensureCatalogVisible();
                 updateFixedPosition();
             }, 100);
         });
+
+        // 初始设置 - 立即应用固定定位，类似 CSDN
+        // 确保 CATALOG 在页面加载时就显示
+        function initCatalog() {
+            ensureCatalogVisible();
+            $catalog.addClass('fixed');
+            updateFixedPosition();
+        }
+        
+        // 立即执行初始化
+        initCatalog();
+        
+        // DOM ready 时再次初始化
+        $(document).ready(function() {
+            setTimeout(initCatalog, 50);
+        });
         
         // 页面加载完成后再次确保位置正确
         $(window).on('load', function() {
-            ensureCatalogVisible();
-            updateFixedPosition();
+            setTimeout(initCatalog, 100);
         });
         
-        // 立即执行一次，确保初始显示
-        setTimeout(function() {
-            updateFixedPosition();
-        }, 50);
+        // 多次尝试确保位置正确（处理异步加载的情况）
+        var initAttempts = 0;
+        var initInterval = setInterval(function() {
+            initAttempts++;
+            if ($catalogContainer.length && $catalogContainer.offset()) {
+                initCatalog();
+                clearInterval(initInterval);
+            } else if (initAttempts > 10) {
+                // 10次尝试后停止
+                clearInterval(initInterval);
+                // 即使容器不可用，也确保 CATALOG 显示
+                initCatalog();
+            }
+        }, 100);
 
         // CATALOG 区域不需要滚轮事件，滚轮直接作用于页面主体
         // 移除滚轮事件处理，让滚轮事件正常冒泡到页面

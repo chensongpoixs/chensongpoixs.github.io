@@ -595,20 +595,32 @@ hr {
         /* 内容区域宽度设为66% */
         width: 66% !important;
         max-width: 66% !important;
+        min-width: 66% !important;
         flex: 0 0 66% !important;
+        flex-basis: 66% !important;
+        flex-grow: 0 !important;
+        flex-shrink: 0 !important;
     }
     
     /* 调整侧边栏宽度以适应内容区域66% */
     .sidebar-left {
         width: 17% !important;
         max-width: 17% !important;
+        min-width: 17% !important;
         flex: 0 0 17% !important;
+        flex-basis: 17% !important;
+        flex-grow: 0 !important;
+        flex-shrink: 0 !important;
     }
     
     .sidebar-right {
         width: 17% !important;
         max-width: 17% !important;
+        min-width: 17% !important;
         flex: 0 0 17% !important;
+        flex-basis: 17% !important;
+        flex-grow: 0 !important;
+        flex-shrink: 0 !important;
     }
 }
 
@@ -625,20 +637,32 @@ hr {
         /* 内容区域宽度设为66% */
         width: 66% !important;
         max-width: 66% !important;
+        min-width: 66% !important;
         flex: 0 0 66% !important;
+        flex-basis: 66% !important;
+        flex-grow: 0 !important;
+        flex-shrink: 0 !important;
     }
     
     /* 调整侧边栏宽度以适应内容区域66% */
     .sidebar-left {
         width: 17% !important;
         max-width: 17% !important;
+        min-width: 17% !important;
         flex: 0 0 17% !important;
+        flex-basis: 17% !important;
+        flex-grow: 0 !important;
+        flex-shrink: 0 !important;
     }
     
     .sidebar-right {
         width: 17% !important;
         max-width: 17% !important;
+        min-width: 17% !important;
         flex: 0 0 17% !important;
+        flex-basis: 17% !important;
+        flex-grow: 0 !important;
+        flex-shrink: 0 !important;
     }
 }
 
@@ -655,20 +679,32 @@ hr {
         /* 内容区域宽度设为66% */
         width: 66% !important;
         max-width: 66% !important;
+        min-width: 66% !important;
         flex: 0 0 66% !important;
+        flex-basis: 66% !important;
+        flex-grow: 0 !important;
+        flex-shrink: 0 !important;
     }
     
     /* 调整侧边栏宽度以适应内容区域66% */
     .sidebar-left {
         width: 17% !important;
         max-width: 17% !important;
+        min-width: 17% !important;
         flex: 0 0 17% !important;
+        flex-basis: 17% !important;
+        flex-grow: 0 !important;
+        flex-shrink: 0 !important;
     }
     
     .sidebar-right {
         width: 17% !important;
         max-width: 17% !important;
+        min-width: 17% !important;
         flex: 0 0 17% !important;
+        flex-basis: 17% !important;
+        flex-grow: 0 !important;
+        flex-shrink: 0 !important;
     }
 }
 

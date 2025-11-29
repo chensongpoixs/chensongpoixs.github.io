@@ -1601,7 +1601,7 @@ article .post-container table th {
     /* 优化滚动性能 */
     -webkit-overflow-scrolling: touch;
     will-change: scroll-position;
-    /* 确保定位正确 */
+    /* 默认使用相对定位，但会通过 JavaScript 改为固定定位 */
     position: relative;
     z-index: 100;
 }
@@ -1771,7 +1771,7 @@ article .post-container table th {
     opacity: 1;
 }
 
-/* 调整固定定位时的位置 */
+/* 调整固定定位时的位置 - 类似 CSDN，始终固定显示 */
 .side-catalog.fixed {
     position: fixed !important;
     top: 80px !important; /* 距离顶部的位置，避免被导航栏遮挡 */
@@ -1790,6 +1790,8 @@ article .post-container table th {
     /* 确保位置正确 - 使用 JavaScript 动态计算 */
     margin-left: 0 !important;
     margin-right: 0 !important;
+    /* 确保即使内容很少也显示 */
+    min-height: 200px;
 }
 
 /* CATALOG 自定义滚动条样式 */

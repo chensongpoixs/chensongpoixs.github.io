@@ -428,13 +428,16 @@
             }
         }
 
-        // 计算固定定位时的位置
+        // 计算固定定位时的位置 - 始终使用固定定位，类似 CSDN
         function updateFixedPosition() {
-            if ($catalog.hasClass('fixed') && $catalogContainer.length) {
+            // 确保 CATALOG 始终使用固定定位
+            if (!$catalog.hasClass('fixed')) {
+                $catalog.addClass('fixed');
+            }
+            
+            if ($catalogContainer.length) {
                 // 获取容器的原始位置
                 var containerOffset = $catalogContainer.offset();
-                var containerWidth = $catalogContainer.outerWidth();
-                var catalogWidth = $catalog.outerWidth();
                 
                 if (containerOffset) {
                     // 使用 left 定位，保持与原始位置一致
@@ -442,17 +445,25 @@
                         'left': containerOffset.left + 'px',
                         'right': 'auto',
                         'top': '80px',
-                        'position': 'fixed'
+                        'position': 'fixed',
+                        'display': 'block',
+                        'visibility': 'visible',
+                        'opacity': '1'
+                    });
+                } else {
+                    // 如果容器位置不可用，使用默认右侧定位
+                    var windowWidth = $(window).width();
+                    var catalogWidth = $catalog.outerWidth() || 280;
+                    $catalog.css({
+                        'right': '20px',
+                        'left': 'auto',
+                        'top': '80px',
+                        'position': 'fixed',
+                        'display': 'block',
+                        'visibility': 'visible',
+                        'opacity': '1'
                     });
                 }
-            } else {
-                // 非固定定位时，恢复默认
-                $catalog.css({
-                    'left': 'auto',
-                    'right': 'auto',
-                    'top': 'auto',
-                    'position': 'relative'
-                });
             }
         }
 
@@ -463,7 +474,12 @@
             setTimeout(updateFixedPosition, 10);
         });
 
-        // 初始设置 - 延迟执行确保 DOM 完全加载
+        // 初始设置 - 立即应用固定定位，类似 CSDN
+        // 确保 CATALOG 在页面加载时就显示
+        ensureCatalogVisible();
+        $catalog.addClass('fixed');
+        
+        // 延迟执行确保 DOM 完全加载后再计算位置
         $(document).ready(function() {
             setTimeout(function() {
                 ensureCatalogVisible();
@@ -476,6 +492,11 @@
             ensureCatalogVisible();
             updateFixedPosition();
         });
+        
+        // 立即执行一次，确保初始显示
+        setTimeout(function() {
+            updateFixedPosition();
+        }, 50);
 
         // CATALOG 区域不需要滚轮事件，滚轮直接作用于页面主体
         // 移除滚轮事件处理，让滚轮事件正常冒泡到页面

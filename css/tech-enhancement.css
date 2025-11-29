@@ -1645,13 +1645,15 @@ article .post-container table th {
     letter-spacing: 2px;
 }
 
-/* 确保 catalog-body 可以正常滚动 */
+/* 确保 catalog-body 可以正常滚动 - 但不需要滚轮事件 */
 .side-catalog .catalog-body {
     overflow-y: auto !important;
     overflow-x: hidden !important;
     padding-right: 15px !important;
     max-height: calc(100vh - 300px) !important;
     transition: max-height 0.3s ease;
+    /* 禁用滚轮滚动，滚轮事件直接作用于页面 */
+    pointer-events: auto;
 }
 
 /* 目录折叠状态 */

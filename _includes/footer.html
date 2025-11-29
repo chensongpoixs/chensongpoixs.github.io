@@ -477,34 +477,8 @@
             updateFixedPosition();
         });
 
-        // 阻止 CATALOG 区域的滚轮事件冒泡到页面
-        $catalog.on('wheel', function(e) {
-            var element = this;
-            var scrollTop = element.scrollTop;
-            var scrollHeight = element.scrollHeight;
-            var clientHeight = element.clientHeight;
-            var deltaY = e.originalEvent.deltaY;
-            
-            // 判断是否可以继续滚动
-            var isAtTop = scrollTop <= 1;
-            var isAtBottom = scrollTop + clientHeight >= scrollHeight - 1;
-            
-            // 如果已经到达顶部且向上滚动，或者到达底部且向下滚动，则允许事件冒泡到页面
-            if ((isAtTop && deltaY < 0) || (isAtBottom && deltaY > 0)) {
-                // 允许事件继续传播到页面主体
-                return true;
-            }
-            
-            // 否则阻止事件冒泡，只在 CATALOG 内滚动
-            e.stopPropagation();
-        });
-
-        // 使用 mouseenter/mouseleave 来标记鼠标位置
-        $catalog.on('mouseenter', function() {
-            $(this).addClass('catalog-hover');
-        }).on('mouseleave', function() {
-            $(this).removeClass('catalog-hover');
-        });
+        // CATALOG 区域不需要滚轮事件，滚轮直接作用于页面主体
+        // 移除滚轮事件处理，让滚轮事件正常冒泡到页面
     })();
 </script>
 {% endif %}

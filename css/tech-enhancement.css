@@ -581,11 +581,13 @@ hr {
     padding-right: 0 !important;
 }
 
-/* 容器调整 - 让内容占满100%宽度 */
+/* 容器调整 - 让内容占满85%宽度并居中 */
 @media (min-width: 1200px) {
     .container {
-        max-width: 100% !important;
-        width: 100% !important;
+        max-width: 85% !important;
+        width: 85% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
         padding-left: 0 !important;
         padding-right: 0 !important;
     }
@@ -617,8 +619,10 @@ hr {
 
 @media (min-width: 1400px) {
     .container {
-        max-width: 100% !important;
-        width: 100% !important;
+        max-width: 85% !important;
+        width: 85% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
         padding-left: 0 !important;
         padding-right: 0 !important;
     }
@@ -650,8 +654,10 @@ hr {
 
 @media (min-width: 1600px) {
     .container {
-        max-width: 100% !important;
-        width: 100% !important;
+        max-width: 85% !important;
+        width: 85% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
         padding-left: 0 !important;
         padding-right: 0 !important;
     }

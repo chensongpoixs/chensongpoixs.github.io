@@ -56,11 +56,17 @@ body::after {
 }
 
 /* 内容区域提升层级 */
-.container,
+.container {
+    position: relative;
+    z-index: 1;
+    background: transparent;
+}
+
 .postlist-container {
     position: relative;
     z-index: 1;
     background: transparent;
+    padding: 20px 0;
 }
 
 /* 主内容区域文字颜色 */
@@ -555,6 +561,79 @@ hr {
     padding: 25px;
     margin-top: 20px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* 左侧边栏紧贴左边 */
+.sidebar-left {
+    padding-left: 0 !important;
+    padding-right: 20px;
+    margin-left: 0;
+}
+
+/* 右侧边栏紧贴右边 */
+.sidebar-right {
+    padding-right: 0 !important;
+    padding-left: 20px;
+    margin-right: 0;
+}
+
+/* 容器调整 - 让内容更宽更显眼 */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1600px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    
+    .postlist-container {
+        padding-left: 40px !important;
+        padding-right: 40px !important;
+    }
+    
+    .sidebar-left {
+        padding-right: 25px;
+    }
+    
+    .sidebar-right {
+        padding-left: 25px;
+    }
+    
+    /* 让侧边栏更宽 */
+    .sidebar-container {
+        min-width: 280px;
+    }
+}
+
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1800px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    
+    .postlist-container {
+        padding-left: 50px !important;
+        padding-right: 50px !important;
+    }
+    
+    .sidebar-container {
+        min-width: 320px;
+    }
+}
+
+@media (min-width: 1600px) {
+    .container {
+        max-width: 2000px;
+    }
+    
+    .postlist-container {
+        padding-left: 60px !important;
+        padding-right: 60px !important;
+    }
+    
+    .sidebar-container {
+        min-width: 360px;
+    }
 }
 
 .sidebar-container h5 {

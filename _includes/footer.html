@@ -420,10 +420,18 @@
         function ensureCatalogVisible() {
             if ($catalog && $catalog.length) {
                 $catalog.css({
-                    'display': 'block',
-                    'visibility': 'visible',
-                    'opacity': '1'
+                    'display': 'block !important',
+                    'visibility': 'visible !important',
+                    'opacity': '1 !important'
                 });
+                
+                // 确保容器也可见
+                if ($catalogContainer && $catalogContainer.length) {
+                    $catalogContainer.css({
+                        'display': 'block !important',
+                        'visibility': 'visible !important'
+                    });
+                }
             }
         }
 
@@ -436,8 +444,16 @@
                 $catalog.addClass('fixed');
             }
             
-            // 确保 CATALOG 可见
+            // 确保 CATALOG 可见 - 强制显示
             ensureCatalogVisible();
+            
+            // 确保容器也可见
+            if ($catalogContainer && $catalogContainer.length) {
+                $catalogContainer.css({
+                    'display': 'block',
+                    'visibility': 'visible'
+                });
+            }
             
             var windowWidth = $(window).width();
             var leftPosition = 0;
@@ -458,15 +474,24 @@
                 leftPosition = windowWidth - 300;
             }
             
+            // 确保位置在视口内
+            if (leftPosition < 0) {
+                leftPosition = 20; // 最小左边距
+            }
+            if (leftPosition + 280 > windowWidth) {
+                leftPosition = windowWidth - 300; // 确保不超出右边界
+            }
+            
             $catalog.css({
                 'left': leftPosition + 'px',
                 'right': 'auto',
                 'top': '80px',
                 'position': 'fixed',
-                'display': 'block',
-                'visibility': 'visible',
-                'opacity': '1',
-                'width': '280px'
+                'display': 'block !important',
+                'visibility': 'visible !important',
+                'opacity': '1 !important',
+                'width': '280px',
+                'z-index': '1000'
             });
         }
 
@@ -512,6 +537,20 @@
         
         // 立即尝试一次
         tryInit();
+        
+        // 定时检查，确保 CATALOG 始终显示（防止被其他代码隐藏）
+        setInterval(function() {
+            if ($catalog && $catalog.length) {
+                // 检查是否被隐藏
+                if (!$catalog.is(':visible') || $catalog.css('display') === 'none' || $catalog.css('visibility') === 'hidden') {
+                    ensureCatalogVisible();
+                    updateFixedPosition();
+                }
+            } else {
+                // 如果 CATALOG 不存在，尝试重新初始化
+                tryInit();
+            }
+        }, 500); // 每 500ms 检查一次
     });
 </script>
 {% endif %}

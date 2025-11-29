@@ -315,29 +315,74 @@
         // 生成目录
         function generateCatalog (selector) {
             var P = $('div.post-container');
+            if (P.length === 0) {
+                console.warn('post-container not found');
+                return false;
+            }
+            
             var headings = P.find('h1,h2,h3,h4,h5,h6');
             var catalogBody = $(selector);
+            
+            if (catalogBody.length === 0) {
+                console.warn('catalog-body not found');
+                return false;
+            }
+            
             catalogBody.empty(); // 清空现有内容
             
+            if (headings.length === 0) {
+                console.warn('No headings found in post-container');
+                return false;
+            }
+            
+            var itemCount = 0;
             headings.each(function () {
                 var $heading = $(this);
                 var tagName = $heading.prop('tagName').toLowerCase();
                 var id = $heading.attr('id');
                 var text = $heading.text().trim();
                 
-                if (!id || !text) return; // 跳过没有 ID 或文本的标题
+                if (!id || !text) {
+                    // 如果没有 ID，尝试使用文本生成 ID
+                    if (text) {
+                        id = text.replace(/[^\w\u4e00-\u9fa5]/g, '-').toLowerCase();
+                        $heading.attr('id', id);
+                    } else {
+                        return; // 跳过没有文本的标题
+                    }
+                }
                 
                 var link = $('<a href="#' + id + '" rel="nofollow" data-target="' + id + '">' + text + '</a>');
                 var listItem = $('<li class="' + tagName + '_nav"></li>').append(link);
                 catalogBody.append(listItem);
+                itemCount++;
             });
             
-            return true;    
+            // 确保 catalog-body 可见
+            catalogBody.css({
+                'display': 'block',
+                'visibility': 'visible',
+                'opacity': '1'
+            });
+            
+            console.log('Generated catalog with ' + itemCount + ' items');
+            return itemCount > 0;    
         }
         
         // 初始化：先添加 ID，再生成目录
-        autoGenerateIds();
-        generateCatalog(".catalog-body");
+        // 延迟执行，确保 DOM 完全加载
+        setTimeout(function() {
+            autoGenerateIds();
+            var success = generateCatalog(".catalog-body");
+            
+            if (!success) {
+                // 如果第一次失败，再试一次
+                setTimeout(function() {
+                    autoGenerateIds();
+                    generateCatalog(".catalog-body");
+                }, 500);
+            }
+        }, 100);
 
     // 目录折叠/展开功能（点击标题）- 类似 CSDN
     $(".catalog-title").click(function(e){
@@ -354,9 +399,16 @@
         }
     });
     
-    // 默认展开目录
-    $('.side-catalog .catalog-body').show();
-    $('.catalog-title').removeClass('folded');
+    // 默认展开目录 - 确保始终显示
+    setTimeout(function() {
+        $('.side-catalog .catalog-body').css({
+            'display': 'block !important',
+            'visibility': 'visible !important',
+            'opacity': '1 !important',
+            'max-height': 'none !important'
+        }).show();
+        $('.catalog-title').removeClass('folded');
+    }, 200);
 
     /*
      * Doc: https://github.com/davist11/jQuery-One-Page-Nav

@@ -1670,6 +1670,12 @@ article .post-container table th {
     transition: max-height 0.3s ease;
     /* 禁用滚轮滚动，滚轮事件直接作用于页面 */
     pointer-events: auto;
+    /* 确保始终显示 */
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    /* 确保有内容时显示 */
+    min-height: 50px;
 }
 
 /* 目录折叠状态 */

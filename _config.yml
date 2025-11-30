@@ -159,14 +159,14 @@ frontier_techs: [
     {
         name: "AI/ML/AIGC/DL/LLM",
         description: "人工智能，机器学习、AIGC、深度学习和大模型算法应用",
-        icon: "/img/ai_ml_aigc_dl_llm_relation.png",
+        icon: "/img/ai_ml_aigc_dl_llm_relation.svg",
         level: 75,
         link: "/artificial_intelligence/"
     },
     {
         name: "CUDA/GPU",
         description: "NVIDIA GPU并行计算，高性能计算优化",
-        icon: "/img/cuda_gpu_relation.png",
+        icon: "/img/cuda_gpu_relation.svg",
         level: 70,
         link: "/Cuda/"
     }, 

@@ -1,6 +1,6 @@
 # cartificial_intelligence
 
-![人工智能、机器学习、AIGC、深度学习和大模型关系图（正确的层次结构）](/img/ai_ml_aigc_dl_llm_relation.png)
+![人工智能、机器学习、AIGC、深度学习和大模型关系图（正确的层次结构）](/img/ai_ml_aigc_dl_llm_relation.svg)
 
 正确的层次关系：
 

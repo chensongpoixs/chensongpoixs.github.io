@@ -1,6 +1,6 @@
 # ccuda_sample
 
-![CUDA/GPU](/img/cuda_gpu_relation.png)
+![CUDA/GPU](/img/cuda_gpu_relation.svg)
 
 图标设计说明：
 

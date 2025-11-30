@@ -157,8 +157,8 @@ friends: [
 # Frontier Technologies - 博主前沿技术
 frontier_techs: [
     {
-        name: "AI/ML/AIGC/DL/LLM",
-        description: "人工智能，机器学习、AIGC、深度学习和大模型算法应用",
+        name: "AI/ML/DL/LLM/AIGC",
+        description: "人工智能，机器学习、深度学习、大模型和AIGC算法应用及其探索",
         icon: "/img/ai_ml_aigc_dl_llm_relation.svg",
         level: 75,
         link: "/artificial_intelligence/"

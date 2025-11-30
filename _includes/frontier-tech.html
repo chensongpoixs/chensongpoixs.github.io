@@ -16,7 +16,11 @@
             <div class="tech-card">
                 <div class="tech-icon">
                     {% if tech.icon %}
-                        <i class="{{ tech.icon }}"></i>
+                        {% if tech.icon contains '/' or tech.icon contains 'http' %}
+                            <img src="{{ tech.icon }}" alt="{{ tech.name }}" class="tech-icon-img">
+                        {% else %}
+                            <i class="{{ tech.icon }}"></i>
+                        {% endif %}
                     {% else %}
                         <i class="fa fa-code"></i>
                     {% endif %}

@@ -1,5 +1,18 @@
 # cartificial_intelligence
 
+
+![人工智能、机器学习、AIGC、深度学习和大模型关系图（正确的层次结构）](/img/ai_ml_aigc_dl_llm_relation.png)
+
+正确的层次关系：
+
+- AI（人工智能） - 最顶层，包含所有智能系统
+- ML（机器学习） - AI 的子集，让机器从数据中学习
+- DL（深度学习） - ML 的子集，使用神经网络
+- LLM（大语言模型） - DL 的应用，特别是基于 Transformer 的模型
+- AIGC（AI生成内容） - AI 的应用领域，通常使用 LLM 等技术
+
+
+
 [人工智能,机器学习](https://chensongpoixs.github.io/cartificial_intelligence "人工智能,机器学习")
 
 

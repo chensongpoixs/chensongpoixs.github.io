@@ -157,18 +157,25 @@ friends: [
 # Frontier Technologies - 博主前沿技术
 frontier_techs: [
     {
-        name: "AI/DL/AIGC/LLM",
-        description: "人工智能，深度学习和大模型算法应用",
-        icon: "fa fa-brain",
+        name: "AI/ML/AIGC/DL/LLM",
+        description: "人工智能，机器学习、AIGC、深度学习和大模型算法应用",
+        icon: "/img/ai_ml_aigc_dl_llm_relation.png",
         level: 75,
         link: "/artificial_intelligence/"
     },
     {
         name: "CUDA/GPU",
         description: "NVIDIA GPU并行计算，高性能计算优化",
-        icon: "fa fa-microchip",
+        icon: "/img/cuda_gpu_relation.png",
         level: 70,
         link: "/Cuda/"
+    }, 
+    {
+        name: "视频编解码",
+        description: "H.264/H.265等视频编码标准，FFmpeg应用",
+        icon: "fa fa-film",
+        level: 80,
+        link: "/video_codec/"
     },
     {
         name: "WebRTC",
@@ -176,13 +183,6 @@ frontier_techs: [
         icon: "fa fa-video-camera",
         level: 85,
         link: "/WebRTC/"
-    },
-    {
-        name: "视频编解码",
-        description: "H.264/H.265等视频编码标准，FFmpeg应用",
-        icon: "fa fa-film",
-        level: 80,
-        link: "/video_codec/"
     },
     {
         name: "OpenGL",

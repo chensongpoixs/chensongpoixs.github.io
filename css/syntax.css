@@ -17,9 +17,26 @@
 /*
  * GitHub style for Pygments syntax highlighter, for use with Jekyll
  * Courtesy of GitHub.com
+ *
+ * 【增强版】让代码块更显眼：
+ * - 深色背景 + 霓虹左边框
+ * - 轻微阴影，增加层次感
+ * - 略大行高，便于阅读
  */
 
-.highlight pre, pre, .highlight .hll { background-color: #f8f8f8; border: 1px solid #ccc; padding: 6px 10px; border-radius: 3px; }
+.highlight pre,
+pre,
+.highlight .hll {
+  background-color: #0b1020;          /* 深色背景，突出代码区域 */
+  border: 1px solid #1f3b5d;         /* 边框颜色更贴近夜间主题 */
+  border-left: 4px solid #00ffff;    /* 左侧高亮色条，吸引视线 */
+  padding: 10px 12px;
+  border-radius: 4px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45);
+  color: #e6edf7;                     /* 默认前景色更亮 */
+  line-height: 1.5;                   /* 增加行高，提升可读性 */
+  font-size: 14px;
+}
 .highlight .c { color: #999988; font-style: italic; }
 .highlight .err { color: #a61717; background-color: #e3d2d2; }
 .highlight .k { font-weight: bold; }

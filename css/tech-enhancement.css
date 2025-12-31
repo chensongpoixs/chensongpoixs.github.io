@@ -710,24 +710,24 @@ hr {
         margin-right: 0 !important;
     }
     
-    /* 左侧边栏精确控制为12% */
+    /* 左侧边栏精确控制为20% */
     .sidebar-left {
-        width: 12% !important;
-        max-width: 12% !important;
-        min-width: 12% !important;
-        flex: 0 0 12% !important;
-        flex-basis: 12% !important;
+        width: 20% !important;
+        max-width: 20% !important;
+        min-width: 20% !important;
+        flex: 0 0 20% !important;
+        flex-basis: 20% !important;
         padding-left: 0 !important;
         padding-right: 15px !important;
     }
     
-    /* 内容区域精确控制为76% */
+    /* 内容区域精确控制为60% */
     .postlist-container {
-        width: 76% !important;
-        max-width: 76% !important;
-        min-width: 76% !important;
-        flex: 0 0 76% !important;
-        flex-basis: 76% !important;
+        width: 60% !important;
+        max-width: 60% !important;
+        min-width: 60% !important;
+        flex: 0 0 60% !important;
+        flex-basis: 60% !important;
         padding-left: 30px !important;
         padding-right: 30px !important;
         position: relative;
@@ -758,13 +758,13 @@ hr {
         right: 0;
     }
     
-    /* 右侧边栏精确控制为12% */
+    /* 右侧边栏精确控制为20% */
     .sidebar-right {
-        width: 12% !important;
-        max-width: 12% !important;
-        min-width: 12% !important;
-        flex: 0 0 12% !important;
-        flex-basis: 12% !important;
+        width: 20% !important;
+        max-width: 20% !important;
+        min-width: 20% !important;
+        flex: 0 0 20% !important;
+        flex-basis: 20% !important;
         padding-left: 15px !important;
         padding-right: 0 !important;
     }

@@ -2003,17 +2003,17 @@ select:focus {
     }
     
     .postlist-container {
-        padding-right: 40px;
-        padding-left: 20px;
+        padding-right: 30px;
+        padding-left: 30px;
     }
     
     .sidebar-container.sidebar-left {
-        padding-right: 20px;
+        padding-right: 25px;
         padding-left: 0;
     }
     
     .sidebar-container.sidebar-right {
-        padding-left: 20px;
+        padding-left: 25px;
         padding-right: 0;
     }
 }
@@ -2237,16 +2237,16 @@ select:focus {
 
 @media (min-width: 992px) and (max-width: 1199px) {
     .postlist-container {
-        padding-right: 30px;
-        padding-left: 15px;
+        padding-right: 25px;
+        padding-left: 25px;
     }
     
     .sidebar-container.sidebar-left {
-        padding-right: 15px;
+        padding-right: 20px;
     }
     
     .sidebar-container.sidebar-right {
-        padding-left: 15px;
+        padding-left: 20px;
     }
 }
 

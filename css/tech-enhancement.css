@@ -1255,10 +1255,10 @@ article .post-container table th {
    ============================================ */
 
 .frontier-tech-section {
-    margin: 0 0 50px 0;
+    margin: 0 -10px 50px -10px;
     position: relative;
     z-index: 1;
-    padding: 8px;
+    padding: 8px 5px;
     background: linear-gradient(135deg, 
         rgba(0, 255, 255, 0.12) 0%, 
         rgba(138, 43, 226, 0.12) 50%, 
@@ -1267,6 +1267,7 @@ article .post-container table th {
     box-shadow: 0 0 50px rgba(0, 255, 255, 0.25),
                 inset 0 0 40px rgba(0, 255, 255, 0.08);
     animation: sectionPulse 3s ease-in-out infinite;
+    width: calc(100% + 20px);
 }
 
 @keyframes sectionPulse {
@@ -1286,7 +1287,7 @@ article .post-container table th {
     -webkit-backdrop-filter: blur(18px);
     border: 2.5px solid rgba(0, 255, 255, 0.5);
     border-radius: 18px;
-    padding: 40px 35px;
+    padding: 40px 30px;
     box-shadow: 0 10px 40px rgba(0, 255, 255, 0.3),
                 0 0 0 1px rgba(0, 255, 255, 0.15) inset,
                 inset 0 0 60px rgba(0, 255, 255, 0.1);
@@ -1592,7 +1593,6 @@ article .post-container table th {
     overflow: hidden;
     box-shadow: 0 6px 20px rgba(0, 255, 255, 0.2),
                 inset 0 0 25px rgba(0, 255, 255, 0.06);
-    min-height: 140px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1805,8 +1805,9 @@ article .post-container table th {
 /* 响应式设计 */
 @media only screen and (max-width: 768px) {
     .frontier-tech-section {
-        margin-bottom: 30px;
+        margin: 0 0 30px 0;
         padding: 3px;
+        width: 100%;
     }
     
     .frontier-tech-container {
@@ -1853,7 +1854,6 @@ article .post-container table th {
     .tech-card {
         padding: 18px 14px;
         border-width: 2px;
-        min-height: 130px;
     }
     
     .tech-icon {
@@ -2120,12 +2120,12 @@ select:focus {
     }
     
     .sidebar-container.sidebar-left {
-        padding-right: 25px;
+        padding-right: 15px;
         padding-left: 0;
     }
     
     .sidebar-container.sidebar-right {
-        padding-left: 25px;
+        padding-left: 15px;
         padding-right: 0;
     }
 }
@@ -2210,11 +2210,13 @@ select:focus {
 /* 左侧边栏优化 */
 .sidebar-container.sidebar-left {
     padding-top: 20px;
+    padding-right: 15px;
 }
 
 /* 右侧边栏优化 */
 .sidebar-container.sidebar-right {
     padding-top: 20px;
+    padding-left: 15px;
 }
 
 /* 前沿技术区域优化 */
@@ -2400,13 +2402,18 @@ select:focus {
     }
     
     .frontier-tech-section {
-        margin-bottom: 25px;
+        margin: 0 0 25px 0;
         padding: 3px;
+        width: 100%;
     }
     
     .frontier-tech-container {
         padding: 22px 18px;
         border-width: 2px;
+    }
+    
+    .tech-card {
+        min-height: auto;
     }
     
     .frontier-tech-title {

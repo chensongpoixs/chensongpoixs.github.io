@@ -1255,20 +1255,41 @@ article .post-container table th {
    ============================================ */
 
 .frontier-tech-section {
-    margin: 0 0 30px 0;
+    margin: 0 0 40px 0;
     position: relative;
     z-index: 1;
+    padding: 5px;
+    background: linear-gradient(135deg, 
+        rgba(0, 255, 255, 0.1) 0%, 
+        rgba(138, 43, 226, 0.1) 50%, 
+        rgba(0, 191, 255, 0.1) 100%);
+    border-radius: 16px;
+    box-shadow: 0 0 40px rgba(0, 255, 255, 0.2),
+                inset 0 0 30px rgba(0, 255, 255, 0.05);
+    animation: sectionPulse 3s ease-in-out infinite;
+}
+
+@keyframes sectionPulse {
+    0%, 100% {
+        box-shadow: 0 0 40px rgba(0, 255, 255, 0.2),
+                    inset 0 0 30px rgba(0, 255, 255, 0.05);
+    }
+    50% {
+        box-shadow: 0 0 60px rgba(0, 255, 255, 0.4),
+                    inset 0 0 40px rgba(0, 255, 255, 0.1);
+    }
 }
 
 .frontier-tech-container {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(0, 255, 255, 0.2);
-    border-radius: 12px;
-    padding: 25px 20px;
-    box-shadow: 0 4px 20px rgba(0, 255, 255, 0.15),
-                inset 0 0 30px rgba(0, 255, 255, 0.05);
+    background: rgba(10, 14, 39, 0.9);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 2px solid rgba(0, 255, 255, 0.4);
+    border-radius: 14px;
+    padding: 30px 25px;
+    box-shadow: 0 8px 32px rgba(0, 255, 255, 0.25),
+                0 0 0 1px rgba(0, 255, 255, 0.1) inset,
+                inset 0 0 50px rgba(0, 255, 255, 0.08);
     position: relative;
     overflow: hidden;
 }
@@ -1280,9 +1301,35 @@ article .post-container table th {
     left: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle, rgba(0, 255, 255, 0.1) 0%, transparent 70%);
-    animation: techGlow 8s ease-in-out infinite;
+    background: radial-gradient(circle, rgba(0, 255, 255, 0.15) 0%, transparent 70%);
+    animation: techGlow 6s ease-in-out infinite;
     pointer-events: none;
+}
+
+.frontier-tech-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, 
+        transparent 30%, 
+        rgba(0, 255, 255, 0.05) 50%, 
+        transparent 70%);
+    background-size: 200% 200%;
+    animation: borderShine 4s linear infinite;
+    pointer-events: none;
+    border-radius: 14px;
+}
+
+@keyframes borderShine {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 200% 200%;
+    }
 }
 
 @keyframes techGlow {
@@ -1299,20 +1346,48 @@ article .post-container table th {
 .frontier-tech-title {
     color: #00ffff;
     text-align: center;
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 15px;
-    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
-    letter-spacing: 1px;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-shadow: 0 0 15px rgba(0, 255, 255, 0.8),
+                 0 0 30px rgba(0, 255, 255, 0.4),
+                 0 0 45px rgba(0, 255, 255, 0.2);
+    letter-spacing: 2px;
     position: relative;
-    z-index: 1;
-    border-bottom: 2px solid rgba(0, 255, 255, 0.3);
-    padding-bottom: 10px;
+    z-index: 2;
+    border-bottom: 3px solid rgba(0, 255, 255, 0.5);
+    padding-bottom: 15px;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(0, 255, 255, 0.1), 
+        transparent);
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 255, 255, 0.2);
+    animation: titleGlow 2s ease-in-out infinite;
+}
+
+@keyframes titleGlow {
+    0%, 100% {
+        text-shadow: 0 0 15px rgba(0, 255, 255, 0.8),
+                     0 0 30px rgba(0, 255, 255, 0.4),
+                     0 0 45px rgba(0, 255, 255, 0.2);
+    }
+    50% {
+        text-shadow: 0 0 20px rgba(0, 255, 255, 1),
+                     0 0 40px rgba(0, 255, 255, 0.6),
+                     0 0 60px rgba(0, 255, 255, 0.3);
+    }
 }
 
 .frontier-tech-title i {
-    margin-right: 8px;
-    animation: rocketPulse 2s ease-in-out infinite;
+    margin-right: 10px;
+    animation: rocketPulse 1.5s ease-in-out infinite;
+    font-size: 24px;
+    display: inline-block;
+    filter: drop-shadow(0 0 8px rgba(0, 255, 255, 0.8));
 }
 
 @keyframes rocketPulse {
@@ -1326,11 +1401,13 @@ article .post-container table th {
 
 .tech-subtitle {
     display: block;
-    font-size: 11px;
-    font-weight: 300;
-    color: rgba(255, 255, 255, 0.6);
-    margin-top: 5px;
-    letter-spacing: 2px;
+    font-size: 12px;
+    font-weight: 400;
+    color: rgba(0, 255, 255, 0.8);
+    margin-top: 8px;
+    letter-spacing: 3px;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    text-transform: uppercase;
 }
 
 /* 所有标签标题样式 - 仿照博主前沿技术 */
@@ -1492,24 +1569,26 @@ article .post-container table th {
 .tech-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 8px;
-    margin-top: 15px;
+    gap: 12px;
+    margin-top: 20px;
     position: relative;
     z-index: 1;
+    padding: 5px;
 }
 
 .tech-card {
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(0, 255, 255, 0.2);
-    border-radius: 8px;
-    padding: 10px 8px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1.5px solid rgba(0, 255, 255, 0.3);
+    border-radius: 10px;
+    padding: 15px 12px;
     text-align: center;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: relative;
     overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 15px rgba(0, 255, 255, 0.15),
+                inset 0 0 20px rgba(0, 255, 255, 0.05);
 }
 
 .tech-card::before {
@@ -1531,10 +1610,12 @@ article .post-container table th {
 }
 
 .tech-card:hover {
-    transform: translateY(-3px);
-    border-color: rgba(0, 255, 255, 0.5);
-    box-shadow: 0 6px 20px rgba(0, 255, 255, 0.3);
-    background: rgba(255, 255, 255, 0.06);
+    transform: translateY(-5px) scale(1.02);
+    border-color: rgba(0, 255, 255, 0.7);
+    box-shadow: 0 10px 30px rgba(0, 255, 255, 0.4),
+                0 0 40px rgba(0, 255, 255, 0.2),
+                inset 0 0 30px rgba(0, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.08);
 }
 
 .tech-icon {
@@ -1711,12 +1792,24 @@ article .post-container table th {
 
 /* 响应式设计 */
 @media only screen and (max-width: 768px) {
+    .frontier-tech-section {
+        margin-bottom: 30px;
+        padding: 3px;
+    }
+    
     .frontier-tech-container {
-        padding: 20px 15px;
+        padding: 25px 20px;
+        border-width: 2px;
     }
     
     .frontier-tech-title {
-        font-size: 16px;
+        font-size: 20px;
+        padding: 8px;
+        margin-bottom: 18px;
+    }
+    
+    .frontier-tech-title i {
+        font-size: 22px;
     }
     
     .featured-tags-title {
@@ -1740,12 +1833,14 @@ article .post-container table th {
     }
     
     .tech-grid {
-        gap: 6px;
-        margin-top: 12px;
+        gap: 10px;
+        margin-top: 18px;
+        padding: 3px;
     }
     
     .tech-card {
-        padding: 8px 6px;
+        padding: 12px 10px;
+        border-width: 1.5px;
     }
     
     .tech-icon {
@@ -2107,7 +2202,7 @@ select:focus {
 
 /* 前沿技术区域优化 */
 .frontier-tech-section {
-    margin-bottom: 35px;
+    margin-bottom: 45px;
 }
 
 .frontier-tech-container {
@@ -2287,8 +2382,32 @@ select:focus {
         margin-bottom: 25px;
     }
     
+    .frontier-tech-section {
+        margin-bottom: 25px;
+        padding: 3px;
+    }
+    
     .frontier-tech-container {
-        padding: 20px 15px;
+        padding: 22px 18px;
+        border-width: 2px;
+    }
+    
+    .frontier-tech-title {
+        font-size: 18px;
+        padding: 8px;
+    }
+    
+    .frontier-tech-title i {
+        font-size: 20px;
+    }
+    
+    .tech-grid {
+        gap: 8px;
+        margin-top: 15px;
+    }
+    
+    .tech-card {
+        padding: 10px 8px;
     }
     
     .creation-timeline {

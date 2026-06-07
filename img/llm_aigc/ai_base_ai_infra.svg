@@ -1,0 +1,273 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 950" width="100%" height="100%">
+  <defs>
+    <!-- 背景网格图案 -->
+    <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#1E293B" stroke-width="0.5" opacity="0.6"/>
+      <circle cx="0" cy="0" r="1.5" fill="#3B82F6" opacity="0.4"/>
+    </pattern>
+    
+    <!-- 基础阴影 -->
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="16" flood-color="#000000" flood-opacity="0.9"/>
+    </filter>
+    
+    <!-- 霓虹发光滤镜 -->
+    <filter id="glow-blue" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    <filter id="glow-cyan" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    <filter id="glow-red" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    <filter id="glow-green" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+
+    <!-- 标题渐变 -->
+    <linearGradient id="titleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="30%" stop-color="#3B82F6"/>
+      <stop offset="70%" stop-color="#06B6D4"/>
+      <stop offset="100%" stop-color="#0F172A"/>
+    </linearGradient>
+
+    <!-- 玻璃面板渐变 -->
+    <linearGradient id="glass-panel" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1E293B" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#0F172A" stop-opacity="0.95"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="1600" height="950" fill="#0A0E17"/>
+  <rect width="1600" height="950" fill="url(#grid)"/>
+
+  <!-- 科技感光晕背景 -->
+  <circle cx="200" cy="200" r="400" fill="#3B82F6" opacity="0.08" filter="url(#glow-blue)"/>
+  <circle cx="1400" cy="800" r="400" fill="#06B6D4" opacity="0.08" filter="url(#glow-cyan)"/>
+
+  <!-- 顶部标题区域 -->
+  <rect x="350" y="30" width="900" height="70" rx="35" fill="url(#titleGrad)" stroke="#3B82F6" stroke-width="2" filter="url(#shadow)"/>
+  <text x="800" y="74" font-family="'PingFang SC', 'Microsoft YaHei', system-ui, sans-serif" font-size="32" font-weight="bold" fill="#FFFFFF" text-anchor="middle" letter-spacing="4" filter="url(#glow-blue)">AI 落地核心挑战与解决方案全景图</text>
+  
+  <rect x="400" y="115" width="800" height="2" fill="#3B82F6" opacity="0.6"/>
+  <text x="800" y="140" font-family="'PingFang SC', 'Microsoft YaHei', system-ui, sans-serif" font-size="20" fill="#94A3B8" text-anchor="middle" letter-spacing="2">基于企业级 AI Infra 的全链路优化方案</text>
+
+  <!-- 图例 -->
+  <rect x="1250" y="115" width="300" height="40" rx="20" fill="#1E293B" stroke="#334155" stroke-width="1.5" filter="url(#shadow)"/>
+  <circle cx="1275" cy="135" r="8" fill="#EF4444" filter="url(#glow-red)"/>
+  <text x="1295" y="141" font-family="system-ui, sans-serif" font-size="16" font-weight="bold" fill="#CBD5E1">痛点与行业现状</text>
+  <circle cx="1440" cy="135" r="8" fill="#10B981" filter="url(#glow-green)"/>
+  <text x="1460" y="141" font-family="system-ui, sans-serif" font-size="16" font-weight="bold" fill="#CBD5E1">解决方案</text>
+
+  <!-- ================= 列 1：数据与训练 ================= -->
+  <g transform="translate(25, 180)">
+    <!-- 列头部 -->
+    <rect x="0" y="0" width="280" height="70" rx="12" fill="#1E293B" stroke="#3B82F6" stroke-width="2" filter="url(#shadow)"/>
+    <text x="140" y="42" font-family="'PingFang SC', sans-serif" font-size="24" font-weight="bold" fill="#38BDF8" text-anchor="middle" filter="url(#glow-cyan)">1. 数据与训练</text>
+    
+    <!-- 痛点区域 -->
+    <rect x="0" y="80" width="280" height="320" rx="12" fill="url(#glass-panel)" stroke="#EF4444" stroke-width="1.5" filter="url(#shadow)"/>
+    <rect x="0" y="80" width="280" height="50" rx="12" fill="#7F1D1D"/>
+    <rect x="0" y="120" width="280" height="10" fill="#7F1D1D"/>
+    <text x="140" y="112" font-family="system-ui, sans-serif" font-size="20" font-weight="bold" fill="#F87171" text-anchor="middle" filter="url(#glow-red)">痛点与现状</text>
+    
+    <circle cx="20" cy="170" r="6" fill="#EF4444" filter="url(#glow-red)"/>
+    <text x="40" y="177" font-family="'PingFang SC', sans-serif" font-size="20" font-weight="bold" fill="#FFFFFF">数据获取困难</text>
+    <text x="40" y="210" font-family="system-ui, sans-serif" font-size="18" fill="#E2E8F0">高质量 SFT 数据成本高</text>
+    
+    <circle cx="20" cy="270" r="6" fill="#EF4444" filter="url(#glow-red)"/>
+    <text x="40" y="277" font-family="'PingFang SC', sans-serif" font-size="20" font-weight="bold" fill="#FFFFFF">训练成本高昂</text>
+    <text x="40" y="310" font-family="system-ui, sans-serif" font-size="18" fill="#E2E8F0">从零训练需要大量 GPU</text>
+
+    <!-- 解决方案区域 -->
+    <rect x="0" y="410" width="280" height="320" rx="12" fill="url(#glass-panel)" stroke="#10B981" stroke-width="1.5" filter="url(#shadow)"/>
+    <rect x="0" y="410" width="280" height="50" rx="12" fill="#064E3B"/>
+    <rect x="0" y="450" width="280" height="10" fill="#064E3B"/>
+    <text x="140" y="442" font-family="system-ui, sans-serif" font-size="20" font-weight="bold" fill="#4ADE80" text-anchor="middle" filter="url(#glow-green)">解决方案</text>
+    
+    <circle cx="20" cy="500" r="6" fill="#10B981"/>
+    <text x="40" y="507" font-family="'PingFang SC', sans-serif" font-size="20" font-weight="bold" fill="#FFFFFF">API 透明代理</text>
+    <text x="40" y="540" font-family="system-ui, sans-serif" font-size="18" fill="#E2E8F0">自动沉淀高质量训练数据</text>
+    
+    <circle cx="20" cy="600" r="6" fill="#10B981"/>
+    <text x="40" y="607" font-family="'PingFang SC', sans-serif" font-size="20" font-weight="bold" fill="#FFFFFF">知识蒸馏 + LoRA 微调</text>
+    <text x="40" y="640" font-family="system-ui, sans-serif" font-size="18" fill="#E2E8F0">显著降低模型训练成本</text>
+  </g>
+
+  <!-- 箭头 1 -->
+  <g transform="translate(310, 550)">
+    <path d="M 0 0 L 25 0" stroke="#3B82F6" stroke-width="4" stroke-dasharray="8 6" filter="url(#glow-blue)"/>
+    <polygon points="25,-8 35,0 25,8" fill="#06B6D4" filter="url(#glow-cyan)"/>
+  </g>
+
+  <!-- ================= 列 2：模型压缩 ================= -->
+  <g transform="translate(335, 180)">
+    <rect x="0" y="0" width="280" height="70" rx="12" fill="#1E293B" stroke="#3B82F6" stroke-width="2" filter="url(#shadow)"/>
+    <text x="140" y="42" font-family="'PingFang SC', sans-serif" font-size="24" font-weight="bold" fill="#38BDF8" text-anchor="middle" filter="url(#glow-cyan)">2. 模型压缩</text>
+    
+    <rect x="0" y="80" width="280" height="320" rx="12" fill="url(#glass-panel)" stroke="#EF4444" stroke-width="1.5" filter="url(#shadow)"/>
+    <rect x="0" y="80" width="280" height="50" rx="12" fill="#7F1D1D"/>
+    <rect x="0" y="120" width="280" height="10" fill="#7F1D1D"/>
+    <text x="140" y="112" font-family="system-ui, sans-serif" font-size="20" font-weight="bold" fill="#F87171" text-anchor="middle" filter="url(#glow-red)">痛点与现状</text>
+    
+    <circle cx="20" cy="170" r="6" fill="#EF4444" filter="url(#glow-red)"/>
+    <text x="40" y="177" font-family="'PingFang SC', sans-serif" font-size="20" font-weight="bold" fill="#FFFFFF">推理成本高</text>
+    <text x="40" y="210" font-family="system-ui, sans-serif" font-size="18" fill="#E2E8F0">
+      <tspan font-weight="bold" fill="#38BDF8">70B+</tspan> 模型依赖多卡集群
+    </text>
+    <text x="40" y="235" font-family="system-ui, sans-serif" font-size="18" fill="#E2E8F0">中小企业无法承受</text>
+    
+    <circle cx="20" cy="275" r="6" fill="#EF4444" filter="url(#glow-red)"/>
+    <text x="40" y="282" font-family="'PingFang SC', sans-serif" font-size="20" font-weight="bold" fill="#FFFFFF">部署门槛高</text>
+    <text x="40" y="315" font-family="system-ui, sans-serif" font-size="18" fill="#E2E8F0">模型体积数百 GB</text>
+    <text x="40" y="340" font-family="system-ui, sans-serif" font-size="18" fill="#E2E8F0">GPU 要求高</text>
+
+    <rect x="0" y="410" width="280" height="320" rx="12" fill="url(#glass-panel)" stroke="#10B981" stroke-width="1.5" filter="url(#shadow)"/>
+    <rect x="0" y="410" width="280" height="50" rx="12" fill="#064E3B"/>
+    <rect x="0" y="450" width="280" height="10" fill="#064E3B"/>
+    <text x="140" y="442" font-family="system-ui, sans-serif" font-size="20" font-weight="bold" fill="#4ADE80" text-anchor="middle" filter="url(#glow-green)">解决方案</text>
+    
+    <circle cx="20" cy="500" r="6" fill="#10B981"/>
+    <text x="40" y="507" font-family="'PingFang SC', sans-serif" font-size="20" font-weight="bold" fill="#FFFFFF">知识蒸馏</text>
+    <text x="40" y="540" font-family="system-ui, sans-serif" font-size="18" fill="#E2E8F0">能力迁移至 <tspan font-weight="bold" fill="#38BDF8">0.5B~7B</tspan> 模型</text>
+    
+    <circle cx="20" cy="600" r="6" fill="#10B981"/>
+    <text x="40" y="607" font-family="'PingFang SC', sans-serif" font-size="20" font-weight="bold" fill="#FFFFFF">INT4 / AWQ / GPTQ 量化</text>
+    <text x="40" y="640" font-family="system-ui, sans-serif" font-size="18" fill="#E2E8F0">单卡即可部署</text>
+    <text x="40" y="665" font-family="system-ui, sans-serif" font-size="18" fill="#E2E8F0">推理成本降低 <tspan font-weight="bold" fill="#38BDF8">80%+</tspan></text>
+  </g>
+
+  <!-- 箭头 2 -->
+  <g transform="translate(620, 550)">
+    <path d="M 0 0 L 25 0" stroke="#3B82F6" stroke-width="4" stroke-dasharray="8 6" filter="url(#glow-blue)"/>
+    <polygon points="25,-8 35,0 25,8" fill="#06B6D4" filter="url(#glow-cyan)"/>
+  </g>
+
+  <!-- ================= 列 3：推理与部署 ================= -->
+  <g transform="translate(645, 180)">
+    <rect x="0" y="0" width="280" height="70" rx="12" fill="#1E293B" stroke="#3B82F6" stroke-width="2" filter="url(#shadow)"/>
+    <text x="140" y="42" font-family="'PingFang SC', sans-serif" font-size="24" font-weight="bold" fill="#38BDF8" text-anchor="middle" filter="url(#glow-cyan)">3. 推理与部署</text>
+    
+    <rect x="0" y="80" width="280" height="320" rx="12" fill="url(#glass-panel)" stroke="#EF4444" stroke-width="1.5" filter="url(#shadow)"/>
+    <rect x="0" y="80" width="280" height="50" rx="12" fill="#7F1D1D"/>
+    <rect x="0" y="120" width="280" height="10" fill="#7F1D1D"/>
+    <text x="140" y="112" font-family="system-ui, sans-serif" font-size="20" font-weight="bold" fill="#F87171" text-anchor="middle" filter="url(#glow-red)">痛点与现状</text>
+    
+    <circle cx="20" cy="170" r="6" fill="#EF4444" filter="url(#glow-red)"/>
+    <text x="40" y="177" font-family="'PingFang SC', sans-serif" font-size="20" font-weight="bold" fill="#FFFFFF">生成速度慢</text>
+    <text x="40" y="210" font-family="system-ui, sans-serif" font-size="18" fill="#E2E8F0">大模型仅 <tspan font-weight="bold" fill="#F87171">20~50 Tokens/s</tspan></text>
+    <text x="40" y="235" font-family="system-ui, sans-serif" font-size="18" fill="#E2E8F0">Agent 场景无法实时响应</text>
+    
+    <circle cx="20" cy="275" r="6" fill="#EF4444" filter="url(#glow-red)"/>
+    <text x="40" y="282" font-family="'PingFang SC', sans-serif" font-size="20" font-weight="bold" fill="#FFFFFF">私有化困难</text>
+    <text x="40" y="315" font-family="system-ui, sans-serif" font-size="18" fill="#E2E8F0">数据无法出企业内网</text>
+
+    <rect x="0" y="410" width="280" height="320" rx="12" fill="url(#glass-panel)" stroke="#10B981" stroke-width="1.5" filter="url(#shadow)"/>
+    <rect x="0" y="410" width="280" height="50" rx="12" fill="#064E3B"/>
+    <rect x="0" y="450" width="280" height="10" fill="#064E3B"/>
+    <text x="140" y="442" font-family="system-ui, sans-serif" font-size="20" font-weight="bold" fill="#4ADE80" text-anchor="middle" filter="url(#glow-green)">解决方案</text>
+    
+    <circle cx="20" cy="500" r="6" fill="#10B981"/>
+    <text x="40" y="507" font-family="'PingFang SC', sans-serif" font-size="20" font-weight="bold" fill="#FFFFFF">小模型 + vLLM + KV Cache</text>
+    <text x="40" y="540" font-family="system-ui, sans-serif" font-size="18" fill="#E2E8F0">生成速度可达 <tspan font-weight="bold" fill="#38BDF8">150~500 Tokens/s</tspan></text>
+    
+    <circle cx="20" cy="600" r="6" fill="#10B981"/>
+    <text x="40" y="607" font-family="'PingFang SC', sans-serif" font-size="20" font-weight="bold" fill="#FFFFFF">本地部署与离线推理</text>
+    <text x="40" y="640" font-family="system-ui, sans-serif" font-size="18" fill="#E2E8F0">满足企业数据私有化要求</text>
+  </g>
+
+  <!-- 箭头 3 -->
+  <g transform="translate(930, 550)">
+    <path d="M 0 0 L 25 0" stroke="#3B82F6" stroke-width="4" stroke-dasharray="8 6" filter="url(#glow-blue)"/>
+    <polygon points="25,-8 35,0 25,8" fill="#06B6D4" filter="url(#glow-cyan)"/>
+  </g>
+
+  <!-- ================= 列 4：领域与智能体 ================= -->
+  <g transform="translate(955, 180)">
+    <rect x="0" y="0" width="280" height="70" rx="12" fill="#1E293B" stroke="#3B82F6" stroke-width="2" filter="url(#shadow)"/>
+    <text x="140" y="42" font-family="'PingFang SC', sans-serif" font-size="24" font-weight="bold" fill="#38BDF8" text-anchor="middle" filter="url(#glow-cyan)">4. 领域与智能体</text>
+    
+    <rect x="0" y="80" width="280" height="320" rx="12" fill="url(#glass-panel)" stroke="#EF4444" stroke-width="1.5" filter="url(#shadow)"/>
+    <rect x="0" y="80" width="280" height="50" rx="12" fill="#7F1D1D"/>
+    <rect x="0" y="120" width="280" height="10" fill="#7F1D1D"/>
+    <text x="140" y="112" font-family="system-ui, sans-serif" font-size="20" font-weight="bold" fill="#F87171" text-anchor="middle" filter="url(#glow-red)">痛点与现状</text>
+    
+    <circle cx="20" cy="170" r="6" fill="#EF4444" filter="url(#glow-red)"/>
+    <text x="40" y="177" font-family="'PingFang SC', sans-serif" font-size="20" font-weight="bold" fill="#FFFFFF">领域知识缺失</text>
+    <text x="40" y="210" font-family="system-ui, sans-serif" font-size="18" fill="#E2E8F0">通用模型无法理解内部知识</text>
+    
+    <circle cx="20" cy="270" r="6" fill="#EF4444" filter="url(#glow-red)"/>
+    <text x="40" y="277" font-family="'PingFang SC', sans-serif" font-size="20" font-weight="bold" fill="#FFFFFF">Agent 效果不稳定</text>
+    <text x="40" y="310" font-family="system-ui, sans-serif" font-size="18" fill="#E2E8F0">Tool Calling 容易失败</text>
+
+    <rect x="0" y="410" width="280" height="320" rx="12" fill="url(#glass-panel)" stroke="#10B981" stroke-width="1.5" filter="url(#shadow)"/>
+    <rect x="0" y="410" width="280" height="50" rx="12" fill="#064E3B"/>
+    <rect x="0" y="450" width="280" height="10" fill="#064E3B"/>
+    <text x="140" y="442" font-family="system-ui, sans-serif" font-size="20" font-weight="bold" fill="#4ADE80" text-anchor="middle" filter="url(#glow-green)">解决方案</text>
+    
+    <circle cx="20" cy="500" r="6" fill="#10B981"/>
+    <text x="40" y="507" font-family="'PingFang SC', sans-serif" font-size="20" font-weight="bold" fill="#FFFFFF">RAG + 专业数据集微调</text>
+    <text x="40" y="540" font-family="system-ui, sans-serif" font-size="18" fill="#E2E8F0">构建企业内部领域专家模型</text>
+    
+    <circle cx="20" cy="600" r="6" fill="#10B981"/>
+    <text x="40" y="607" font-family="'PingFang SC', sans-serif" font-size="20" font-weight="bold" fill="#FFFFFF">ReAct + Workflow + MCP</text>
+    <text x="40" y="640" font-family="system-ui, sans-serif" font-size="18" fill="#E2E8F0">大幅提升 Tool Calling 成功率</text>
+  </g>
+
+  <!-- 箭头 4 -->
+  <g transform="translate(1240, 550)">
+    <path d="M 0 0 L 25 0" stroke="#3B82F6" stroke-width="4" stroke-dasharray="8 6" filter="url(#glow-blue)"/>
+    <polygon points="25,-8 35,0 25,8" fill="#06B6D4" filter="url(#glow-cyan)"/>
+  </g>
+
+  <!-- ================= 列 5：工程与全链路 ================= -->
+  <g transform="translate(1265, 180)">
+    <rect x="0" y="0" width="280" height="70" rx="12" fill="#1E293B" stroke="#3B82F6" stroke-width="2" filter="url(#shadow)"/>
+    <text x="140" y="42" font-family="'PingFang SC', sans-serif" font-size="24" font-weight="bold" fill="#38BDF8" text-anchor="middle" filter="url(#glow-cyan)">5. 工程与全链路</text>
+    
+    <rect x="0" y="80" width="280" height="320" rx="12" fill="url(#glass-panel)" stroke="#EF4444" stroke-width="1.5" filter="url(#shadow)"/>
+    <rect x="0" y="80" width="280" height="50" rx="12" fill="#7F1D1D"/>
+    <rect x="0" y="120" width="280" height="10" fill="#7F1D1D"/>
+    <text x="140" y="112" font-family="system-ui, sans-serif" font-size="20" font-weight="bold" fill="#F87171" text-anchor="middle" filter="url(#glow-red)">痛点与现状</text>
+    
+    <circle cx="20" cy="170" r="6" fill="#EF4444" filter="url(#glow-red)"/>
+    <text x="40" y="177" font-family="'PingFang SC', sans-serif" font-size="20" font-weight="bold" fill="#FFFFFF">工程链路割裂</text>
+    <text x="40" y="210" font-family="system-ui, sans-serif" font-size="18" fill="#E2E8F0">训练、推理、Agent 分散</text>
+    <text x="40" y="235" font-family="system-ui, sans-serif" font-size="18" fill="#E2E8F0">集成成本高</text>
+    
+    <circle cx="20" cy="275" r="6" fill="#EF4444" filter="url(#glow-red)"/>
+    <text x="40" y="282" font-family="'PingFang SC', sans-serif" font-size="20" font-weight="bold" fill="#FFFFFF">缺乏 AI Infra 能力</text>
+    <text x="40" y="315" font-family="system-ui, sans-serif" font-size="18" fill="#E2E8F0">多数团队只会调用 API</text>
+
+    <rect x="0" y="410" width="280" height="320" rx="12" fill="url(#glass-panel)" stroke="#10B981" stroke-width="1.5" filter="url(#shadow)"/>
+    <rect x="0" y="410" width="280" height="50" rx="12" fill="#064E3B"/>
+    <rect x="0" y="450" width="280" height="10" fill="#064E3B"/>
+    <text x="140" y="442" font-family="system-ui, sans-serif" font-size="20" font-weight="bold" fill="#4ADE80" text-anchor="middle" filter="url(#glow-green)">解决方案</text>
+    
+    <circle cx="20" cy="500" r="6" fill="#10B981"/>
+    <text x="40" y="507" font-family="'PingFang SC', sans-serif" font-size="20" font-weight="bold" fill="#FFFFFF">打通全链路</text>
+    <text x="40" y="540" font-family="system-ui, sans-serif" font-size="18" fill="#E2E8F0">Data → Train → Distill</text>
+    <text x="40" y="565" font-family="system-ui, sans-serif" font-size="18" fill="#E2E8F0">→ Infer → Agent</text>
+    
+    <circle cx="20" cy="605" r="6" fill="#10B981"/>
+    <text x="40" y="612" font-family="'PingFang SC', sans-serif" font-size="20" font-weight="bold" fill="#FFFFFF">提供完整 AI Infra</text>
+    <text x="40" y="645" font-family="system-ui, sans-serif" font-size="18" fill="#E2E8F0">建设企业级基础设施能力</text>
+  </g>
+
+  <!-- 底部总结横幅 -->
+  <rect x="200" y="850" width="1200" height="70" rx="35" fill="#1E293B" stroke="#06B6D4" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="200" y="850" width="1200" height="70" rx="35" fill="#06B6D4" opacity="0.1"/>
+  <text x="800" y="892" font-family="'PingFang SC', 'Microsoft YaHei', system-ui, sans-serif" font-size="24" font-weight="bold" fill="#38BDF8" text-anchor="middle" letter-spacing="2" filter="url(#glow-cyan)">目标：降低推理成本 <tspan fill="#FFFFFF">80%+</tspan>，提升生成速度至 <tspan fill="#FFFFFF">500 Tokens/s</tspan>，打通 <tspan fill="#FFFFFF">Data → Agent</tspan> 全链路</text>
+
+  <!-- 装饰性科技节点 -->
+  <circle cx="80" cy="850" r="4" fill="#3B82F6" filter="url(#glow-blue)"/>
+  <circle cx="1520" cy="850" r="4" fill="#3B82F6" filter="url(#glow-blue)"/>
+  <circle cx="800" cy="10" r="5" fill="#06B6D4" filter="url(#glow-cyan)"/>
+</svg>

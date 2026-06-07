@@ -8,6 +8,8 @@
 
 ---
 
+![](/img/llm_aigc/ai_base_ai_infra_en.svg)
+
 ## 1. Technology Roadmap
 
 From audio/video and GPU acceleration to LLM engineering — a complete AI technology closed loop.
@@ -17,14 +19,20 @@ From audio/video and GPU acceleration to LLM engineering — a complete AI techn
 ---
 
 ## 2. Industry Pain Points
+ 
 
-| Pain Point | Reality |
-|------|------|
-| **High Inference Cost** | 70B+ models require multi-GPU clusters — prohibitive for most |
-| **Slow Token Throughput** | 20~50 Tokens/s on large models — too slow for real-time Agent |
-| **High Deployment Barrier** | Hundreds of GB per model — private deployment is hard |
-| **Missing Domain Knowledge** | General models lack expertise in audio/video, GPU acceleration |
-| **Fragmented Pipeline** | Distillation, training, inference, Agent — siloed, costly to integrate |
+| Pain Point | Industry Status | Solution |
+|------------|----------------|----------|
+| High inference cost | 70B+ models rely on multi‑GPU clusters, unaffordable for SMEs | Transfer capabilities to 0.5B–7B models via knowledge distillation → cost reduced by 80%+ |
+| Slow generation speed | Large models only 20–50 Tokens/s, noticeable Agent response latency | Small model + vLLM + KV Cache optimization → achieves 150–500 Tokens/s |
+| High deployment barrier | Model size hundreds of GB, high GPU requirements | INT4 / AWQ / GPTQ quantization → single‑GPU deployment |
+| Lack of domain knowledge | Generic models cannot understand enterprise internal knowledge | RAG + fine‑tuning on domain datasets → build domain expert model |
+| Unstable Agent performance | Tool Calling often fails | ReAct + Workflow + MCP → improve execution success rate |
+| Difficulty in data acquisition | High cost of high‑quality SFT data | API transparent proxy → automatically accumulate training data |
+| High training cost | Full training requires massive GPU resources | Distillation + LoRA fine‑tuning → reduce training cost |
+| Fragmented engineering pipeline | Training, inference, Agent systems are siloed | Unify the full pipeline: Data → Train → Distill → Infer → Agent |
+| Difficulty in private deployment | Data cannot leave the corporate intranet | Support local deployment and offline inference |
+| Lack of AI Infra capability | Most teams only know how to call APIs | Provide complete AI infrastructure building capability |
 
 ---
 

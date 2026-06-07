@@ -40,11 +40,10 @@ layout: default
                     {% comment %} if page.subtitle {% endcomment %}
                     <h2 class="subheading">{{ page.subtitle }}</h2>
                     {% comment %} endif {% endcomment %}
-                    <span class="meta">Posted by {% if page.author %}{{ page.author }}{% else %}{{ site.title }}{% endif %} on {{ page.date | date: "%Y-%m-%d" }}
-					{% if page.times %}
-						{{ page.times }}
-					{% endif %}
-					</span>
+                    <span class="meta">
+                        Posted by {% if page.author %}{{ page.author }}{% else %}{{ site.title }}{% endif %} on {{ page.date | date: "%Y-%m-%d" }}
+                        &nbsp;·&nbsp; 阅读约 {{ content | strip_html | size | divided_by: 400 | plus: 1 }} 分钟
+                    </span>
                 </div>
             </div>
         </div>
@@ -66,7 +65,7 @@ layout: default
                 col-md-10 col-md-offset-1
                 post-container">
 
-				<!-- Multi-Lingual -->
+                    <!-- Multi-Lingual -->
                 {% if page.multilingual %}
                 <!-- Language Selector -->
                 <select class="sel-lang" onchange= "onLanChange(this.options[this.options.selectedIndex].value)">
@@ -74,7 +73,7 @@ layout: default
                     <option value="1"> 英文 English </option>
                 </select>
                 {% endif %}
-				{{ content }}
+                    {{ content }}
 
                 <hr style="visibility: hidden;">
 
@@ -105,60 +104,11 @@ layout: default
                 <!-- disqus 评论框 end -->
                 {% endif %}
 
-				<!--Gitalk评论start  -->
-                <!--{% if site.gitalk.enable %}-->
-                <!-- 引入Gitalk评论插件  -->
-                <!--<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-                <script src="https://unpkg.com/gitalk@latest/dist/gitalk.min.js"></script>
-                <div id="gitalk-container"></div>-->
-                <!-- 引入一个生产md5的js，用于对id值进行处理，防止其过长 -->
-                <!-- Thank DF:https://github.com/NSDingFan/NSDingFan.github.io/issues/3#issuecomment-407496538 -->
-              <!--  <script src="{{ site.baseurl }}/js/md5.min.js"></script>
-                <script type="text/javascript">
-                    var gitalk = new Gitalk({
-                    clientID: '{{site.gitalk.clientID}}',
-                    clientSecret: '{{site.gitalk.clientSecret}}',
-                    repo: '{{site.gitalk.repo}}',
-                    owner: '{{site.gitalk.owner}}',
-                    admin: ['{{site.gitalk.admin}}'],
-                    distractionFreeMode: {{site.gitalk.distractionFreeMode}},
-                    id: md5(location.pathname),
-                    });
-                    gitalk.render('gitalk-container');
-                </script>
-                {% endif %}-->
-                <!-- Gitalk end -->
-				
-			
-                <!--test Gitalk评论start  -->
-               
-              <!--  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-                <script src="https://unpkg.com/gitalk@latest/dist/gitalk.min.js"></script>
-                <div id="gitalk-container"></div>
-                
-				<script src="/js/md5.min.js"></script>
-                <script type="text/javascript">
-                    var gitalk = new Gitalk({
-                    clientID: '68eab7a4e477a095f0fe',
-                    clientSecret: '2d99a84787d60946674b419700c43dda76e6d121',
-                    repo: 'chensongpoixs.github.io',
-                    owner: 'chensongpoixs',
-                    admin: ['chensongpoixs'],
-                    distractionFreeMode: true,
-                    id: md5(location.pathname),
-                    });
-                    gitalk.render('gitalk-container');
-                </script> -->
-             
-                <!--test Gitalk end -->
-                <!--Gitalk评论start  -->
+                <!-- Gitalk 评论 start -->
                 {% if site.gitalk.enable %}
-                <!-- 引入Gitalk评论插件  -->
                 <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
                 <script src="https://unpkg.com/gitalk@latest/dist/gitalk.min.js"></script>
                 <div id="gitalk-container"></div>
-                <!-- 引入一个生产md5的js，用于对id值进行处理，防止其过长 -->
-                <!-- Thank DF:https://github.com/NSDingFan/NSDingFan.github.io/issues/3#issuecomment-407496538 -->
                 <script src="{{ site.baseurl }}/js/md5.min.js"></script>
                 <script type="text/javascript">
                     var gitalk = new Gitalk({
@@ -174,7 +124,7 @@ layout: default
                 </script>
                 {% endif %}
                 <!-- Gitalk end -->
-            </div>  
+            </div>
 
     <!-- Side Catalog Container -->
         {% if page.catalog %}
@@ -198,7 +148,6 @@ layout: default
                 sidebar-container">
 
                 <!-- Featured Tags -->
-                <!-- Featured Tags -->
                 {% include featured_post_tags.html %}
                 <!-- Friends Blog -->
                 {% if site.friends %}
@@ -217,9 +166,6 @@ layout: default
         </div>
     </div>
 </article>
-
-
-
 
 
 {% if site.disqus_username %}
@@ -255,11 +201,6 @@ layout: default
 <!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
 <script>
     async("/js/anchor.min.js",function(){
-       // anchors.options = {
-         // visible: 'always',
-          //placement: 'right',
-          //icon: '#'
-        //};
         anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
     })
 </script>
@@ -276,21 +217,50 @@ layout: default
 </style>
 {% endif %}
 
-
-
-<script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
-<!-- C++ 代码高亮 -->
-<script src="//unpkg.com/prismjs/components/prism-cpp.min.js"></script>
-<!-- Java 代码高亮 -->
-<script src="//unpkg.com/prismjs/components/prism-java.min.js"></script>
-<!-- Python 代码高亮-->
-<script src="//unpkg.com/prismjs/components/prism-python.min.js"></script>
-<script src="//unpkg.com/prismjs/components/prism-json.min.js"></script>
-<!-- 添加代码右上角复制到剪切板按钮 -->
-<script src="//cdn.jsdelivr.net/npm/docsify-copy-code@2"></script>
-<!-- 支持Markdown中的TaLeX数学公式 -->
-<script src="//cdn.jsdelivr.net/npm/docsify-katex@latest/dist/docsify-katex.js"></script>
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
-<!-- 代码块选项卡 https://jhildenbiddle.github.io/docsify-tabs/#/ -->
-<script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
-<script src="//cdn.jsdelivr.net/npm/docsify-tabs@1"></script>
+<!-- Back to Top Button -->
+<div id="back-to-top" style="
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
+    background: rgba(0, 255, 255, 0.15);
+    border: 1px solid rgba(0, 255, 255, 0.4);
+    border-radius: 50%;
+    color: #00ffff;
+    font-size: 20px;
+    text-align: center;
+    line-height: 42px;
+    cursor: pointer;
+    z-index: 999;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);"
+    onmouseover="this.style.background='rgba(0,255,255,0.3)';this.style.transform='translateY(-3px)';"
+    onmouseout="this.style.background='rgba(0,255,255,0.15)';this.style.transform='translateY(0)';"
+    onclick="window.scrollTo({top:0,behavior:'smooth'});">
+    ↑
+</div>
+<script>
+(function() {
+    var btn = document.getElementById('back-to-top');
+    var ticking = false;
+    window.addEventListener('scroll', function() {
+        if (!ticking) {
+            window.requestAnimationFrame(function() {
+                if (window.scrollY > 400) {
+                    btn.style.opacity = '1';
+                    btn.style.transform = 'translateY(0)';
+                } else {
+                    btn.style.opacity = '0';
+                    btn.style.transform = 'translateY(20px)';
+                }
+                ticking = false;
+            });
+            ticking = true;
+        }
+    });
+})();
+</script>

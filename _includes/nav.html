@@ -19,38 +19,30 @@
                     <li>
                         <a href="{{ site.baseurl }}/" style="font-size: larger;text-transform:none">首页</a>
                     </li>
-					<li>
+                    <li>
                         <a href="{{ site.baseurl }}/tags/" style="font-size: larger;text-transform:none">标签</a>
                     </li>
-					
-					 <li>
-                        <a href="{{ site.baseurl }}/artificial_intelligence/" style="font-size: larger;text-transform:none">AI、ML、LLM和AIGC算法应用及其探索</a>
-                    </li> 
-					<li>
-                        <a href="{{ site.baseurl }}/video_codec/" style="font-size: larger;text-transform:none">视频的编解码的原理深度学习</a>
-                    </li> 
-					<li>
+                    <li>
                         <a href="{{ site.baseurl }}/OpenGL/" style="font-size: larger;text-transform:none">计算机图形学</a>
-                    </li> 
-					<li>
-                        <a href="{{ site.baseurl }}/Cuda/" style="font-size: larger;text-transform:none">CPU并行计算与NVIDIA的GPU编程</a>
-                    </li> 
-					<li>
-                        <a href="{{ site.baseurl }}/WebRTC/" style="font-size: larger;text-transform:none">WebRTC开嗨鸭 </a>
-                    
-					<li>
-					<!--<li>
-                        <a href="{{ site.baseurl }}/plan/" style="font-size: larger;text-transform:none">规划</a>
-                    </li></li> -->
-					<li>
+                    </li>
+                    <li>
+                        <a href="{{ site.baseurl }}/video_codec/" style="font-size: larger;text-transform:none">视频编解码 & AI</a>
+                    </li>
+                    <li>
+                        <a href="{{ site.baseurl }}/WebRTC/" style="font-size: larger;text-transform:none">WebRTC 实时通信</a>
+                    </li>
+                    <li>
+                        <a href="{{ site.baseurl }}/Cuda/" style="font-size: larger;text-transform:none">CUDA & GPU 高性能计算</a>
+                    </li>
+                    <li>
+                        <a href="{{ site.baseurl }}/artificial_intelligence/" style="font-size: larger;text-transform:none">AI & ML 算法基础与探索</a>
+                    </li>
+                    <li>
+                        <a href="{{ site.baseurl }}/llm_aigc/" style="font-size: larger;text-transform:none">LLM 工程化 & Agent</a>
+                    </li>
+                    <li>
                         <a href="{{ site.baseurl }}/about/" style="font-size: larger;text-transform:none">关于我</a>
                     </li>
-					
-                   <!-- {% for page in site.pages %}{% if page.title %}
-                    <li>
-                        <a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
-                    </li>
-                    {% endif %}{% endfor %}-->
                 </ul>
             </div>
         </div>
@@ -96,11 +88,11 @@
     /**
      * Since Fastclick is used to delegate 'touchstart' globally
      * to hack 300ms delay in iOS by performing a fake 'click',
-     * Using 'e.stopPropagation' to stop 'touchstart' event from 
+     * Using 'e.stopPropagation' to stop 'touchstart' event from
      * $toggle/$collapse will break global delegation.
-     * 
+     *
      * Instead, we use a 'e.target' filter to prevent handler
-     * added to document close HuxNav.  
+     * added to document close HuxNav.
      *
      * Also, we use 'click' instead of 'touchstart' as compromise
      */

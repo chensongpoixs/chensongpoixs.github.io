@@ -1,8 +1,8 @@
 ---
 layout: page
-title: "WebRTC 实时通信"
-description: "永远积极向上、永远热泪盈眶、永远豪情满怀、永远坦坦荡荡!!!"
-header-img: "img/WebRTC.jpg"
+title: "LLM 工程化 & Agent"
+description: "大模型知识蒸馏、领域模型训练、Agent平台、推理优化与AI RTC技术路线图"
+header-img: "img/artificial_intelligence.jpg"
 multilingual: true
 ---
 
@@ -10,18 +10,18 @@ multilingual: true
 <!-- Language Selector -->
 <select class="sel-lang" onchange= "onLanChange(this.options[this.options.selectedIndex].value)">
     <option value="0" selected> 中文 Chinese </option>
-    <option value="1"> 英文 English </option> 
+    <option value="1"> 英文 English </option>
 </select>
 
 <!-- Chinese Version -->
 <div class="zh post-container">
-    {% capture about_zh %}{% include WebRTC/zh.md %}{% endcapture %}
+    {% capture about_zh %}{% include llm_aigc/zh.md %}{% endcapture %}
     {{ about_zh | markdownify }}
 </div>
 
 <!-- English Version -->
 <div class="en post-container">
-    {% capture about_en %}{% include WebRTC/en.md %}{% endcapture %}
+    {% capture about_en %}{% include llm_aigc/en.md %}{% endcapture %}
     {{ about_en | markdownify }}
 </div>
 
@@ -38,7 +38,7 @@ multilingual: true
 <!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
-   var disqus_shortname = "{{site.disqus_username}}";	   
+   var disqus_shortname = "{{site.disqus_username}}";
     var disqus_identifier = "{{site.disqus_username}}/{{page.url}}";
     var disqus_url = "{{site.url}}{{page.url}}";
 
@@ -52,26 +52,6 @@ multilingual: true
 {% endif %}
 
 
-
-				<!--test Gitalk评论start  -->
-              
-                <!-- <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-                <script src="https://unpkg.com/gitalk@latest/dist/gitalk.min.js"></script>
-                <div id="gitalk-container"></div>
-                
-				<script src="/js/md5.min.js"></script>
-                <script type="text/javascript">
-                    var gitalk = new Gitalk({
-                    clientID: '68eab7a4e477a095f0fe',
-                    clientSecret: '2d99a84787d60946674b419700c43dda76e6d121',
-                    repo: 'chensongpoixs.github.io',
-                    owner: 'chensongpoixs',
-                    admin: ['chensongpoixs'],
-                    distractionFreeMode: true,
-                    id: md5(location.pathname),
-                    });
-                    gitalk.render('gitalk-container');
-                </script> --> 
 {% if site.gitalk.enable %}
 <!-- Gitalk link  -->
 <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
@@ -92,11 +72,8 @@ multilingual: true
     gitalk.render('gitalk-container');
 </script>
 {% endif %}
-                <!--test Gitalk end -->
-				
-				
-				
-				
+
+
 <!-- Multi-Lingual -->
 {% if page.multilingual %}
 <!-- Handle Language Change -->
@@ -130,7 +107,7 @@ multilingual: true
             $en.style.display = "none";
             $en.classList.remove("active");
         }
-        // interop with catalog 
+        // interop with catalog
         if ("{{ page.catalog }}") generateCatalog(".catalog-body");
     }
 

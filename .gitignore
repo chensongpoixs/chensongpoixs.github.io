@@ -49,3 +49,7 @@ package-lock.json
 /node_modules/highlight.js/lib/languages
 /node_modules/*
 /node_modules/.bin
+/_site/
+/_site/2019/12/10/redis源码分析之布隆过滤器-机器学习
+/ruby-3.2.2.tar.tar
+/Gemfile.lock

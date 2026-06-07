@@ -21,17 +21,7 @@ tags:
 
 
 
-# Transformer之前馈神经网络（FFN全连接层）
-
-
-@[TOC](Transformer之前馈神经网络（FFN全连接层）)
-
-
-</font>
-
 <hr style=" border:solid; width:100px; height:1px;" color=#000000 size=1">
-
-#
 
  
 
@@ -87,9 +77,7 @@ tags:
 |GPT-4​|	MoE架构，多个专家|	极大增加容量|
 ### 1、在TransformerBlock层上操作的实现
 
-```javascript
-
-
+```cpp
 TransformerBlock::TransformerBlock(const ModelConfig& cfg)
     : mha(cfg),
       ffn(cfg),
@@ -143,7 +131,7 @@ torch::Tensor TransformerBlock::forward(torch::Tensor x) {
 
 ### 2、 激活函数 GELU实现
 
-```javascript
+```cpp
 NewGELU::NewGELU() {
     // GELU 不需要参数
 }
@@ -162,7 +150,7 @@ torch::Tensor NewGELU::forward(torch::Tensor x) {
 ### 3、升维和降维的实现
 
 
-```javascript
+```cpp
 
 FeedForwardNetworkImpl::FeedForwardNetworkImpl(const ModelConfig& cfg)
     : layers(torch::nn::Sequential(

@@ -693,46 +693,46 @@ hr {
     padding-right: 0 !important;
 }
 
-/* 容器调整 - 让内容占满75%宽度并居中 */
+/* 容器调整 - 全宽布局，侧边栏延伸至屏幕边缘 */
 @media (min-width: 1200px) {
     .container {
-        max-width: 75% !important;
-        width: 75% !important;
+        max-width: 100% !important;
+        width: 96% !important;
         margin-left: auto !important;
         margin-right: auto !important;
         padding-left: 0 !important;
         padding-right: 0 !important;
     }
-    
+
     /* 调整row的margin，让内容占满 */
     .container > .row {
         margin-left: 0 !important;
         margin-right: 0 !important;
     }
-    
-    /* 左侧边栏精确控制为20% */
+
+    /* 左侧边栏 - 延伸到左边缘 */
     .sidebar-left {
-        width: 20% !important;
-        max-width: 20% !important;
-        min-width: 20% !important;
-        flex: 0 0 20% !important;
-        flex-basis: 20% !important;
+        width: 18% !important;
+        max-width: 18% !important;
+        min-width: 18% !important;
+        flex: 0 0 18% !important;
+        flex-basis: 18% !important;
         padding-left: 0 !important;
         padding-right: 15px !important;
     }
-    
-    /* 内容区域精确控制为60% */
+
+    /* 内容区域精确控制为64% */
     .postlist-container {
-        width: 60% !important;
-        max-width: 60% !important;
-        min-width: 60% !important;
-        flex: 0 0 60% !important;
-        flex-basis: 60% !important;
+        width: 64% !important;
+        max-width: 64% !important;
+        min-width: 64% !important;
+        flex: 0 0 64% !important;
+        flex-basis: 64% !important;
         padding-left: 30px !important;
         padding-right: 30px !important;
         position: relative;
     }
-    
+
     /* 内容区域左右装饰边框 */
     .postlist-container::before,
     .postlist-container::after {
@@ -749,22 +749,22 @@ hr {
             transparent 100%);
         opacity: 0.6;
     }
-    
+
     .postlist-container::before {
         left: 0;
     }
-    
+
     .postlist-container::after {
         right: 0;
     }
-    
-    /* 右侧边栏精确控制为20% */
+
+    /* 右侧边栏 - 延伸到右边缘 */
     .sidebar-right {
-        width: 20% !important;
-        max-width: 20% !important;
-        min-width: 20% !important;
-        flex: 0 0 20% !important;
-        flex-basis: 20% !important;
+        width: 18% !important;
+        max-width: 18% !important;
+        min-width: 18% !important;
+        flex: 0 0 18% !important;
+        flex-basis: 18% !important;
         padding-left: 15px !important;
         padding-right: 0 !important;
     }
@@ -772,43 +772,43 @@ hr {
 
 @media (min-width: 1400px) {
     .container {
-        max-width: 75% !important;
-        width: 75% !important;
+        max-width: 100% !important;
+        width: 95% !important;
         margin-left: auto !important;
         margin-right: auto !important;
         padding-left: 0 !important;
         padding-right: 0 !important;
     }
-    
+
     /* 调整row的margin，让内容占满 */
     .container > .row {
         margin-left: 0 !important;
         margin-right: 0 !important;
     }
-    
-    /* 左侧边栏精确控制为12% */
+
+    /* 左侧边栏 - 延伸到左边缘 */
     .sidebar-left {
-        width: 12% !important;
-        max-width: 12% !important;
-        min-width: 12% !important;
-        flex: 0 0 12% !important;
-        flex-basis: 12% !important;
+        width: 15% !important;
+        max-width: 15% !important;
+        min-width: 15% !important;
+        flex: 0 0 15% !important;
+        flex-basis: 15% !important;
         padding-left: 0 !important;
         padding-right: 15px !important;
     }
-    
-    /* 内容区域精确控制为76% */
+
+    /* 内容区域 */
     .postlist-container {
-        width: 76% !important;
-        max-width: 76% !important;
-        min-width: 76% !important;
-        flex: 0 0 76% !important;
-        flex-basis: 76% !important;
+        width: 70% !important;
+        max-width: 70% !important;
+        min-width: 70% !important;
+        flex: 0 0 70% !important;
+        flex-basis: 70% !important;
         padding-left: 40px !important;
         padding-right: 40px !important;
         position: relative;
     }
-    
+
     /* 内容区域左右装饰边框 */
     .postlist-container::before,
     .postlist-container::after {
@@ -825,22 +825,22 @@ hr {
             transparent 100%);
         opacity: 0.6;
     }
-    
+
     .postlist-container::before {
         left: 0;
     }
-    
+
     .postlist-container::after {
         right: 0;
     }
-    
-    /* 右侧边栏精确控制为12% */
+
+    /* 右侧边栏 - 延伸到右边缘 */
     .sidebar-right {
-        width: 12% !important;
-        max-width: 12% !important;
-        min-width: 12% !important;
-        flex: 0 0 12% !important;
-        flex-basis: 12% !important;
+        width: 15% !important;
+        max-width: 15% !important;
+        min-width: 15% !important;
+        flex: 0 0 15% !important;
+        flex-basis: 15% !important;
         padding-left: 15px !important;
         padding-right: 0 !important;
     }
@@ -848,43 +848,43 @@ hr {
 
 @media (min-width: 1600px) {
     .container {
-        max-width: 75% !important;
-        width: 75% !important;
+        max-width: 100% !important;
+        width: 90% !important;
         margin-left: auto !important;
         margin-right: auto !important;
         padding-left: 0 !important;
         padding-right: 0 !important;
     }
-    
+
     /* 调整row的margin，让内容占满 */
     .container > .row {
         margin-left: 0 !important;
         margin-right: 0 !important;
     }
-    
-    /* 左侧边栏精确控制为12% */
+
+    /* 左侧边栏 - 延伸到左边缘 */
     .sidebar-left {
-        width: 12% !important;
-        max-width: 12% !important;
-        min-width: 12% !important;
-        flex: 0 0 12% !important;
-        flex-basis: 12% !important;
+        width: 15% !important;
+        max-width: 15% !important;
+        min-width: 15% !important;
+        flex: 0 0 15% !important;
+        flex-basis: 15% !important;
         padding-left: 0 !important;
         padding-right: 15px !important;
     }
-    
-    /* 内容区域精确控制为76% */
+
+    /* 内容区域 */
     .postlist-container {
-        width: 76% !important;
-        max-width: 76% !important;
-        min-width: 76% !important;
-        flex: 0 0 76% !important;
-        flex-basis: 76% !important;
+        width: 70% !important;
+        max-width: 70% !important;
+        min-width: 70% !important;
+        flex: 0 0 70% !important;
+        flex-basis: 70% !important;
         padding-left: 50px !important;
         padding-right: 50px !important;
         position: relative;
     }
-    
+
     /* 内容区域左右装饰边框 */
     .postlist-container::before,
     .postlist-container::after {
@@ -901,22 +901,22 @@ hr {
             transparent 100%);
         opacity: 0.6;
     }
-    
+
     .postlist-container::before {
         left: 0;
     }
-    
+
     .postlist-container::after {
         right: 0;
     }
-    
-    /* 右侧边栏精确控制为12% */
+
+    /* 右侧边栏 - 延伸到右边缘 */
     .sidebar-right {
-        width: 12% !important;
-        max-width: 12% !important;
-        min-width: 12% !important;
-        flex: 0 0 12% !important;
-        flex-basis: 12% !important;
+        width: 15% !important;
+        max-width: 15% !important;
+        min-width: 15% !important;
+        flex: 0 0 15% !important;
+        flex-basis: 15% !important;
         padding-left: 15px !important;
         padding-right: 0 !important;
     }

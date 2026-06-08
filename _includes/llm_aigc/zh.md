@@ -9,7 +9,7 @@
 5. [技术闭环](#技术闭环)
 
 
-![](/img/llm_aigc/ai_base_ai_infra.svg)
+![](/img/llm_aigc/ai_base_ai_infra.png)
 ---
 
 ## 1. 技术路线图

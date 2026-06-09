@@ -4,6 +4,7 @@ title: "LLM 工程化 & Agent"
 description: "大模型知识蒸馏、领域模型训练、Agent平台、推理优化与AI RTC技术路线图"
 header-img: "img/artificial_intelligence.jpg"
 multilingual: true
+catalog: true
 ---
 
 
@@ -14,17 +15,62 @@ multilingual: true
 </select>
 
 <!-- Chinese Version -->
-<div class="zh post-container">
+<div class="zh">
     {% capture about_zh %}{% include llm_aigc/zh.md %}{% endcapture %}
     {{ about_zh | markdownify }}
 </div>
 
 <!-- English Version -->
-<div class="en post-container">
+<div class="en">
     {% capture about_en %}{% include llm_aigc/en.md %}{% endcapture %}
     {{ about_en | markdownify }}
 </div>
 
+<!-- Catalog language filter: show only visible language headings -->
+<script type="text/javascript">
+(function() {
+    function filterCatalogByLanguage() {
+        var zhDiv = document.querySelector('.zh');
+        var enDiv = document.querySelector('.en');
+        if (!zhDiv || !enDiv) return;
+
+        var activeLang = zhDiv.classList.contains('active') || zhDiv.style.display !== 'none' ? 'zh' : 'en';
+
+        document.querySelectorAll('.catalog-body li').forEach(function(li) {
+            var link = li.querySelector('a');
+            if (!link) return;
+            var targetId = link.getAttribute('href').replace('#', '');
+            var target = document.getElementById(targetId);
+            if (target) {
+                var langDiv = target.closest('.zh, .en');
+                if (langDiv) {
+                    li.style.display = langDiv.classList.contains(activeLang) ? '' : 'none';
+                }
+            }
+        });
+    }
+
+    // Observe catalog-body mutations to filter after generateCatalog runs
+    var catalogBody = document.querySelector('.catalog-body');
+    if (catalogBody) {
+        var observer = new MutationObserver(function() {
+            if (observer._timer) clearTimeout(observer._timer);
+            observer._timer = setTimeout(filterCatalogByLanguage, 10);
+        });
+        observer.observe(catalogBody, { childList: true, subtree: true });
+    }
+
+    // Also filter on language switch (hook into select change)
+    document.addEventListener('DOMContentLoaded', function() {
+        var langSelect = document.querySelector('.sel-lang');
+        if (langSelect) {
+            langSelect.addEventListener('change', function() {
+                setTimeout(filterCatalogByLanguage, 50);
+            });
+        }
+    });
+})();
+</script>
 
 <!-- disqus 评论框 start  -->
 {% if site.disqus_username %}

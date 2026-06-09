@@ -74,10 +74,27 @@ layout: default
                 col-sm-12
                 col-xs-12
                 postlist-container
+                {% if page.catalog %}post-container{% endif %}
             ">
     			{{ content }}
     		</div>
     <!-- Right Sidebar Container -->
+        {% if page.catalog %}
+            <div class="
+                col-lg-3 col-lg-offset-0
+                col-md-3 col-md-offset-0
+                col-sm-12
+                col-xs-12
+                sidebar-container catalog-container page-catalog-wrapper
+                visible-lg-block
+            ">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a id="catalog" href="javascript:void(0)" class="catalog-toggle"><span id="catalog-toggle"></span>{% if page.lang == 'en' %}Contents{% else %}目录{% endif %}</a></h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+        {% else %}
             <div class="
                 col-lg-3 col-lg-offset-0
                 col-md-3 col-md-offset-0
@@ -219,6 +236,7 @@ layout: default
                 </ul>
                 {% endif %}
     		</div>
+        {% endif %}
         {% endif %}
 	</div>
 </div>

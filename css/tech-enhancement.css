@@ -1835,10 +1835,206 @@ article .post-container table th {
 }
 
 /* ============================================
-   CATALOG 区域增大
+   Catalog 目录 — 利用 JS 的 fixed 类 + position:fixed 实现视口垂直居中
+   JS 在滚动超过 header 高度时自动添加 .fixed 类，
+   我们只需覆盖 top 值即可居中，无需 sticky/flex/overflow hack
    ============================================ */
 
-/* CATALOG 样式已移除，使用原始的 hux-blog.css 样式 */
+/* 通用：覆盖原版 hux-blog.css 的 top: -21px，实现视口垂直居中 */
+.side-catalog.fixed {
+    position: fixed !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+}
+
+/* backdrop-filter 会创建 position:fixed 的包含块（CSS Filter Effects 规范），
+   导致 .side-catalog.fixed 的 top:50% 相对于父容器而非视口。
+   必须从目录容器上移除 backdrop-filter，让 fixed 回归视口定位。 */
+.catalog-container,
+.page-catalog-wrapper {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+/* ========== 页面布局 (page.html) ========== */
+
+.page-catalog-wrapper {
+    padding-top: 20px;
+    padding-left: 15px !important;
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+.page-catalog-wrapper::before {
+    display: none !important;
+}
+
+.page-catalog-wrapper .side-catalog {
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+    width: auto;
+    min-width: 200px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: 20px 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3),
+                0 0 30px rgba(0, 255, 255, 0.1);
+}
+
+/* 目录标题 */
+.page-catalog-wrapper .side-catalog h5 {
+    color: #00ffff !important;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    font-weight: 600;
+    letter-spacing: 1px;
+    border-bottom: 2px solid rgba(0, 255, 255, 0.3);
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.page-catalog-wrapper .side-catalog h5 a {
+    color: #00ffff !important;
+    text-decoration: none;
+}
+
+/* 目录条目 — 暗主题适配 */
+.page-catalog-wrapper .side-catalog .catalog-body li a {
+    color: rgba(255, 255, 255, 0.8) !important;
+    padding: 6px 10px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    font-size: 13px;
+    line-height: 1.6;
+    max-width: 100%;
+    white-space: normal;
+    height: auto;
+    display: block;
+}
+
+.page-catalog-wrapper .side-catalog .catalog-body li a:hover {
+    color: #00ffff !important;
+    background: rgba(0, 255, 255, 0.1);
+    padding-left: 14px;
+}
+
+.page-catalog-wrapper .side-catalog .catalog-body .active {
+    background: rgba(0, 255, 255, 0.15);
+    border-radius: 4px;
+}
+
+.page-catalog-wrapper .side-catalog .catalog-body .active a {
+    color: #00ffff !important;
+    text-shadow: 0 0 8px rgba(0, 255, 255, 0.5);
+}
+
+/* 折叠/展开按钮颜色 */
+.page-catalog-wrapper .side-catalog .catalog-toggle::before {
+    color: #00ffff;
+}
+
+/* 隐藏目录在较小屏幕上 */
+@media (max-width: 1200px) {
+    .page-catalog-wrapper {
+        display: none !important;
+    }
+}
+
+/* ========== Post 文章布局 (post.html) ========== */
+
+article .catalog-container {
+    padding-top: 20px;
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+article .catalog-container::before {
+    display: none !important;
+}
+
+article .catalog-container .side-catalog {
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+    height: auto;
+    width: auto;
+    min-width: 200px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: 20px 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3),
+                0 0 30px rgba(0, 255, 255, 0.1);
+}
+
+/* 目录标题 */
+article .catalog-container .side-catalog h5 {
+    color: #00ffff !important;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    font-weight: 600;
+    letter-spacing: 1px;
+    border-bottom: 2px solid rgba(0, 255, 255, 0.3);
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 16px;
+}
+
+article .catalog-container .side-catalog h5 a {
+    color: #00ffff !important;
+    text-decoration: none;
+}
+
+/* 目录条目 */
+article .catalog-container .side-catalog .catalog-body li a {
+    color: rgba(255, 255, 255, 0.8) !important;
+    padding: 6px 10px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    font-size: 13px;
+    line-height: 1.6;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: auto;
+    display: block;
+}
+
+article .catalog-container .side-catalog .catalog-body li a:hover {
+    color: #00ffff !important;
+    background: rgba(0, 255, 255, 0.1);
+    padding-left: 14px;
+}
+
+article .catalog-container .side-catalog .catalog-body .active {
+    background: rgba(0, 255, 255, 0.15);
+    border-radius: 4px;
+}
+
+article .catalog-container .side-catalog .catalog-body .active a {
+    color: #00ffff !important;
+    text-shadow: 0 0 8px rgba(0, 255, 255, 0.5);
+}
+
+/* 折叠/展开按钮颜色 */
+article .catalog-container .side-catalog .catalog-toggle::before {
+    color: #00ffff;
+}
+
+/* 隐藏目录在较小屏幕上 */
+@media (max-width: 1200px) {
+    article .catalog-container {
+        display: none !important;
+    }
+}
 
 /* ============================================
    响应式优化

@@ -1,13 +1,3 @@
-## Contents
-
-1. [Technology Roadmap](#1-technology-roadmap)
-2. [Industry Pain Points](#2-industry-pain-points)
-3. [Technical Approach](#3-technical-approach)
-4. [Project Roadmap](#4-project-roadmap)
-5. [Technology Closed Loop](#5-technology-closed-loop)
-
----
-
 ![](/img/llm_aigc/ai_base_ai_infra_en.svg)
 
 ## 1. Technology Roadmap

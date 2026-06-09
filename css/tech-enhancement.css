@@ -759,7 +759,8 @@ hr {
     }
 
     /* 右侧边栏 - 延伸到右边缘 */
-    .sidebar-right {
+    .sidebar-right,
+    .page-catalog-wrapper {
         width: 18% !important;
         max-width: 18% !important;
         min-width: 18% !important;
@@ -835,7 +836,8 @@ hr {
     }
 
     /* 右侧边栏 - 延伸到右边缘 */
-    .sidebar-right {
+    .sidebar-right,
+    .page-catalog-wrapper {
         width: 15% !important;
         max-width: 15% !important;
         min-width: 15% !important;
@@ -911,7 +913,8 @@ hr {
     }
 
     /* 右侧边栏 - 延伸到右边缘 */
-    .sidebar-right {
+    .sidebar-right,
+    .page-catalog-wrapper {
         width: 15% !important;
         max-width: 15% !important;
         min-width: 15% !important;

@@ -15,17 +15,7 @@ tags:
     - Transformer
 ---
 
-# Transformer架构及其源码实现
-
-
-@[TOC](Transformer架构及其源码实现)
-
-
-</font>
-
-<hr style=" border:solid; width:100px; height:1px;" color=#000000 size=1">
-
-#
+ 
 
  
 
